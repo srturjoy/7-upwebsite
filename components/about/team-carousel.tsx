@@ -7,7 +7,7 @@ const team = [
   {
     name: "Siddiqur Rahman Turjoy",
     role: "Founder & CEO",
-    titles: "Digital Marketer | FB, Google & YouTube Ads Expert | Business Analyst | Software Engineer",
+    titles: "Digital Marketer | Facebook, Google & YouTube Ads Expert | Business Analyst | Software Engineer",
   },
   {
     name: "Rudra",
