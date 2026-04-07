@@ -21,7 +21,7 @@ export default function ServicesPage() {
         ? "Reach your target audience with precision-targeted social media advertising campaigns that drive real results."
         : "প্রকৃত ফলাফল চালানো সঠিক-টার্গেটেড সোশ্যাল মিডিয়া বিজ্ঞাপন ক্যাম্পেইন দিয়ে আপনার টার্গেট অডিয়েন্সে পৌঁছান।",
       icon: "social-ads-svg",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop",
+      image: "https://cdn.prod.website-files.com/655e0fa544c67c1ee5ce01c7/655e0fa544c67c1ee5ce0f19_a-guide-to-facebook-and-instagram-ads-for-musicians-header.webp",
       features: isEnglish ? [
         "Advanced audience targeting",
         "A/B testing and optimization",
