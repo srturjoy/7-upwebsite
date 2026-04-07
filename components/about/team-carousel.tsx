@@ -30,7 +30,7 @@ const team = [
     titles: "Search Optimization | Content Strategy | Analytics",
   },
   {
-    name: "Karim Ahmed",
+    name: "Masum Ahmed",
     role: "Social Media Manager",
     titles: "Social Strategy | Community Management | Content Creation",
   },
