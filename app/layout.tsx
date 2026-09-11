@@ -29,7 +29,7 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || 'XXXXXXXXXXXXXXXX
 export const metadata: Metadata = {
   title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
   description: 'Boosting Agency BD is a leading digital marketing agency in Bangladesh offering Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services.',
-  keywords: ['digital marketing', 'facebook ads', 'google ads', 'seo', 'web design', 'bangladesh', 'dhaka', 'digital marketing agency', 'social media marketing', 'online marketing', 'ppc advertising', 'search engine optimization', 'web development bangladesh', 'branding agency dhaka'],
+  keywords: ['digital marketing', 'facebook ads', 'best marketing agency in dhaka','top digial marketing agency','best boosting','boost', 'marketing agency', 'facebook boost','google ads', 'seo', 'web design', 'bangladesh', 'dhaka', 'digital marketing agency', 'social media marketing', 'online marketing', 'ppc advertising', 'search engine optimization', 'web development bangladesh', 'branding agency dhaka'],
   authors: [{ name: 'Boosting Agency BD' }],
   icons: {
     icon: [
