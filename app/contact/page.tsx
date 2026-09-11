@@ -43,8 +43,8 @@ export default function ContactPage() {
       icon: MapPin,
       title: t("address"),
       details: isEnglish 
-        ? "Rupnagor R/A, Road-16, House-30, Mirpur-2, Dhaka-1216, Bangladesh"
-        : "রূপনগর আ/এ, রোড-১৬, বাড়ি-৩০, মিরপুর-২, ঢাকা-১২১৬, বাংলাদেশ",
+        ? "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh"
+        : "রূপনগর আ/এ, রোড-১৬, মিরপুর-২, ঢাকা-১২১৬, বাংলাদেশ",
       href: "https://maps.google.com/?q=Mirpur-2,Dhaka,Bangladesh",
     },
     {
