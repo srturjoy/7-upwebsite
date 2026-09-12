@@ -224,8 +224,8 @@ export const translations: Translations = {
   // About Page Extended
   fromSmallTeam: { en: "From a Small Team to a Leading Agency", bn: "ছোট টিম থেকে শীর্ষস্থানীয় এজেন্সিতে" },
   aboutStoryP1: { 
-    en: "Founded in 2014, Boosting Agency BD started with a simple mission: to help local businesses compete in the digital world. What began as a two-person operation has grown into a full-service digital marketing agency serving clients across Bangladesh and beyond.",
-    bn: "২০১৪ সালে প্রতিষ্ঠিত, বুস্টিং এজেন্সি বিডি একটি সহজ মিশন নিয়ে শুরু হয়েছিল: স্থানীয় ব্যবসাগুলিকে ডিজিটাল বিশ্বে প্রতিযোগিতা করতে সাহায্য করা। দুই জনের একটি অপারেশন হিসাবে যা শুরু হয়েছিল তা বাংলাদেশ এবং তার বাইরে ক্লায়েন্টদের সেবা প্রদানকারী একটি পূর্ণ-সেবা ডিজিটাল মার্কেটিং এজেন্সিতে পরিণত হয়েছে।"
+    en: "Founded in 2020, Boosting Agency BD started with a simple mission: to help local businesses compete in the digital world. What began as a two-person operation has grown into a full-service digital marketing agency serving clients across Bangladesh and beyond.",
+    bn: "২০২০ সালে প্রতিষ্ঠিত, বুস্টিং এজেন্সি বিডি একটি সহজ মিশন নিয়ে শুরু হয়েছিল: স্থানীয় ব্যবসাগুলিকে ডিজিটাল বিশ্বে প্রতিযোগিতা করতে সাহায্য করা। দুই জনের একটি অপারেশন হিসাবে যা শুরু হয়েছিল তা বাংলাদেশ এবং তার বাইরে ক্লায়েন্টদের সেবা প্রদানকারী একটি পূর্ণ-সেবা ডিজিটাল মার্কেটিং এজেন্সিতে পরিণত হয়েছে।"
   },
   aboutStoryP2: { 
     en: "Over the years, we have helped hundreds of businesses transform their online presence, generate leads, and increase revenue through strategic digital marketing campaigns.",
