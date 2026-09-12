@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://boostingagencybd.com',
+    url: 'https://boostingagencyofficial.site',
     siteName: 'Boosting Agency BD',
     title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
     description: 'Leading digital marketing agency in Bangladesh specializing in Facebook Ads, Google Ads, SEO, Web Design, and AI Automation.',
@@ -72,13 +72,13 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://boostingagencybd.com/#organization",
+      "@id": "https://boostingagencyofficial.site/#organization",
       "name": "Boosting Agency BD",
       "alternateName": ["Boosting Agency", "Boosting Agency Bangladesh"],
       "url": "https://boostingagencybd.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://boostingagencybd.com/logo.png",
+        "url": "https://boostingagencyofficial.site/logo.png",
         "width": 512,
         "height": 512
       },
@@ -147,9 +147,9 @@ const jsonLd = {
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://boostingagencybd.com/#localbusiness",
+      "@id": "https://boostingagencyofficial.site/#localbusiness",
       "name": "Boosting Agency BD",
-      "image": "https://boostingagencybd.com/logo.png",
+      "image": "https://boostingagencyofficial.site/logo.png",
       "description": "Premier digital marketing agency in Dhaka, Bangladesh offering Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services.",
       "@type": ["LocalBusiness", "ProfessionalService", "MarketingAgency"],
       "address": {
@@ -157,7 +157,7 @@ const jsonLd = {
         "streetAddress": "House 12, Road 5, Sector 10",
         "addressLocality": "Dhaka",
         "addressRegion": "Dhaka Division",
-        "postalCode": "1230",
+        "postalCode": "1216",
         "addressCountry": "BD"
       },
       "geo": {
@@ -165,7 +165,7 @@ const jsonLd = {
         "latitude": 23.8103,
         "longitude": 90.4125
       },
-      "url": "https://boostingagencybd.com",
+      "url": "https://boostingagencyofficial.site",
       "telephone": "+8801518961899",
       "priceRange": "$$",
       "openingHoursSpecification": [
@@ -246,18 +246,18 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://boostingagencybd.com/#website",
-      "url": "https://boostingagencybd.com",
+      "@id": "https://boostingagencyofficial.site/#website",
+      "url": "https://boostingagencyofficial.site/",
       "name": "Boosting Agency BD",
       "description": "Digital Marketing Agency in Bangladesh",
       "publisher": {
-        "@id": "https://boostingagencybd.com/#organization"
+        "@id": "https://boostingagencyofficial.site/#organization"
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://boostingagencybd.com/blog?search={search_term_string}"
+          "urlTemplate": "https://boostingagencyofficial.site/blog?search={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       },
