@@ -91,10 +91,10 @@ const jsonLd = {
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "House 12, Road 5, Sector 10",
+        "streetAddress": "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh  ",
         "addressLocality": "Dhaka",
         "addressRegion": "Dhaka Division",
-        "postalCode": "1230",
+        "postalCode": "1216",
         "addressCountry": "BD"
       },
       "contactPoint": [
@@ -154,7 +154,7 @@ const jsonLd = {
       "@type": ["LocalBusiness", "ProfessionalService", "MarketingAgency"],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "House 12, Road 5, Sector 10",
+        "streetAddress": "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh  ",
         "addressLocality": "Dhaka",
         "addressRegion": "Dhaka Division",
         "postalCode": "1216",
