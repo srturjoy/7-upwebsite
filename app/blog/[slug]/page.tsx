@@ -6,6 +6,9 @@ import { allBlogPosts, freshBlogPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowRight, ExternalLink, ShieldCheck, Tag, ArrowLeft, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+export const dynamic = "force-static"
+export const dynamicParams = false
+
 interface Props {
   params: Promise<{
     slug: string

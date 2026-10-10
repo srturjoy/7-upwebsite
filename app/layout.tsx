@@ -303,7 +303,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} dark`} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <head>
+      <body className="font-sans antialiased">
         {/* Prevent white flash: Default to Dark Mode; restore user preference from boosting-agency-theme */}
         <script
           id="theme-initializer"
@@ -337,7 +337,7 @@ export default function RootLayout({
         />
 
         {/* ============================================================
-            GOOGLE TAG MANAGER (GTM) - Head Script
+            GOOGLE TAG MANAGER (GTM) - Script
             ============================================================
             <!-- INSERT_GTM_ID: Replace GTM-XXXXXXX in environment variable -->
             GTM allows you to manage all your tracking tags in one place.
@@ -396,11 +396,6 @@ export default function RootLayout({
             <!-- INSERT_META_PIXEL_ID: Replace XXXXXXXXXXXXXXXX in environment variable -->
             Meta Pixel tracks conversions and enables remarketing.
             Add your Pixel ID to NEXT_PUBLIC_META_PIXEL_ID env variable.
-            
-            For Conversions API (CAPI):
-            - Server-side events should be sent from your API routes
-            - Use the Facebook Conversions API with your access token
-            - Recommended events: PageView, Lead, Contact, ViewContent
         ============================================================ */}
         {enableTracking && META_PIXEL_ID !== 'XXXXXXXXXXXXXXXX' && (
           <Script
@@ -426,8 +421,6 @@ export default function RootLayout({
             }}
           />
         )}
-      </head>
-      <body className="font-sans antialiased">
         {/* ============================================================
             GOOGLE TAG MANAGER (GTM) - NoScript Fallback
             ============================================================

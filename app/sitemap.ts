@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next"
 import { allBlogPosts } from "@/lib/blog-data"
 
+export const dynamic = "force-static"
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://boostingagencyofficial.site"
 
