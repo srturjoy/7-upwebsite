@@ -82,19 +82,19 @@ export function BlogPreview() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8"
         >
           {posts.map((post, index) => (
             <motion.div key={post.title} variants={fadeInUp}>
               <Link
                 href={post.href}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 h-full bg-card"
+                className="group flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 h-full bg-card"
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0">
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+                  <div className="absolute -top-10 -right-10 w-28 sm:w-36 h-28 sm:h-36 bg-cyan-500/20 rounded-full blur-2xl" />
                 </div>
-                <div className="aspect-[3/2] overflow-hidden relative">
+                <div className="aspect-[3/2] overflow-hidden relative rounded-t-2xl sm:rounded-t-3xl">
                   <Image
                     src={post.image}
                     alt={isEnglish ? post.title : post.titleBn}
@@ -102,31 +102,34 @@ export function BlogPreview() {
                     height={400}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-300" />
                 </div>
-                <div className="flex flex-1 flex-col p-6 relative">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      {isEnglish ? post.category : post.categoryBn}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {isEnglish ? post.date : post.dateBn}
-                    </span>
+                <div className="flex flex-1 flex-col p-3.5 sm:p-5 lg:p-6 relative justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[11px] sm:text-xs text-muted-foreground mb-2 sm:mb-3">
+                      <span className="inline-flex items-center rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                        {isEnglish ? post.category : post.categoryBn}
+                      </span>
+                      <span className="hidden sm:inline-flex items-center gap-1">
+                        <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                        {isEnglish ? post.date : post.dateBn}
+                      </span>
+                    </div>
+                    <h3 className="text-xs sm:text-base lg:text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
+                      {isEnglish ? post.title : post.titleBn}
+                    </h3>
+                    <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2 flex-1">
+                      {isEnglish ? post.excerpt : post.excerptBn}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                    {isEnglish ? post.title : post.titleBn}
-                  </h3>
-                  <p className="mt-2 text-muted-foreground text-sm leading-relaxed line-clamp-2 flex-1">
-                    {isEnglish ? post.excerpt : post.excerptBn}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock className="h-3.5 w-3.5" />
+                  <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-border/50 flex items-center justify-between">
+                    <span className="flex items-center gap-1 text-[10px] sm:text-xs text-muted-foreground font-medium">
+                      <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
                       {isEnglish ? post.readTime : post.readTimeBn}
                     </span>
-                    <span className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                      {isEnglish ? "Read more" : "আরও পড়ুন"}
-                      <ArrowRight className="h-4 w-4" />
+                    <span className="text-[11px] sm:text-xs lg:text-sm font-semibold text-primary flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                      {isEnglish ? "Read" : "পড়ুন"}
+                      <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                     </span>
                   </div>
                 </div>

@@ -1,0 +1,146 @@
+{
+  "currency": "BDT",
+  "rates": {
+    "standard_managed_meta_usd_rate": 145,
+    "topup_only_usd_rate": 135,
+    "special_category_usd_rate": 155,
+    "notes_en": "Standard managed Meta Ads is ৳145/USD. Advertising Account + Dollar Top-up only has a separately recorded rate of ৳135/USD. Specific restricted categories (betting/herbal) have a recorded rate of ৳155/USD where explicitly permitted by agency policy. Note: Agency USD billing rates are agency service rates, distinct from interbank exchange rates.",
+    "notes_bn": "স্ট্যান্ডার্ড ম্যানেজড মেটা অ্যাডস রেট প্রতি ডলারে ১৪৫ টাকা। শুধুমাত্র অ্যাড একাউন্ট ও ডলার টপ-আপ সার্ভিসের আলাদা রেকর্ড করা রেট প্রতি ডলারে ১৩৫ টাকা। নির্দিষ্ট কিছু ক্যাটাগরি (বেটিং/ভেষজ) যদি এজেন্সির বর্তমান পলিসি অনুমোদন করে তবে প্রতি ডলারে ১৫৫ টাকা। নোট: এজেন্সির ডলার রেট এবং সাধারণ ব্যাংক এক্সচেঞ্জ রেট এক নয়।"
+  },
+  "budget_rules": {
+    "minimum_total_campaign_budget_usd": 20,
+    "minimum_daily_budget_usd": 2,
+    "standard_rate_bdt_per_usd": 145,
+    "minimum_total_campaign_budget_bdt": 2900,
+    "minimum_daily_budget_bdt": 290,
+    "explanation_en": "Minimum total advertising budget is $20 (৳2,900 at ৳145/USD). Minimum daily budget is $2/day (৳290/day). At $2/day, a $20 ad budget runs for approximately 10 days. These figures represent ad platform budget only; agency management fees or payment charges are separate. Budget requirements are minimum thresholds, not a guarantee of campaign results.",
+    "explanation_bn": "বিজ্ঞাপনের সর্বনিম্ন মোট বাজেট $২০ (১৪৫ টাকা রেটে ২,৯০০ টাকা)। দৈনিক সর্বনিম্ন বাজেট $২ (প্রতিদিন ২৯০ টাকা)। প্রতিদিন $২ বাজেটে $২০ দিয়ে প্রায় ১০ দিন বিজ্ঞাপন চালানো যায়। এটি শুধুমাত্র মূল বিজ্ঞাপনের বাজেট; এজেন্সির সার্ভিস চার্জ বা পেমেন্ট ফি আলাদা। এটি সর্বনিম্ন বাজেটের নিয়ম, ফলাফলের নিশ্চয়তা নয়।"
+  },
+  "service_tiers": [
+    {
+      "id": "full-managed-meta-ads",
+      "name_en": "Full Managed Meta Ads",
+      "name_bn": "ফুল ম্যানেজড মেটা অ্যাডস",
+      "rate_usd_bdt": 145,
+      "scope_en": "Ad account arrangement (where applicable), dollar funding, campaign setup, audience targeting, optimization, monitoring, budget management, and scaling/reporting depending on package.",
+      "scope_bn": "অ্যাড একাউন্ট ব্যবস্থা (প্রযোজ্য ক্ষেত্রে), ডলার লোড, ক্যাম্পেইন সেটআপ, অডিয়েন্স টার্গেটিং, অপটিমাইজেশন, মনিটরিং, বাজেট ম্যানেজমেন্ট এবং প্যাকেজ অনুযায়ী রিপোর্টিং।"
+    },
+    {
+      "id": "account-topup-only",
+      "name_en": "Advertising Account + Dollar Top-up Only",
+      "name_bn": "অ্যাড একাউন্ট + ডলার টপ-আপ অনলি",
+      "rate_usd_bdt": 135,
+      "scope_en": "Ad account and USD balance top-up only. Does NOT include campaign management, ad creation, or optimization.",
+      "scope_bn": "শুধুমাত্র অ্যাড একাউন্ট ও ডলার ব্যালেন্স টপ-আপ। ক্যাম্পেইন তৈরি বা ম্যানেজমেন্ট এতে অন্তর্ভুক্ত নয়।"
+    },
+    {
+      "id": "campaign-management-only",
+      "name_en": "Campaign Management Only (Monthly)",
+      "name_bn": "ক্যাম্পেইন ম্যানেজমেন্ট অনলি (মাসিক)",
+      "recorded_price_bdt": "৳10,000 / month (Prepaid)",
+      "alternate_recorded_price_bdt": "৳12,000 / month (Strategy & Management, excludes Pixel/CAPI)",
+      "pricing_status": "needs_verification",
+      "note_en": "A previously recorded monthly fee is ৳10,000 prepaid (setup, optimization, budget management, scaling, reporting). A more recent record lists ৳12,000/month (marketing strategy & management, excluding Pixel/CAPI). These represent distinct packages and require current confirmation with the team before quoting.",
+      "note_bn": "পূর্বে রেকর্ডকৃত মাসিক ফি ১০,০০০ টাকা প্রিপেইড। সম্প্রতি অপর একটি রেকর্ডে ১২,০০০ টাকা মাসিক স্ট্র্যাটেজি ও ম্যানেজমেন্ট প্যাকেজ রয়েছে (পিক্সেল/CAPI ব্যতীত)। উভয় প্যাকেজের বর্তমান রেট যাচাইসাপেক্ষ, তাই চূড়ান্ত দামের জন্য এজেন্সির সাথে কথা বলতে অনুরোধ করা হয়।"
+    }
+  ],
+  "additional_service_prices": [
+    {
+      "id": "page-setup",
+      "name_en": "Page Setup",
+      "name_bn": "পেজ সেটআপ",
+      "price_bdt": 1000,
+      "pricing_status": "needs_verification",
+      "scope_en": "Initial business page setup and optimization. Excludes advertising spend or ongoing management."
+    },
+    {
+      "id": "creative-package",
+      "name_en": "Creative Package",
+      "name_bn": "ক্রিয়েটিভ প্যাকেজ",
+      "price_bdt": 6000,
+      "pricing_status": "needs_verification",
+      "scope_en": "Recorded as 15 static creatives + 10 reels. Excludes ad spend or third-party paid asset licensing."
+    },
+    {
+      "id": "basic-pixel-setup",
+      "name_en": "Basic Pixel Setup",
+      "name_bn": "বেসিক পিক্সেল সেটআপ",
+      "price_bdt": 500,
+      "pricing_status": "needs_verification",
+      "scope_en": "Basic browser Pixel code placement."
+    },
+    {
+      "id": "full-cms-pixel-setup",
+      "name_en": "Full CMS Pixel / Tracking Setup",
+      "name_bn": "ফুল সিএমএস পিক্সেল / ট্র্যাকিং সেটআপ",
+      "price_bdt": 3000,
+      "pricing_status": "needs_verification",
+      "scope_en": "Standard CMS (WordPress/Shopify) standard event tracking."
+    },
+    {
+      "id": "custom-tracking-setup",
+      "name_en": "Custom Tracking Setup",
+      "name_bn": "কাস্টম ট্র্যাকিং সেটআপ",
+      "price_bdt": 5000,
+      "pricing_status": "needs_verification",
+      "scope_en": "Custom or advanced tracking architecture."
+    }
+  ],
+  "verification_policy": {
+    "rule_en": "If any recorded price conflicts with current published pricing, flag it for verification instead of silently quoting outdated numbers. Direct customer to 01518961899 or WhatsApp for verified quote.",
+    "rule_bn": "কোনো রেকর্ডের দাম ওয়েবসাইটে প্রকাশিত বর্তমান অফারের সাথে অমিল হলে তা যাচাইয়ের জন্য ফ্ল্যাগ করুন। নির্ভুল হিসাবের জন্য কাস্টমারকে হোয়াটসঅ্যাপে (০১৫১৮৯৬১৮৯৯) যোগাযোগ করতে বলুন।"
+  },
+  "packages": [
+    {
+      "name_en": "Starter Growth Boost",
+      "name_bn": "স্টার্টার গ্রোথ বুস্ট",
+      "price_bdt": "৳১,০০০ – ৳২,৫০০ / ক্যাম্পেইন ফি + এড বাজেট",
+      "ideal_for_en": "New businesses wanting targeted page reach, post boosting, and direct messenger queries.",
+      "ideal_for_bn": "নতুন পেইজের রিচ বৃদ্ধি, সিঙ্গেল পোস্ট বুস্টিং এবং মেসেঞ্জারে কাস্টমার ইনকোয়ারি পেতে উপযুক্ত।",
+      "features": [
+        "Post engagement & message campaigns",
+        "Targeted demographic & location setup",
+        "Ad copy & creative review",
+        "WhatsApp / Messenger direct routing"
+      ]
+    },
+    {
+      "name_en": "Monthly Meta Ads Management",
+      "name_bn": "মাসিক মেটা অ্যাডস ম্যানেজমেন্ট",
+      "price_bdt": "৳১০,০০০ – ৳১২,০০০ / মাস (প্রিপেইড, ভেরিফিকেশন সাপেক্ষ) + এড বাজেট",
+      "ideal_for_en": "Growing e-commerce & service brands looking for continuous scaling, testing, and dedicated support.",
+      "ideal_for_bn": "নিয়মিত বিক্রি বাড়ানো, টেস্টিং এবং সার্বক্ষণিক ক্যাম্পেইন তদারকির জন্য মাঝারি ও বড় ব্যবসার জন্য।",
+      "features": [
+        "Full campaign architecture (CBO/ABO)",
+        "Lookalike & Custom Audiences",
+        "A/B creative testing & copywriting",
+        "Weekly reporting & ROAS optimization"
+      ]
+    },
+    {
+      "name_en": "Tracking & Server-Side CAPI",
+      "name_bn": "ট্র্যাকিং ও সার্ভার-সাইড CAPI",
+      "price_bdt": "৳৫০০ (বেসিক) / ৳৩,০০০ (ফুল CMS) / ৳৫,০০০ (কাস্টম ট্র্যাকিং)",
+      "ideal_for_en": "Websites and online stores facing iOS 14.5+ ad attribution loss and low event match quality.",
+      "ideal_for_bn": "ই-কমার্স ওয়েবসাইট ও শপের ডাটা ড্রপ রোধে নির্ভুল পারচেজ ও কনভার্সন ট্র্যাকিং।",
+      "features": [
+        "Browser Pixel + Server CAPI deduplication",
+        "Google Tag Manager (GTM) setup",
+        "Standard e-commerce events (Purchase, Checkout)",
+        "EMQ score optimization"
+      ]
+    }
+  ],
+  "ad_spend_recommendations": {
+    "minimum_daily_budget_meta": "$2/day (~৳290/day at ৳145/USD)",
+    "minimum_campaign_budget_meta": "$20 (~৳2,900 at ৳145/USD)",
+    "recommended_monthly_ad_spend": "$100 – $500+ depending on target niche",
+    "payment_methods": [
+      "bKash (Personal / Merchant)",
+      "Nagad",
+      "Rocket",
+      "Bank Transfer (BRAC, City Bank, DBBL)",
+      "Direct Ad Account Card Loading"
+    ]
+  }
+}

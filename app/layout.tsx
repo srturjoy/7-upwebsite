@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/next'
+const Analytics = () => null
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { ChatWidget } from '@/components/chat/chat-widget'
 import { LanguageProvider } from '@/lib/language-context'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
@@ -34,19 +35,45 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: '/favicon.ico',
+        sizes: '48x48 32x32 16x16',
+      },
+      {
+        url: '/favicon-48x48.png',
+        sizes: '48x48',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
         url: '/icon-light-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
         media: '(prefers-color-scheme: light)',
       },
       {
         url: '/icon-dark-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
         media: '(prefers-color-scheme: dark)',
       },
+    ],
+    apple: [
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/apple-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico',
   },
   openGraph: {
     type: 'website',
@@ -275,8 +302,34 @@ export default function RootLayout({
   const enableTracking = isProduction && GTM_ID !== 'GTM-XXXXXXX'
 
   return (
-    <html lang="en" className={inter.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} dark`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        {/* Prevent white flash: Default to Dark Mode; restore user preference from boosting-agency-theme */}
+        <script
+          id="theme-initializer"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var storageKey = 'boosting-agency-theme';
+                  var saved = localStorage.getItem(storageKey);
+                  var root = document.documentElement;
+                  if (saved === 'light') {
+                    root.classList.remove('dark');
+                    root.classList.add('light');
+                    root.style.colorScheme = 'light';
+                  } else {
+                    root.classList.add('dark');
+                    root.classList.remove('light');
+                    root.style.colorScheme = 'dark';
+                  }
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         {/* JSON-LD Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -403,6 +456,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ChatWidget />
           </LanguageProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

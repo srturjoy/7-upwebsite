@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Search, Globe, Palette, Lightbulb, Video, Bot, TrendingUp, CheckCircle2 } from "lucide-react"
+import { ArrowRight, Search, Globe, Palette, Lightbulb, Video, Bot, TrendingUp, CheckCircle2, Sparkles, ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { ScrollReveal, fadeInUp, slideInLeft, slideInRight, staggerContainer } from "@/components/ui/motion"
 
@@ -247,6 +247,59 @@ export default function ServicesPage() {
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               {t("servicesPageDescription")}
             </p>
+
+            {/* Premium Dedicated Service Website CTA Banner */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-10"
+            >
+              <a
+                href="https://service.boostingagencyofficial.site"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  isEnglish
+                    ? "Explore All Our Digital Marketing Services on our dedicated service website (opens in a new tab)"
+                    : "আমাদের ডেডিকেটেড সার্ভিস ওয়েবসাইটে সব ডিজিটাল মার্কেটিং সেবা দেখুন (নতুন ট্যাবে খুলবে)"
+                }
+                className="group relative block overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-r from-card via-card to-primary/5 p-6 sm:p-8 text-left shadow-lg shadow-primary/5 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                {/* Subtle decorative glow orb */}
+                <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-2xl group-hover:bg-primary/20 transition-all duration-500" />
+                <div className="pointer-events-none absolute -bottom-12 -left-12 h-36 w-36 rounded-full bg-cyan-400/10 blur-2xl group-hover:bg-cyan-400/20 transition-all duration-500" />
+
+                <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div className="space-y-2 max-w-xl">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      <span>{isEnglish ? "Complete Service Catalog" : "সম্পূর্ণ সার্ভিস ক্যাটালগ"}</span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                      {isEnglish
+                        ? "Explore All Our Digital Marketing Services"
+                        : "আমাদের সকল ডিজিটাল মার্কেটিং সেবা এক্সপ্লোর করুন"}
+                    </h2>
+
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      {isEnglish
+                        ? "Discover our complete range of digital marketing, advertising, tracking, and growth solutions."
+                        : "আমাদের সম্পূর্ণ ডিজিটাল মার্কেটিং, বিজ্ঞাপন, ট্র্যাকিং এবং বিজনেস গ্রোথ সলিউশনসমূহ বিস্তারিত জানুন।"}
+                    </p>
+                  </div>
+
+                  <div className="shrink-0 flex items-center">
+                    <span className="inline-flex items-center justify-center gap-2 rounded-xl gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/25 group-hover:shadow-lg group-hover:shadow-primary/40 group-hover:scale-[1.03] transition-all duration-200">
+                      <span>{isEnglish ? "Explore All Services" : "সকল সেবা এক্সপ্লোর করুন"}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                      <ExternalLink className="h-3.5 w-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>

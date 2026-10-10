@@ -99,26 +99,29 @@ export function TeamCarousel() {
       {duplicatedTeam.map((member, index) => (
         <Card 
           key={`${member.name}-${index}`} 
-          className="flex-shrink-0 w-[300px] border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+          className="flex-shrink-0 w-[280px] sm:w-[320px] rounded-3xl border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 bg-card overflow-hidden relative group"
         >
-          <CardContent className="p-6">
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/15 rounded-full blur-2xl" />
+          </div>
+          <CardContent className="p-6 relative">
             {/* Initials Badge */}
-            <div className="flex h-16 w-16 items-center justify-center rounded-full gradient-primary text-primary-foreground text-xl font-bold mb-4 mx-auto">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-primary text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
               {getInitials(member.name)}
             </div>
             
             {/* Name */}
-            <h3 className="text-lg font-semibold text-foreground text-center">
+            <h3 className="text-lg font-bold text-foreground text-center">
               {member.name}
             </h3>
             
             {/* Role */}
-            <p className="text-primary text-sm font-medium text-center mt-1">
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-sm font-semibold text-center mt-1">
               {member.role}
             </p>
             
             {/* Divider */}
-            <div className="w-12 h-0.5 bg-primary/30 mx-auto my-4" />
+            <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto my-4 rounded-full" />
             
             {/* Description/Titles */}
             <p className="text-xs text-muted-foreground text-center leading-relaxed">

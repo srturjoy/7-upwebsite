@@ -94,9 +94,9 @@ export function ServicesOverview() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={staggerContainer}
-          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4"
         >
           {services.map((service, index) => (
             <motion.div
@@ -104,27 +104,34 @@ export function ServicesOverview() {
               variants={fadeInUp}
               custom={index}
             >
-              <Card className="group relative overflow-hidden border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-2 h-full">
+              <Card className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d h-full bg-card/95 backdrop-blur-sm hover:shadow-2xl hover:shadow-cyan-500/15 flex flex-col justify-between">
+                {/* 3D luminous border rim on hover */}
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-cyan-500/15 via-transparent to-blue-500/10" />
+                
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+                  <div className="absolute -top-10 -right-10 w-28 sm:w-36 h-28 sm:h-36 bg-cyan-500/20 rounded-full blur-2xl" />
                 </div>
-                <CardHeader className="relative">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl gradient-primary text-primary-foreground mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
-                    <service.icon className="h-6 w-6" />
+                
+                <CardHeader className="relative p-3.5 sm:p-6 pb-2 sm:pb-3">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl gradient-primary text-white mb-3 sm:mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                    <service.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <CardTitle className="text-lg">{isEnglish ? service.title : service.titleBn}</CardTitle>
+                  <CardTitle className="text-xs sm:text-base lg:text-lg font-bold tracking-tight text-foreground line-clamp-2 leading-tight">
+                    {isEnglish ? service.title : service.titleBn}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent className="relative">
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                
+                <CardContent className="relative p-3.5 sm:p-6 pt-0 sm:pt-0 flex flex-col justify-between flex-1">
+                  <CardDescription className="text-[11px] sm:text-xs lg:text-sm text-muted-foreground leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {isEnglish ? service.description : service.descriptionBn}
                   </CardDescription>
                   <Link 
                     href={service.href}
-                    className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link"
+                    className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary hover:text-cyan-500 transition-colors group/link"
                   >
                     {t("learnMore")}
-                    <ArrowRight className="ml-1 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </CardContent>
               </Card>

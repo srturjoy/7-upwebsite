@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
@@ -37,10 +38,19 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="text-2xl font-bold">
-              Boosting Agency BD
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <Image
+                src="/icon.png"
+                alt="Boosting Agency BD Logo"
+                width={44}
+                height={44}
+                className="h-11 w-11 rounded-xl object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="text-2xl font-bold tracking-tight text-white">
+                Boosting Agency BD
+              </span>
             </Link>
-            <p className="mt-4 text-sm text-primary-foreground/70 leading-relaxed">
+            <p className="mt-4 text-sm text-slate-300 leading-relaxed">
               {t("footerDescription")}
             </p>
             <div className="mt-6 flex gap-4">
@@ -48,7 +58,7 @@ export function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                  className="text-slate-300 hover:text-white transition-colors"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-5 w-5" aria-hidden="true" />
@@ -59,11 +69,11 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold">{t("services")}</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wide">{t("services")}</h3>
             <ul className="mt-4 space-y-3">
               {navigation.services.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <Link href={item.href} className="text-sm text-slate-300 hover:text-white transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -73,11 +83,11 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold">{t("company")}</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wide">{t("company")}</h3>
             <ul className="mt-4 space-y-3">
               {navigation.company.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <Link href={item.href} className="text-sm text-slate-300 hover:text-white transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -87,23 +97,23 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold">{t("contactUs")}</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wide">{t("contactUs")}</h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <a href="tel:+8801518961899" className="flex items-start gap-3 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  <Phone className="h-4 w-4 mt-0.5 shrink-0" />
+                <a href="tel:+8801518961899" className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors">
+                  <Phone className="h-4 w-4 mt-0.5 shrink-0 text-cyan-400" />
                   +880 1518 961899
                 </a>
               </li>
               <li>
-                <a href="mailto:turjoy144@gmail.com" className="flex items-start gap-3 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  <Mail className="h-4 w-4 mt-0.5 shrink-0" />
+                <a href="mailto:turjoy144@gmail.com" className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors">
+                  <Mail className="h-4 w-4 mt-0.5 shrink-0 text-cyan-400" />
                   turjoy144@gmail.com
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
-                  <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-3 text-sm text-slate-300">
+                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-cyan-400" />
                   <span>{isEnglish ? "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh" : "রূপনগর আ/এ, রোড-১৬, মিরপুর-২, ঢাকা-১২১৬, বাংলাদেশ"}</span>
                 </div>
               </li>
@@ -111,8 +121,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-primary-foreground/10 pt-8">
-          <p className="text-center text-sm text-primary-foreground/60">
+        <div className="mt-12 border-t border-slate-800 pt-8">
+          <p className="text-center text-sm text-slate-400">
             &copy; {new Date().getFullYear()} Boosting Agency BD. {t("allRightsReserved")}
           </p>
         </div>

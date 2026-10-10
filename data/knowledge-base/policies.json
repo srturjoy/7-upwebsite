@@ -1,0 +1,39 @@
+{
+  "policies": [
+    {
+      "id": "payment-policy",
+      "title_en": "Payment Policy & Advance Requirement",
+      "title_bn": "পেমেন্ট নীতিমালা ও অগ্রিম পরিশোধের নিয়ম",
+      "details_en": "Payment terms depend on the agreed service: For campaigns where the agency manages ad spend, the advertising budget must be fully prepaid before launching campaigns. For monthly management retainers, ৳10,000 prepaid has been recorded for management-only, or advance retainer according to the agreed contract. Ad budget conversions (at ৳145/USD standard) represent advertising platform cost only and do not include agency fees or third-party payment processing charges.",
+      "details_bn": "বিজ্ঞাপন খরচের বাজেট (অ্যাড স্পেন্ড) ক্যাম্পেইন লাইভ করার আগেই সম্পূর্ণ প্রিপেইড বা অগ্রিম পরিশোধ করতে হবে। মাসিক ক্যাম্পেইন ম্যানেজমেন্টের ক্ষেত্রে ১০,০০০ টাকা প্রিপেইড ফি রেকর্ড রয়েছে। ডলার কনভার্সন (স্ট্যান্ডার্ড ১৪৫ টাকা রেট) শুধুমাত্র বিজ্ঞাপনের প্ল্যাটফর্ম বাজেট নির্দেশ করে; এজেন্সির সার্ভিস চার্জ বা পেমেন্ট গেটওয়ে চার্জ আলাদা।"
+    },
+    {
+      "id": "campaign-launch-schedule",
+      "title_en": "Campaign Launch Timeline",
+      "title_bn": "ক্যাম্পেইন চালুর সময়সীমা",
+      "details_en": "Campaign setup begins promptly after payment clearance and full asset handover (page/ad account access, approved ad creatives, target audience guidelines, and budget confirmation). Most campaigns launch within 24 to 48 business hours.",
+      "details_bn": "পেমেন্ট নিশ্চিতকরণ এবং প্রয়োজনীয় সমস্ত তথ্য ও এক্সেস (ফেসবুক পেজ/অ্যাড একাউন্ট এক্সেস, কনটেন্ট ও টার্গেটিং বিবরণী) পাওয়ার পর কাজ শুরু হয়। সাধারণত ২৪ থেকে ৪৮ কার্যঘণ্টার মধ্যে ক্যাম্পেইন লাইভ হয়।"
+    },
+    {
+      "id": "refund-and-balance-policy",
+      "title_en": "Refund, Pause & Remaining Balance Policy",
+      "title_bn": "রিফান্ড, বিরতি ও অবশিষ্ট ব্যালেন্স নীতিমালা",
+      "details_en": "1) Official Ad Spend: Any remaining, unspent advertising budget on Meta or Google is fully refundable or can be paused and held as a credit balance for future campaigns upon request. 2) Agency Service Charges: Once campaign research, strategy, audience structuring, and creative work have commenced, agency service fees are non-refundable. 3) Third-Party Restrictions: If an ad account or page is flagged by Meta due to policy violations of the client's products or prohibited categories, unspent ad budget remains intact, but service work already performed cannot be refunded.",
+      "details_bn": "১) অব্যবহৃত বিজ্ঞাপন বাজেট: ক্যাম্পেইন পজ বা বন্ধ করলে প্ল্যাটফর্মে অব্যবহৃত যেকোনো ডলার/টাকা ক্লায়েন্ট ফেরত নিতে পারবেন অথবা পরবর্তী ক্যাম্পেইনের ব্যালেন্স হিসেবে জমা রাখতে পারবেন। ২) সার্ভিস চার্জ: স্ট্র্যাটেজি, অডিয়েন্স রিসার্চ এবং ক্যাম্পেইন সেটআপের কাজ শুরু হওয়ার পর এজেন্সির সার্ভিস ফি ফেরতযোগ্য নয়। ৩) প্ল্যাটফর্ম পলিসি: ক্লায়েন্টের নিষিদ্ধ পণ্য বা ফেসবুকের পলিসি ভায়োলেশনের কারণে একাউন্ট রেস্ট্রিক্টেড হলে অব্যবহৃত বাজেট সুরক্ষিত থাকে, কিন্তু সম্পাদিত কাজের ফি ফেরত হয় না।"
+    },
+    {
+      "id": "service-rate-differentiation",
+      "title_en": "USD Service Rates vs Interbank Exchange Rates",
+      "title_bn": "ডলার সার্ভিস রেট বনাম সাধারণ ব্যাংক এক্সচেঞ্জ রেট",
+      "details_en": "Boosting Agency BD's dollar conversion rate (৳145/USD for standard managed ads, ৳135/USD for topup-only, ৳155/USD for permitted betting/herbal) is an agency commercial service rate covering payment gateway costs, card endorsements, and ad account maintenance. It is NOT the raw interbank market rate of a central bank.",
+      "details_bn": "বুস্টিং এজেন্সি বিডি-র ডলার রেট (স্ট্যান্ডার্ড ম্যানেজড সার্ভিসে ১৪৫ টাকা, টপ-আপ অনলিতে ১৩৫ টাকা, অনুমোদিত বেটিং/ভেষজে ১৫৫ টাকা) হলো এজেন্সির কমার্শিয়াল সার্ভিস রেট। এটি সাধারণ ব্যাংকের কারেন্সি এক্সচেঞ্জ রেট নয়, কারণ এতে ডুয়াল কারেন্সি অ্যান্ডোর্সমেন্ট, কার্ড চার্জ ও একাউন্ট রক্ষনাবেক্ষণ যুক্ত থাকে।"
+    },
+    {
+      "id": "confidentiality-policy",
+      "title_en": "Client Data Confidentiality",
+      "title_bn": "ক্লায়েন্ট তথ্যের গোপনীয়তা",
+      "details_en": "Boosting Agency BD maintains strict confidentiality regarding all customer data, customer contact lists, sales figures, and business records. We never share your metrics with competitors.",
+      "details_bn": "বুস্টিং এজেন্সি বিডি গ্রাহকদের যাবতীয় সেলস ডাটা, লিড তালিকা ও ব্যবসায়িক তথ্যের সর্বোচ্চ গোপনীয়তা রক্ষা করে। আমরা কখনো কোনো তথ্য তৃতীয় পক্ষের সাথে শেয়ার করি না।"
+    }
+  ]
+}

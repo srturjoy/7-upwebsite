@@ -108,25 +108,27 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-24 gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <Card className="bg-primary-foreground/5 border-primary-foreground/10">
-              <CardContent className="p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10 mb-6">
-                  <Target className="h-6 w-6 text-primary-foreground" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
+            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+              <CardContent className="p-6 sm:p-8 relative">
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl gradient-primary text-white mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Target className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary-foreground">{t("ourMission")}</h3>
-                <p className="mt-4 text-primary-foreground/80 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">{t("ourMission")}</h3>
+                <p className="mt-4 text-slate-200 leading-relaxed text-sm sm:text-base">
                   {t("missionDescription")}
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-primary-foreground/5 border-primary-foreground/10">
-              <CardContent className="p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10 mb-6">
-                  <Eye className="h-6 w-6 text-primary-foreground" />
+            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+              <CardContent className="p-6 sm:p-8 relative">
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl gradient-primary text-white mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Eye className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary-foreground">{t("ourVision")}</h3>
-                <p className="mt-4 text-primary-foreground/80 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">{t("ourVision")}</h3>
+                <p className="mt-4 text-slate-200 leading-relaxed text-sm sm:text-base">
                   {t("visionDescription")}
                 </p>
               </CardContent>
@@ -144,15 +146,18 @@ export default function AboutPage() {
               {t("whatDrivesUs")}
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 lg:gap-8">
             {values.map((value) => (
-              <Card key={value.title} className="text-center border-border hover:border-primary/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl gradient-primary text-primary-foreground mb-4">
-                    <value.icon className="h-7 w-7" />
+              <Card key={value.title} className="text-center rounded-2xl sm:rounded-3xl border-border/70 hover:border-cyan-500/60 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 bg-card overflow-hidden relative group">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute -top-10 -right-10 w-28 sm:w-36 h-28 sm:h-36 bg-cyan-500/15 rounded-full blur-2xl" />
+                </div>
+                <CardContent className="p-3.5 sm:p-6 relative">
+                  <div className="mx-auto flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl gradient-primary text-white mb-3 sm:mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                    <value.icon className="h-5 w-5 sm:h-7 sm:w-7" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">{value.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                  <h3 className="text-xs sm:text-lg font-bold text-foreground leading-tight">{value.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-sm text-muted-foreground leading-snug sm:leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
             ))}

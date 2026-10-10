@@ -222,22 +222,22 @@ export function CaseStudiesPreview() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.05 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 gap-8 lg:grid-cols-3"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8"
           >
             {caseStudies.map((study, index) => (
               <motion.button
                 key={study.title}
                 variants={fadeInUp}
                 onClick={() => setSelectedStudy(study)}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 text-left"
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-card border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 text-left flex flex-col justify-between"
               >
-                {/* Glow effect */}
+                {/* 3D Luminous glow effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0">
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+                  <div className="absolute -top-10 -right-10 w-32 sm:w-44 h-32 sm:h-44 bg-cyan-500/20 rounded-full blur-3xl" />
                 </div>
-                <div className="aspect-[3/2] overflow-hidden relative">
+                <div className="aspect-[16/10] overflow-hidden relative rounded-t-2xl sm:rounded-t-3xl">
                   <Image
                     src={study.image}
                     alt={isEnglish ? study.title : study.titleBn}
@@ -245,34 +245,37 @@ export function CaseStudiesPreview() {
                     height={400}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center rounded-full bg-background/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-foreground">
+                  <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10">
+                    <span className="inline-flex items-center rounded-full bg-slate-900/85 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold text-white border border-white/15 shadow-md">
                       {isEnglish ? study.category : study.categoryBn}
                     </span>
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
                 </div>
-                <div className="p-6 relative">
-                  <p className="text-sm text-muted-foreground mb-2">{isEnglish ? study.client : study.clientBn}</p>
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {isEnglish ? study.title : study.titleBn}
-                  </h3>
-                  <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
-                    {isEnglish ? study.description : study.descriptionBn}
-                  </p>
-                  <div className="mt-4 flex gap-6">
+                <div className="p-3.5 sm:p-5 lg:p-6 relative flex flex-col justify-between flex-1">
+                  <div>
+                    <p className="text-[11px] sm:text-xs lg:text-sm font-semibold text-cyan-600 dark:text-cyan-400 mb-1 leading-snug line-clamp-1">{isEnglish ? study.client : study.clientBn}</p>
+                    <h3 className="text-xs sm:text-base lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
+                      {isEnglish ? study.title : study.titleBn}
+                    </h3>
+                    <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2">
+                      {isEnglish ? study.description : study.descriptionBn}
+                    </p>
+                  </div>
+                  <div className="mt-3 sm:mt-5 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-secondary/60 border border-border/50 flex items-center justify-around">
                     {study.results.map((result) => (
-                      <div key={result.label}>
-                        <p className="text-2xl font-bold text-primary flex items-center gap-1">
-                          <TrendingUp className="h-4 w-4" />
+                      <div key={result.label} className="text-center">
+                        <p className="text-xs sm:text-base lg:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 flex items-center justify-center gap-0.5">
+                          <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
                           {result.value}
                         </p>
-                        <p className="text-xs text-muted-foreground">{isEnglish ? result.label : result.labelBn}</p>
+                        <p className="text-[9px] sm:text-[11px] text-muted-foreground mt-0.5 font-medium leading-none">{isEnglish ? result.label : result.labelBn}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-4 inline-flex items-center text-sm font-medium text-primary">
+                  <div className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary group-hover:text-cyan-500 transition-colors">
                     {t("viewDetails")}
-                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-1.5 transition-transform" />
                   </div>
                 </div>
               </motion.button>

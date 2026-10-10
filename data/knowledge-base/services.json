@@ -1,0 +1,286 @@
+[
+  {
+    "id": "facebook-instagram-ads",
+    "name_en": "Facebook & Instagram Ads (Meta Ads Manager)",
+    "name_bn": "ফেসবুক ও ইনস্টাগ্রাম বিজ্ঞাপন (মেটা অ্যাডস ম্যানেজার)",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Precision-targeted Facebook & Instagram advertising campaigns designed to generate high-intent leads, sales, and messaging conversations.",
+    "description_bn": "সুনির্দিষ্ট টার্গেটেড ফেসবুক ও ইনস্টাগ্রাম অ্যাড ক্যাম্পেইন যা বিক্রয়, কোয়ালিটি লিড এবং মেসেজিং রূপান্তর নিশ্চিত করে।",
+    "starting_price": "৳145 / USD ad spend + agency management fee",
+    "currency": "BDT",
+    "deliverables": [
+      "Custom audience research & segmentation",
+      "Lookalike & retargeting audience setup",
+      "Engaging ad copy & creative optimization",
+      "Meta Business Portfolio setup & verification",
+      "A/B split testing (creatives & copies)",
+      "Daily campaign budget optimization (CBO/ABO)"
+    ],
+    "prerequisites": "Facebook Page access / Meta Business Manager admin or advertiser role",
+    "keywords": ["facebook ads", "instagram ads", "meta ads", "fb boost", "page boost", "ফেসবুক বুস্ট", "ইনস্টাগ্রাম বিজ্ঞাপন", "বুস্টিং", "ads manager", "sponsored", "meta business suite"],
+    "banglish_aliases": ["fb boosting", "facebook boost", "page boost", "ad run", "boost kora", "meta boost", "instagram boost", "fb ad", "insta ad"],
+    "official_url": "https://service.boostingagencyofficial.site/meta-ads"
+  },
+  {
+    "id": "full-managed-meta-ads",
+    "name_en": "Full Managed Meta Ads",
+    "name_bn": "ফুল ম্যানেজড মেটা অ্যাডস",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Complete end-to-end Meta advertising service at ৳145/USD. Covers ad account arrangements (where applicable), dollar top-up, campaign setup, audience targeting, optimization, monitoring, budget management, and scaling/reporting.",
+    "description_bn": "সম্পূর্ণ সমন্বিত মেটা বিজ্ঞাপন সেবা (প্রতি ডলার ১৪৫ টাকা)। অ্যাড একাউন্ট ব্যবস্থাপনা, ডলার ব্যালেন্স, ক্যাম্পেইন সেটআপ, অডিয়েন্স টার্গেটিং, অপটিমাইজেশন, মনিটরিং ও রিপোর্টিং অন্তর্ভুক্ত।",
+    "starting_price": "৳145 / USD (Minimum $20 campaign budget)",
+    "currency": "BDT",
+    "deliverables": [
+      "Ad account setup/arrangement (where applicable)",
+      "USD dollar balance top-up at ৳145/USD rate",
+      "Audience targeting & campaign configuration",
+      "Ongoing ad optimization & budget pacing",
+      "Performance reporting & scaling"
+    ],
+    "prerequisites": "Page access or business details, minimum $20 ($2/day) budget",
+    "keywords": ["full managed", "managed meta ads", "145 dollar rate", "ফুল ম্যানেজড", "ম্যানেজড অ্যাড", "ডলার ১৪৫"],
+    "banglish_aliases": ["full managed ads", "managed boost", "145 taka rate", "all in one boost"],
+    "official_url": "https://service.boostingagencyofficial.site/meta-ads"
+  },
+  {
+    "id": "ad-account-topup-only",
+    "name_en": "Ad Account + Dollar Top-Up Service",
+    "name_bn": "অ্যাড একাউন্ট + ডলার টপ-আপ সার্ভিস",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Dedicated ad account loading service at a separately recorded rate of ৳135/USD. Strictly limited to account balance funding. Does NOT include campaign creation, creative design, or management.",
+    "description_bn": "শুধুমাত্র অ্যাড একাউন্টে ডলার ব্যালেন্স লোড করার সেবা (আলাদা রেকর্ডকৃত রেট প্রতি ডলারে ১৩৫ টাকা)। ক্যাম্পেইন তৈরি, ডিজাইন বা ম্যানেজমেন্ট এতে অন্তর্ভুক্ত নয়।",
+    "starting_price": "৳135 / USD (Top-up balance only)",
+    "currency": "BDT",
+    "deliverables": [
+      "Ad account arrangement & dollar balance funding",
+      "Fast billing verification"
+    ],
+    "prerequisites": "Verified client business details and prepaid funding",
+    "keywords": ["dollar topup", "account loading", "135 rate", "টপ আপ", "ডলার লোড", "১৩৫ টাকা রেট"],
+    "banglish_aliases": ["dollar load", "topup service", "account top up", "135 dollar"],
+    "official_url": "https://service.boostingagencyofficial.site/meta-ads"
+  },
+  {
+    "id": "campaign-management-only",
+    "name_en": "Campaign Management Only",
+    "name_bn": "ক্যাম্পেইন ম্যানেজমেন্ট অনলি",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Dedicated campaign management without bundled dollar balance. Recorded options: ৳10,000/month prepaid (setup, optimization, scaling, reporting) and an alternate recent record of ৳12,000/month (strategy & management, excluding Pixel/CAPI). Requires confirmation with our team.",
+    "description_bn": "ডলার ব্যালেন্স ছাড়া শুধুমাত্র ক্যাম্পেইন স্ট্র্যাটেজি ও পরিচালনার মাসিক প্যাকেজ। পূর্বে রেকর্ডকৃত ফি ১০,০০০ টাকা প্রিপেইড এবং বিকল্প ১২,০০০ টাকা (পিক্সেল/CAPI ব্যতীত) — উভয়ই যাচাইসাপেক্ষ।",
+    "starting_price": "৳10,000 – ৳12,000 / month (Subject to confirmation)",
+    "currency": "BDT",
+    "deliverables": [
+      "Target audience strategy & A/B testing",
+      "Campaign optimization, scaling & monitoring",
+      "Bi-weekly / monthly reporting"
+    ],
+    "prerequisites": "Existing funded ad account or client-funded payment card",
+    "keywords": ["campaign management only", "monthly retainer", "10000", "12000", "ম্যানেজমেন্ট ফি"],
+    "banglish_aliases": ["management charge", "monthly management", "10000 taka", "12000 taka"],
+    "official_url": "https://service.boostingagencyofficial.site/meta-ads"
+  },
+  {
+    "id": "facebook-page-boosting",
+    "name_en": "Facebook Page Boosting & Engagement",
+    "name_bn": "ফেসবুক পেজ বুস্টিং ও এনগেজমেন্ট",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Quick and effective post boosting to maximize reach, likes, comments, shares, and messenger chats. Minimum budget is $20 total ($2/day) at ৳145/USD (৳2,900 ad budget) plus ৳1,000 single post service charge.",
+    "description_bn": "পেজের পোস্টের দ্রুত রিচ, লাইক ও মেসেজ বাড়ানোর বুস্টিং। সর্বনিম্ন বাজেট $২০ ($২/দিন) ১৪৫ টাকা রেটে (২,৯০০ টাকা অ্যাড বাজেট) এবং পোস্ট সার্ভিস ফি ১,০০০ টাকা।",
+    "starting_price": "৳1,000 setup fee + ad budget ($20 min)",
+    "currency": "BDT",
+    "deliverables": [
+      "Targeted demographic & location setup in Bangladesh/global",
+      "Call-to-action button setup (Send Message/WhatsApp)",
+      "Ad policy compliance check to prevent page restriction"
+    ],
+    "prerequisites": "Facebook page advertiser permission or prepaid budget",
+    "keywords": ["page boosting", "post boost", "পোস্ট বুস্ট", "পেজ বুস্ট", "like follow", "লাইক বাড়ানো", "reach increase"],
+    "banglish_aliases": ["post boost", "page boost", "boost korbo", "post er reach", "like barano", "comment barano", "messenger chat"],
+    "official_url": "https://service.boostingagencyofficial.site/boosting"
+  },
+  {
+    "id": "creative-package",
+    "name_en": "Social Media Creative Package",
+    "name_bn": "সোশ্যাল মিডিয়া ক্রিয়েটিভ প্যাকেজ",
+    "category": "Creative & Branding",
+    "description_en": "Professional advertising design package recorded as 15 static creatives + 10 reels videos. Excludes ad spend or third-party asset licensing. Requires verification against current active offers.",
+    "description_bn": "বিজ্ঞাপনের দৃষ্টিনন্দন ডিজাইন প্যাকেজ (১৫টি স্ট্যাটিক ব্যানার + ১০টি রিলস ভিডিও)। মূল বিজ্ঞাপন খরচ অন্তর্ভুক্ত নয়; প্যাকেজ রেট যাচাইসাপেক্ষ।",
+    "starting_price": "৳6,000 (Recorded - verification required)",
+    "currency": "BDT",
+    "deliverables": [
+      "15 High-converting static ad creatives",
+      "10 Engaging short-form video reels",
+      "Copywriting suggestions and call-to-actions"
+    ],
+    "prerequisites": "Product images and brand asset guidelines",
+    "keywords": ["creative package", "reels package", "banner design", "ক্রিয়েটিভ প্যাকেজ", "রিলস", "ব্যানার", "6000"],
+    "banglish_aliases": ["creative package", "15 static 10 reels", "banner banano", "reels video", "post design"],
+    "official_url": "https://service.boostingagencyofficial.site/creative-design"
+  },
+  {
+    "id": "lead-generation-campaigns",
+    "name_en": "Lead Generation Campaigns (Instant Forms)",
+    "name_bn": "লিড জেনারেশন ক্যাম্পেইন (ইনস্ট্যান্ট ফর্ম ও ডাটা কালেকশন)",
+    "category": "Meta & Social Media Advertising",
+    "description_en": "Acquire high-quality customer leads (names, phones, emails, requirements) directly via Facebook & Instagram Instant Forms and landing pages.",
+    "description_bn": "ফেসবুক ও ইনস্টাগ্রামের ইনস্ট্যান্ট ফর্মের মাধ্যমে সরাসরি সম্ভাব্য গ্রাহকদের নাম, ফোন নম্বর ও বিস্তারিত তথ্য সংগ্রহ করুন।",
+    "starting_price": "৳5,000 / setup",
+    "currency": "BDT",
+    "deliverables": [
+      "Custom instant form with qualifier questions",
+      "Lead validation and instant webhook/CRM sync",
+      "Audience exclusion to avoid duplicate leads",
+      "Retargeting engaged prospects"
+    ],
+    "prerequisites": "Privacy policy link and business details",
+    "keywords": ["lead gen", "lead generation", "লিড জেনারেশন", "গ্রাহকের ডাটা", "instant form", "b2b leads", "real estate leads", "coaching leads"],
+    "banglish_aliases": ["lead collect", "customer number", "phone number paoa", "lead form", "customer lead"],
+    "official_url": "https://service.boostingagencyofficial.site/lead-generation"
+  },
+  {
+    "id": "server-side-tracking-capi",
+    "name_en": "Meta Pixel & Server-Side Conversion API (CAPI)",
+    "name_bn": "মেটা পিক্সেল ও সার্ভার-সাইড কনভার্সন এপিআই (CAPI)",
+    "category": "Tracking & Analytics",
+    "description_en": "Bypass iOS 14.5+ ad blockers and browser restrictions by sending e-commerce purchase and lead events directly from the server to Meta. Recorded tiers: Basic Pixel (৳500), Full CMS Pixel (৳3,000), Custom Tracking (৳5,000) - subject to verification.",
+    "description_bn": "ব্রাউজার ও অ্যাড ব্লকার বাইপাস করে সরাসরি ক্লাউড সার্ভার থেকে মেটাতে পারচেজ ও লিড ডাটা পাঠানোর আধুনিক ট্র্যাকিং সমাধান। প্যাকেজ: বেসিক পিক্সেল (৫০০ টাকা), ফুল সিএমএস (৩,০০০ টাকা), কাস্টম ট্র্যাকিং (৫,০০০ টাকা)।",
+    "starting_price": "৳500 (Basic) / ৳3,000 (CMS) / ৳5,000 (Custom)",
+    "currency": "BDT",
+    "deliverables": [
+      "Server-side Google Tag Manager (sGTM) / Cloud server setup",
+      "Meta Pixel browser & server event deduplication (event_id matching)",
+      "Standard events: PageView, ViewContent, AddToCart, InitiateCheckout, Purchase, Lead",
+      "Event Match Quality (EMQ) score optimization to 8.0+",
+      "Custom domain tagging server setup (First-Party cookies)"
+    ],
+    "prerequisites": "Meta Business Manager access, website/store backend access (WordPress, Shopify, custom)",
+    "keywords": ["capi", "conversion api", "meta pixel", "server side tracking", "facebook pixel", "পিক্সেল সেটআপ", "কনভার্সন এপিআই", "sgtm", "event deduplication", "emq score", "500", "3000", "5000"],
+    "banglish_aliases": ["pixel setup", "fb pixel", "server side tracking", "conversion api", "ios 14 update", "event track", "purchase track"],
+    "official_url": "https://service.boostingagencyofficial.site/server-side-tracking"
+  },
+  {
+    "id": "google-search-display-ads",
+    "name_en": "Google Ads Management (Search, Display & PMax)",
+    "name_bn": "গুগল বিজ্ঞাপন ম্যানেজমেন্ট (সার্চ, ডিসপ্লে ও পি-ম্যাক্স)",
+    "category": "Google Marketing",
+    "description_en": "Appear at the top of Google Search when buyers search for your high-intent commercial keywords. Maximized ROI with negative keywords and smart bidding.",
+    "description_bn": "ক্রেতারা যখন গুগলে আপনার সেবা বা পণ্য খুঁজবেন তখন সবার উপরে দেখান। নেগেটিভ কিওয়ার্ড ও স্মার্ট বিডিং দিয়ে সর্বোচ্চ সেলস নিশ্চিত করা হয়।",
+    "starting_price": "৳6,000 / setup & management",
+    "currency": "BDT",
+    "deliverables": [
+      "Intent-based keyword research and match types (Exact, Phrase)",
+      "Negative keyword exclusion list to prevent wasted clicks",
+      "Compelling responsive search ad (RSA) copy with all extensions",
+      "Google Performance Max (PMax) campaign setup",
+      "Conversion tracking integration via GTM"
+    ],
+    "prerequisites": "Google Ads account or billing setup, target landing page",
+    "keywords": ["google ads", "google search ads", "pmax", "performance max", "গুগল অ্যাডস", "গুগল সার্চ অ্যাড", "ppc", "pay per click", "google display"],
+    "banglish_aliases": ["google ad", "google boost", "search ad", "google e prothom", "google ranking ad"],
+    "official_url": "https://service.boostingagencyofficial.site/google-ads"
+  },
+  {
+    "id": "ga4-gtm-analytics",
+    "name_en": "Google Analytics 4 (GA4) & Google Tag Manager (GTM)",
+    "name_bn": "গুগল অ্যানালিটিক্স ৪ (GA4) ও গুগল ট্যাগ ম্যানেজার (GTM)",
+    "category": "Tracking & Analytics",
+    "description_en": "Complete web and e-commerce tracking framework to measure visitor journey, traffic sources, conversion rates, and revenue.",
+    "description_bn": "ওয়েবসাইটের ভিজিটরদের গতিবিধি, ট্রাফিক সোর্স, রূপান্তর হার এবং রেভিনিউ নিখুঁতভাবে পরিমাপের নির্ভরযোগ্য সিস্টেম।",
+    "starting_price": "৳3,500 / setup",
+    "currency": "BDT",
+    "deliverables": [
+      "GTM container creation & clean trigger structure",
+      "GA4 property configuration & custom dimensions",
+      "E-commerce funnel tracking (view_item, add_to_cart, purchase)",
+      "UTM campaign tag builder and standard reporting setup"
+    ],
+    "prerequisites": "Website admin or CMS access",
+    "keywords": ["ga4", "google analytics 4", "gtm", "google tag manager", "web analytics", "e-commerce tracking", "গুগল অ্যানালিটিক্স"],
+    "banglish_aliases": ["ga4 setup", "gtm setup", "visitor track", "sales tracking", "analytics"],
+    "official_url": "https://service.boostingagencyofficial.site/ga4-tracking"
+  },
+  {
+    "id": "youtube-marketing-video-ads",
+    "name_en": "YouTube Marketing, Video Ads & Channel SEO",
+    "name_bn": "ইউটিউব মার্কেটিং, ভিডিও অ্যাডস ও চ্যানেল এসইও",
+    "category": "YouTube Marketing",
+    "description_en": "Run skippable in-stream, in-feed video ads, boost views, subscribers, and rank your video on YouTube search with optimized tags and titles.",
+    "description_bn": "ইউটিউব স্কিপেবল ইন-স্ট্রিম ও ইন-ফিড ভিডিও বিজ্ঞাপন, ভিউ ও সাবস্ক্রাইবার বৃদ্ধি এবং ভিডিও সার্চ র‍্যাংকিং নিশ্চিত করুন।",
+    "starting_price": "৳3,000 / campaign",
+    "currency": "BDT",
+    "deliverables": [
+      "YouTube in-stream & non-skippable bumper ads setup",
+      "Audience targeting based on competitor channels and interests",
+      "YouTube Video SEO: Tags, title, description, timestamp structuring",
+      "Click-through rate (CTR) optimization for thumbnails",
+      "Monetization readiness review (watch hours & subscribers)"
+    ],
+    "prerequisites": "YouTube channel and published video link",
+    "keywords": ["youtube ads", "youtube marketing", "video boost", "youtube seo", "views increase", "subscribers", "ইউটিউব বিজ্ঞাপন", "ইউটিউব এসইও", "মনিটাইজেশন"],
+    "banglish_aliases": ["yt ads", "youtube views", "video boost", "subscribers", "watch time", "youtube channel promote"],
+    "official_url": "https://service.boostingagencyofficial.site/youtube-marketing"
+  },
+  {
+    "id": "tiktok-advertising-pixel",
+    "name_en": "TikTok Ads & TikTok Pixel Setup",
+    "name_bn": "টিকটক বিজ্ঞাপন ও টিকটক পিক্সেল সেটআপ",
+    "category": "TikTok Marketing",
+    "description_en": "Tap into Bangladesh's fast-growing Gen-Z and millennial audience with high-energy short video TikTok ads and conversion tracking.",
+    "description_bn": "তরুণ প্রজন্মের অডিয়েন্সের কাছে পৌঁছাতে আকর্ষণীয় শর্ট ভিডিও টিকটক বিজ্ঞাপন এবং কনভার্সন ট্র্যাকিং সলিউশন।",
+    "starting_price": "৳3,500 / campaign setup",
+    "currency": "BDT",
+    "deliverables": [
+      "TikTok Ads Manager campaign configuration",
+      "TikTok Pixel integration & web event triggers",
+      "Targeting by interest, age, and trending behaviors",
+      "Creative recommendation tailored for short vertical video format"
+    ],
+    "prerequisites": "TikTok Ads account / video asset",
+    "keywords": ["tiktok ads", "tiktok pixel", "টিকটক অ্যাডস", "টিকটক বিজ্ঞাপন", "short video ad", "vertical video marketing"],
+    "banglish_aliases": ["tiktok ad", "tiktok boost", "tiktok pixel", "tiktok promote"],
+    "official_url": "https://service.boostingagencyofficial.site/tiktok-ads"
+  },
+  {
+    "id": "search-engine-optimization-seo",
+    "name_en": "Search Engine Optimization (SEO Services)",
+    "name_bn": "সার্চ ইঞ্জিন অপটিমাইজেশন (এসইও সেবা)",
+    "category": "Search Engine Optimization",
+    "description_en": "Comprehensive on-page, technical, and off-page SEO strategies to rank your website organically on the first page of Google.",
+    "description_bn": "গুগলের প্রথম পেজে আপনার ওয়েবসাইটকে অর্গানিক্যালি র‍্যাঙ্ক করানোর জন্য পূর্ণাঙ্গ অন-পেজ, অফ-পেজ এবং টেকনিক্যাল এসইও।",
+    "starting_price": "৳15,000 / month",
+    "currency": "BDT",
+    "deliverables": [
+      "In-depth technical SEO audit & fix plan",
+      "High-intent commercial keyword mapping",
+      "On-page optimization (titles, meta tags, schema markup, headings)",
+      "High-quality contextual backlink building",
+      "Local SEO (Google Business Profile optimization)",
+      "Monthly keyword ranking progress report"
+    ],
+    "prerequisites": "Website access and target location/niche details",
+    "keywords": ["seo", "search engine optimization", "organic ranking", "গুগল এসইও", "এসইও সার্ভিস", "backlinks", "keyword ranking", "on page seo", "local seo"],
+    "banglish_aliases": ["seo service", "google ranking", "website rank", "first page e asha", "backlink", "organic traffic"],
+    "official_url": "https://service.boostingagencyofficial.site/seo"
+  },
+  {
+    "id": "web-design-development",
+    "name_en": "Modern Web Design & E-Commerce Development",
+    "name_bn": "মডার্ন ওয়েব ডিজাইন ও ই-কমার্স ডেভেলপমেন্ট",
+    "category": "Web Design & Development",
+    "description_en": "Fast, high-converting, mobile-responsive landing pages, corporate websites, and Shopify/WordPress e-commerce stores designed for ads.",
+    "description_bn": "বিজ্ঞাপন থেকে সর্বোচ্চ বিক্রির জন্য ডিজাইন করা দ্রুতগতির, মোবাইল-রেস্পনসিভ ল্যান্ডিং পেজ ও ই-কমার্স ওয়েবসাইট।",
+    "starting_price": "৳12,000 / landing page or custom quote",
+    "currency": "BDT",
+    "deliverables": [
+      "Custom responsive design (Mobile, Tablet, Desktop)",
+      "Ultra-fast loading speed optimization (90+ PageSpeed)",
+      "Built-in Meta Pixel, CAPI, GTM & GA4 tracking",
+      "Direct WhatsApp and call click-to-chat integration",
+      "Payment gateway integration (bKash, Nagad, SSLCOMMERZ, Cash on Delivery)"
+    ],
+    "prerequisites": "Brand logo, content text, product catalog, hosting/domain details",
+    "keywords": ["web design", "web development", "landing page", "ecommerce website", "shopify store", "wordpress", "ওয়েবসাইট তৈরি", "ল্যান্ডিং পেজ"],
+    "banglish_aliases": ["website banano", "landing page banabo", "ecommerce site", "online shop website", "web design bd"],
+    "official_url": "https://service.boostingagencyofficial.site/web-design"
+  }
+]

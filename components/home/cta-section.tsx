@@ -58,13 +58,13 @@ export function CTASection() {
             variants={fadeInUp}
             className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button asChild size="lg" variant="secondary" className="w-full sm:w-auto group hover:shadow-xl hover:shadow-white/20 transition-all duration-300">
+            <Button asChild size="lg" variant="secondary" className="w-full sm:w-auto group btn-3d font-bold text-primary hover:text-primary transition-all duration-300">
               <Link href="/contact">
                 {t("getFreeConsultation")}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 hover:shadow-lg transition-all duration-300">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 hover:border-white/60 hover:shadow-lg transition-all duration-300 font-semibold">
               <a href="tel:+8801518961899">
                 <Phone className="mr-2 h-4 w-4" />
                 {t("callUsNow")}

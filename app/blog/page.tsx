@@ -20,20 +20,20 @@ export default function BlogPage() {
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl text-balance">
               {t("subscribeNewsletter")}
             </h2>
-            <p className="mt-4 text-lg text-white/80">
+            <p className="mt-4 text-lg text-white font-normal">
               {t("newsletterDescription")}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <Input 
                 type="email"
                 placeholder={t("enterEmail")} 
-                className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                className="h-12 bg-white/15 border-white/40 text-white placeholder:text-white/80 focus-visible:ring-white"
               />
-              <button className="shrink-0 h-12 px-6 rounded-md bg-white text-primary font-semibold hover:bg-white/90 transition-colors">
+              <button className="shrink-0 h-12 px-6 rounded-md bg-white text-blue-900 font-bold hover:bg-white/90 transition-colors shadow-lg cursor-pointer">
                 {t("subscribe")}
               </button>
             </div>
-            <p className="mt-4 text-sm text-white/60">
+            <p className="mt-4 text-sm text-white/85">
               {t("noSpam")}
             </p>
           </div>

@@ -245,7 +245,7 @@ export function PortfolioContent() {
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="grid grid-cols-1 gap-8 md:grid-cols-2"
+              className="grid grid-cols-2 gap-3.5 sm:gap-6 lg:gap-8"
             >
               {filteredProjects.map((project, index) => (
                 <motion.div
@@ -255,61 +255,63 @@ export function PortfolioContent() {
                   layout
                 >
                   <Card 
-                    className="group overflow-hidden border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 h-full"
+                    className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 h-full bg-card flex flex-col justify-between"
                   >
                     {/* Glow effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0">
-                      <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+                      <div className="absolute -top-10 -right-10 w-32 sm:w-44 h-32 sm:h-44 bg-cyan-500/20 rounded-full blur-3xl" />
                     </div>
-                    <div className="aspect-[4/3] overflow-hidden relative">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={800}
-                        height={600}
-                        className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    <CardContent className="p-6 relative">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge 
-                          variant="secondary" 
-                          className="text-xs bg-primary/10 text-primary border-primary/20"
-                        >
-                          {project.category}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground">{project.client}</span>
+                    <div>
+                      <div className="aspect-[4/3] overflow-hidden relative rounded-t-2xl sm:rounded-t-3xl">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={800}
+                          height={600}
+                          className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      {/* Results */}
-                      <div className="mt-6 grid grid-cols-3 gap-4 p-4 rounded-xl bg-secondary/50 group-hover:bg-secondary/70 transition-colors duration-300">
-                        {project.results.map((result) => (
-                          <div key={result.label} className="text-center">
-                            <p className="text-lg font-bold text-primary flex items-center justify-center gap-1">
-                              <TrendingUp className="h-4 w-4" />
-                              {result.value}
-                            </p>
-                            <p className="text-xs text-muted-foreground">{result.label}</p>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      {/* Services */}
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {project.services.map((service) => (
-                          <Badge key={service} variant="outline" className="text-xs hover:bg-primary/10 hover:border-primary/30 transition-colors duration-300">
-                            {service}
+                      <CardContent className="p-3.5 sm:p-5 lg:p-6 relative">
+                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                          <Badge 
+                            variant="secondary" 
+                            className="text-[10px] sm:text-xs bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20 px-2 py-0.5"
+                          >
+                            {project.category}
                           </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
+                          <span className="text-[11px] sm:text-xs text-muted-foreground line-clamp-1">{project.client}</span>
+                        </div>
+                        <h3 className="text-xs sm:text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
+                          {project.title}
+                        </h3>
+                        <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2">
+                          {project.description}
+                        </p>
+                        
+                        {/* Results */}
+                        <div className="mt-3 sm:mt-5 grid grid-cols-3 gap-1 sm:gap-3 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-secondary/50 border border-border/50 group-hover:bg-secondary/70 transition-colors duration-300">
+                          {project.results.map((result) => (
+                            <div key={result.label} className="text-center">
+                              <p className="text-xs sm:text-base lg:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center gap-0.5">
+                                <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
+                                {result.value}
+                              </p>
+                              <p className="text-[9px] sm:text-[11px] text-muted-foreground leading-tight mt-0.5">{result.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Services */}
+                        <div className="mt-3 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                          {project.services.map((service) => (
+                            <Badge key={service} variant="outline" className="text-[9px] sm:text-xs hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-colors duration-300 px-1.5 py-0.5">
+                              {service}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </div>
                   </Card>
                 </motion.div>
               ))}

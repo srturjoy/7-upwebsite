@@ -113,7 +113,7 @@ export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
         ref={ref}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.05 }}
         variants={variants}
         className={className}
         transition={{ delay }}
@@ -140,7 +140,7 @@ export const StaggerChildren = forwardRef<HTMLDivElement, StaggerChildrenProps>(
         ref={ref}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.05 }}
         variants={fast ? staggerContainerFast : staggerContainer}
         className={className}
         {...props}
@@ -245,7 +245,7 @@ export const AnimatedSection = forwardRef<HTMLElement, AnimatedSectionProps>(
         ref={ref}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.05 }}
         variants={{
           hidden: { opacity: 0 },
           visible: {

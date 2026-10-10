@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/lib/language-context"
+import { HeroImageCarousel } from "@/components/home/hero-image-carousel"
 
 // Distant Particle Network - Clean, subtle, far from content
 function DistantParticleNetwork() {
@@ -315,10 +316,10 @@ export function HeroSection() {
             }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 mb-6 border border-blue-100 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 dark:bg-blue-950/60 px-4 py-1.5 text-sm font-semibold text-blue-700 dark:text-cyan-300 mb-6 border border-blue-200 dark:border-cyan-500/30 shadow-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 dark:bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600 dark:bg-cyan-400"></span>
               </span>
               {t("heroTagline")}
             </div>
@@ -360,24 +361,24 @@ export function HeroSection() {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5 group relative overflow-hidden"
+                className="gradient-primary text-white btn-3d font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 group relative overflow-hidden"
               >
                 <Link href="/contact">
                   <span className="relative z-10 flex items-center">
                     {t("getFreeConsultation")}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 asChild 
-                className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-slate-200 dark:border-slate-600 text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-slate-200 dark:border-slate-600 text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 hover:border-cyan-400 dark:hover:border-cyan-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 <Link href="/portfolio">
-                  <Play className="mr-2 h-4 w-4" />
+                  <Play className="mr-2 h-4 w-4 text-cyan-500" />
                   {t("viewOurWork")}
                 </Link>
               </Button>
@@ -385,16 +386,15 @@ export function HeroSection() {
             
             {/* Stats with Premium Glassmorphism - Responsive */}
             <div 
-              className="mt-10 grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8 p-4 sm:p-6 -ml-2 sm:-ml-6 rounded-2xl relative overflow-hidden bg-white/90 dark:bg-slate-800/60 backdrop-blur-xl border border-white/80 dark:border-slate-700/50"
+              className="mt-10 grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-8 p-4 sm:p-6 -ml-2 sm:-ml-6 rounded-2xl sm:rounded-3xl relative overflow-hidden glass-card-3d card-3d"
               style={{
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04)",
                 transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
                 transition: "transform 0.4s ease-out",
               }}
             >
               {/* Glass refraction highlight - Light mode only */}
-              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/50 to-transparent rounded-t-2xl dark:from-slate-700/20" />
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-200/50 dark:via-blue-500/30 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/50 to-transparent rounded-t-2xl sm:rounded-t-3xl dark:from-slate-700/20" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
               
               <div className="text-center relative">
                 <AnimatedCounter value="500+" />
@@ -413,208 +413,73 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Hero Image with 3D Effects and Data Visualization */}
+          {/* High-Quality Hero Showcase & Brand Visual */}
           <div 
             className="relative lg:ml-auto"
             style={{
-              perspective: "1200px",
-              transform: `translate(${mousePosition.x * 8}px, ${mousePosition.y * 8}px)`,
+              transform: `translate(${mousePosition.x * 6}px, ${mousePosition.y * 6}px)`,
               transition: "transform 0.4s ease-out",
             }}
           >
             <div 
-              className="relative aspect-square w-full max-w-lg mx-auto"
+              className="relative aspect-square w-full max-w-lg mx-auto min-h-[350px] sm:min-h-[440px] md:min-h-[480px]"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              style={{
-                transformStyle: "preserve-3d",
-                transform: isHovering 
-                  ? `rotateY(${mousePosition.x * 8}deg) rotateX(${-mousePosition.y * 8}deg)`
-                  : "rotateY(0deg) rotateX(0deg)",
-                transition: "transform 0.4s ease-out",
-              }}
             >
-              {/* Soft shadow beneath laptop */}
-              <div 
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-8 rounded-full"
-                style={{
-                  background: "radial-gradient(ellipse, rgba(0,0,0,0.15) 0%, transparent 70%)",
-                  transform: "translateZ(-20px) translateY(20px)",
-                  filter: "blur(8px)",
-                }}
-              />
+              {/* Clean Hero Showcase Carousel with Razor-Sharp Quality */}
+              <HeroImageCarousel mousePosition={mousePosition} isHovering={isHovering} />
               
-              {/* Floating Data Visualization Points */}
+              {/* Revenue Growth Card - Premium Glassmorphism Accent */}
               <div 
-                className="absolute -top-8 left-8 w-4 h-4 rounded-full"
+                className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl p-3 sm:p-4 group hover:scale-105 transition-all duration-300 bg-white/95 dark:bg-slate-900/90 backdrop-blur-xl border border-white/90 dark:border-slate-700/80 shadow-2xl shadow-black/10 dark:shadow-cyan-500/10 pointer-events-none z-10"
                 style={{
-                  background: "radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%)",
-                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)",
-                  transform: `translateZ(40px) translate(${mousePosition.x * 25}px, ${mousePosition.y * 25}px)`,
-                  transition: "transform 0.5s ease-out",
-                  animation: "float 3s ease-in-out infinite",
-                }}
-              />
-              <div 
-                className="absolute top-20 -right-4 w-3 h-3 rounded-full"
-                style={{
-                  background: "radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, rgba(16, 185, 129, 0.2) 50%, transparent 70%)",
-                  boxShadow: "0 0 15px rgba(16, 185, 129, 0.4)",
-                  transform: `translateZ(50px) translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
-                  transition: "transform 0.6s ease-out",
-                  animation: "float 4s ease-in-out infinite 0.5s",
-                }}
-              />
-              <div 
-                className="absolute bottom-32 -left-6 w-5 h-5 rounded-full"
-                style={{
-                  background: "radial-gradient(circle, rgba(251, 146, 60, 0.5) 0%, rgba(251, 146, 60, 0.15) 50%, transparent 70%)",
-                  boxShadow: "0 0 18px rgba(251, 146, 60, 0.3)",
-                  transform: `translateZ(35px) translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
-                  transition: "transform 0.55s ease-out",
-                  animation: "float 3.5s ease-in-out infinite 1s",
-                }}
-              />
-              
-              {/* Light trails around laptop */}
-              <svg 
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                style={{ transform: "translateZ(15px)" }}
-              >
-                <defs>
-                  <linearGradient id="lightTrail1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(59, 130, 246, 0)" />
-                    <stop offset="50%" stopColor="rgba(59, 130, 246, 0.3)" />
-                    <stop offset="100%" stopColor="rgba(96, 165, 250, 0)" />
-                  </linearGradient>
-                  <linearGradient id="lightTrail2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(16, 185, 129, 0)" />
-                    <stop offset="50%" stopColor="rgba(16, 185, 129, 0.25)" />
-                    <stop offset="100%" stopColor="rgba(52, 211, 153, 0)" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M30,300 Q100,200 200,220 T380,150"
-                  stroke="url(#lightTrail1)"
-                  strokeWidth="1.5"
-                  fill="none"
-                  opacity="0.6"
-                >
-                  <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3s" repeatCount="indefinite" />
-                </path>
-                <path
-                  d="M400,350 Q350,280 280,300 T150,250"
-                  stroke="url(#lightTrail2)"
-                  strokeWidth="1"
-                  fill="none"
-                  opacity="0.5"
-                >
-                  <animate attributeName="opacity" values="0.5;0.2;0.5" dur="4s" repeatCount="indefinite" />
-                </path>
-              </svg>
-              
-              {/* Main Laptop Image */}
-              <div
-                className="relative rounded-3xl overflow-hidden"
-                style={{
-                  transform: "translateZ(25px)",
-                  boxShadow: isHovering 
-                    ? "0 40px 80px -20px rgba(0, 0, 0, 0.2), 0 20px 40px -20px rgba(59, 130, 246, 0.15)"
-                    : "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-                  transition: "box-shadow 0.4s ease-out",
-                }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=800&fit=crop"
-                  alt="Digital marketing analytics dashboard"
-                  width={800}
-                  height={800}
-                  className="relative rounded-3xl object-cover"
-                  priority
-                />
-                {/* Perfect lighting overlay */}
-                <div 
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: `
-                      radial-gradient(ellipse at ${50 + mousePosition.x * 20}% ${30 + mousePosition.y * 20}%, rgba(255,255,255,0.15) 0%, transparent 50%),
-                      linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 30%)
-                    `,
-                  }}
-                />
-              </div>
-              
-              {/* Revenue Growth Card - Premium Glassmorphism */}
-              <div 
-                className="absolute -bottom-6 -left-6 rounded-2xl p-4 group hover:scale-105 transition-all duration-300"
-                style={{
-                  transform: `translateZ(55px) translate(${mousePosition.x * -12}px, ${mousePosition.y * -12}px)`,
+                  transform: `translate(${mousePosition.x * -8}px, ${mousePosition.y * -8}px)`,
                   transition: "transform 0.45s ease-out, scale 0.3s ease-out",
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)",
-                  backdropFilter: "blur(24px) saturate(200%)",
-                  border: "1px solid rgba(255,255,255,0.9)",
-                  boxShadow: `
-                    0 12px 40px rgba(0, 0, 0, 0.08),
-                    0 4px 12px rgba(0, 0, 0, 0.04),
-                    inset 0 1px 0 rgba(255,255,255,1),
-                    inset 0 -1px 0 rgba(0,0,0,0.02),
-                    0 0 0 1px rgba(59, 130, 246, 0.05)
-                  `,
                 }}
               >
                 {/* Glass highlight */}
-                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl pointer-events-none" />
-                {/* Glowing border on hover */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ boxShadow: "inset 0 0 0 1px rgba(59, 130, 246, 0.2)" }} />
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/60 dark:from-white/10 to-transparent rounded-t-2xl pointer-events-none" />
                 
                 <div className="relative flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-shadow">
-                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/30 group-hover:shadow-cyan-500/50 transition-shadow">
+                    <svg className="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-600">{isEnglish ? "Revenue Growth" : "রেভিনিউ বৃদ্ধি"}</p>
-                    <p className="text-2xl font-bold text-blue-600">+247%</p>
+                    <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200">{isEnglish ? "Revenue Growth" : "রেভিনিউ বৃদ্ধি"}</p>
+                    <p className="text-xl sm:text-2xl font-black text-blue-600 dark:text-cyan-400">+247%</p>
                   </div>
                 </div>
               </div>
               
               {/* Live Analytics Card */}
               <div 
-                className="absolute -top-4 -right-4 rounded-xl p-3"
+                className="absolute top-8 -right-4 sm:top-10 sm:-right-6 rounded-xl p-2.5 sm:p-3 bg-white/95 dark:bg-slate-900/90 backdrop-blur-xl border border-white/80 dark:border-slate-700/80 shadow-lg pointer-events-none z-10 hidden sm:block"
                 style={{
-                  transform: `translateZ(45px) translate(${mousePosition.x * 18}px, ${mousePosition.y * 18}px)`,
+                  transform: `translate(${mousePosition.x * 12}px, ${mousePosition.y * 12}px)`,
                   transition: "transform 0.5s ease-out",
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.82) 100%)",
-                  backdropFilter: "blur(20px)",
-                  border: "1px solid rgba(255,255,255,0.8)",
-                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255,255,255,1)",
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
-                  <span className="text-xs font-semibold text-slate-700">{isEnglish ? "Live Analytics" : "লাইভ অ্যানালিটিক্স"}</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100">{isEnglish ? "Live Analytics" : "লাইভ অ্যানালিটিক্স"}</span>
                 </div>
               </div>
               
-              {/* Additional floating data point */}
+              {/* Additional floating metric */}
               <div 
-                className="absolute top-1/2 -right-8 rounded-lg px-3 py-2"
+                className="absolute bottom-20 -right-4 sm:bottom-24 sm:-right-6 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 bg-white/95 dark:bg-slate-900/90 backdrop-blur-xl border border-white/70 dark:border-slate-700/80 shadow-md pointer-events-none z-10"
                 style={{
-                  transform: `translateZ(35px) translate(${mousePosition.x * 22}px, ${mousePosition.y * 22}px)`,
+                  transform: `translate(${mousePosition.x * 14}px, ${mousePosition.y * 14}px)`,
                   transition: "transform 0.55s ease-out",
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.75) 100%)",
-                  backdropFilter: "blur(16px)",
-                  border: "1px solid rgba(255,255,255,0.7)",
-                  boxShadow: "0 6px 20px rgba(0, 0, 0, 0.05)",
                 }}
               >
                 <div className="flex items-center gap-1.5">
-                  <svg className="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-xs font-semibold text-emerald-600">+18%</span>
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">+18% ROI</span>
                 </div>
               </div>
             </div>

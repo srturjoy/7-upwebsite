@@ -66,24 +66,24 @@ export function WhyChooseUs() {
             <motion.div 
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.05 }}
               variants={staggerContainer}
-              className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2"
+              className="mt-10 grid grid-cols-2 gap-3.5 sm:gap-6"
             >
               {features.map((feature, index) => (
                 <motion.div 
                   key={feature.name} 
                   variants={fadeInUp}
-                  className="flex gap-4 group"
+                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-card/85 backdrop-blur-sm border border-border/70 hover:border-cyan-500/50 card-3d group shadow-sm hover:shadow-xl hover:shadow-cyan-500/10"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg gradient-primary text-primary-foreground group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
-                    <feature.icon className="h-5 w-5" />
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl gradient-primary text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                    <feature.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-foreground">
+                    <h3 className="text-xs sm:text-base font-bold text-foreground leading-snug">
                       {isEnglish ? feature.name : feature.nameBn}
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-[11px] sm:text-sm text-muted-foreground leading-snug sm:leading-relaxed">
                       {isEnglish ? feature.description : feature.descriptionBn}
                     </p>
                   </div>
@@ -94,7 +94,7 @@ export function WhyChooseUs() {
           
           <ScrollReveal variants={slideInRight} className="relative">
             <motion.div 
-              className="relative aspect-[4/3] overflow-hidden rounded-3xl"
+              className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/20 shadow-2xl"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
             >
@@ -107,15 +107,15 @@ export function WhyChooseUs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
             </motion.div>
-            {/* Benefits card */}
+            {/* Benefits card - 3D Glass Surface */}
             <motion.div 
               initial={{ opacity: 0, y: 30, x: 20 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-              className="absolute -bottom-8 -right-4 lg:-right-8 rounded-2xl bg-card p-6 shadow-xl border border-border max-w-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 lg:-right-8 rounded-2xl sm:rounded-3xl glass-card-3d p-4 sm:p-6 max-w-[280px] sm:max-w-sm card-3d border border-white/80 dark:border-white/10 shadow-2xl"
             >
-              <h4 className="font-semibold text-foreground mb-4">{t("whatYouGet")}</h4>
+              <h4 className="font-bold text-sm sm:text-base text-foreground mb-3 sm:mb-4">{t("whatYouGet")}</h4>
               <ul className="space-y-2">
                 {benefits.map((benefit, index) => (
                   <motion.li 
@@ -124,9 +124,9 @@ export function WhyChooseUs() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + index * 0.05 }}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                    className="flex items-center gap-2 text-xs sm:text-sm text-foreground/80 font-medium"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                    <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500 shrink-0" />
                     {isEnglish ? benefit.en : benefit.bn}
                   </motion.li>
                 ))}

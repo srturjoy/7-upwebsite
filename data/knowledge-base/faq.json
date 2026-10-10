@@ -1,0 +1,132 @@
+[
+  {
+    "id": "faq-usd-rates-explained",
+    "question_en": "What is your USD dollar rate for advertising?",
+    "question_bn": "বিজ্ঞাপনের জন্য আপনাদের ডলার রেট কত?",
+    "answer_en": "Our USD rate depends strictly on the service provided:\n\n• **Standard Managed Meta Ads:** ৳145 per USD (includes campaign monitoring, optimization support & account billing).\n• **Advertising Account + Dollar Top-up Only:** ৳135 per USD (recorded for balance top-up only, excludes campaign management).\n• **Special Regulated Categories (Betting / Herbal):** ৳155 per USD (applicable strictly if permitted by the agency's current policy).\n\n📌 **Important:** Agency dollar rates reflect commercial ad account management & payment processing fees, and are distinct from raw interbank currency exchange rates. We explain the applicable rate before calculating any quotation.",
+    "answer_bn": "সার্ভিসের ধরনের ওপর ভিত্তি করে আমাদের ডলার রেট নির্ধারিত হয়:\n\n• **স্ট্যান্ডার্ড ম্যানেজড মেটা অ্যাডস:** প্রতি ডলার ১৪৫ টাকা (ক্যাম্পেইন ম্যানেজমেন্ট, বাজেট অপটিমাইজেশন ও অ্যাকাউন্ট বিলিং সহ)।\n• **অ্যাড একাউন্ট + ডলার টপ-আপ অনলি:** প্রতি ডলার ১৩৫ টাকা (শুধুমাত্র ব্যালেন্স টপ-আপের জন্য রেকর্ডকৃত, ক্যাম্পেইন তৈরি অন্তর্ভুক্ত নয়)।\n• **বিশেষ ক্যাটাগরি (বেটিং / হারবাল / ভেষজ):** প্রতি ডলার ১৫৫ টাকা (এজেন্সির বর্তমান পলিসিতে অনুমোদিত হলে প্রযোজ্য)।\n\n📌 **গুরুত্বপূর্ণ:** এজেন্সির ডলার রেট হলো বাণিজ্যিক সার্ভিস রেট এবং এটি সাধারণ ব্যাংক এক্সচেঞ্জ রেট থেকে আলাদা। কোটেশন দেওয়ার পূর্বে কোন রেট প্রযোজ্য তা স্পষ্ট জানিয়ে দেওয়া হয়।",
+    "keywords": ["dollar rate", "usd rate", "145", "135", "155", "dollar dam", "exchange rate", "ডলার রেট", "ডলারের দাম", "কত টাকা ডলার"],
+    "banglish_aliases": ["dollar rate koto", "1 dollar koto taka", "dollar koto kore", "dollar dam koto", "145 taka dollar", "usd conversion", "dollar charge"],
+    "related_service_id": "facebook-instagram-ads"
+  },
+  {
+    "id": "faq-minimum-budget-calculation",
+    "question_en": "What is the minimum advertising budget and how is it calculated?",
+    "question_bn": "সর্বনিম্ন বিজ্ঞাপনের বাজেট কত এবং কীভাবে হিসাব করা হয়?",
+    "answer_en": "Our advertising budget guidelines:\n\n• **Minimum Campaign Budget:** $20 total.\n• **Minimum Daily Budget:** $2 per day.\n• At $2/day, a $20 advertising budget runs for approximately 10 days.\n\n📊 **Budget Calculation (at standard ৳145/USD rate):**\n• Ad Budget in BDT = USD Budget × ৳145.\n• Example: $20 × ৳145 = ৳2,900 advertising budget.\n• Daily: $2/day × ৳145 = ৳290/day.\n\n💡 **Note:** These calculations represent the ad platform budget only. Agency management fees or payment processing charges are calculated separately. These budget requirements are minimum policy thresholds, not an automated guarantee of campaign sales performance.",
+    "answer_bn": "আমাদের সর্বনিম্ন বিজ্ঞাপনের বাজেটের নিয়ম:\n\n• **সর্বনিম্ন ক্যাম্পেইন বাজেট:** মোট $২০।\n• **দৈনিক সর্বনিম্ন বাজেট:** প্রতিদিন $২।\n• প্রতিদিন $২ বাজেটে $২০ দিয়ে প্রায় ১০ দিন বিজ্ঞাপন চালানো যায়।\n\n📊 **বাজেট হিসাব (স্ট্যান্ডার্ড ১৪৫ টাকা রেটে):**\n• বাংলাদেশি টাকায় বাজেট = ডলার বাজেট × ১৪৫ টাকা।\n• উদাহরণ: $২০ × ১৪৫ = ২,৯০০ টাকা।\n• দৈনিক: $২/দিন × ১৪৫ = ২৯০ টাকা/দিন।\n\n💡 **নোট:** এই হিসাবটি শুধুমাত্র মূল বিজ্ঞাপনের প্ল্যাটফর্ম বাজেট। এজেন্সির ম্যানেজমেন্ট ফি বা পেমেন্ট চার্জ আলাদা। এটি সর্বনিম্ন বাজেটের নিয়ম, ফলের শতভাগ গ্যারান্টি নয়।",
+    "keywords": ["minimum budget", "lowest budget", "calculation", "20 dollar", "2 dollar", "2900 taka", "সর্বনিম্ন বাজেট", "কত দিন চলবে", "বাজেট হিসাব"],
+    "banglish_aliases": ["minimum budget koto", "shobcheye kom budget", "20 dollar koto taka", "2 dollar per day", "koto din cholbe", "budget calculation kivabe"],
+    "related_service_id": "facebook-page-boosting"
+  },
+  {
+    "id": "faq-meta-service-options",
+    "question_en": "What Meta Ads service options do you offer?",
+    "question_bn": "আপনারা মেটা অ্যাডসের কী কী সার্ভিস অপশন প্রদান করেন?",
+    "answer_en": "We offer structured Meta Ads arrangements based on your business need:\n\n1. **Full Managed Meta Ads (৳145/USD):** End-to-end service including ad account arrangements, dollar loading, campaign setup, audience targeting, ongoing optimization, budget control, and reporting.\n2. **Advertising Account + Dollar Top-up (৳135/USD):** Account & dollar balance top-up only. Campaign setup and management are not included.\n3. **Campaign Management Only:** Monthly fee for dedicated campaign strategy, setup, and optimization without bundled dollar top-up (previous record ৳10,000 prepaid; recent record ৳12,000 strategy package excluding Pixel/CAPI — both require current verification with the agency).",
+    "answer_bn": "আমরা মেটা বিজ্ঞাপনের কয়েকটি সুনির্দিষ্ট সেবা প্রদান করি:\n\n১. **ফুল ম্যানেজড মেটা অ্যাডস (১৪৫ টাকা/USD):** অ্যাড একাউন্ট ব্যবস্থাপনা, ডলার লোড, ক্যাম্পেইন সেটআপ, অডিয়েন্স টার্গেটিং, বাজেট নিয়ন্ত্রণ ও নিয়মিত অপটিমাইজেশন।\n২. **অ্যাড একাউন্ট + ডলার টপ-আপ অনলি (১৩৫ টাকা/USD):** শুধুমাত্র একাউন্টে ডলার ব্যালেন্স লোড করা। ক্যাম্পেইন ম্যানেজমেন্ট এতে অন্তর্ভুক্ত নয়।\n৩. **ক্যাম্পেইন ম্যানেজমেন্ট অনলি:** ডেডিকেটেড ক্যাম্পেইন পরিচালনা ফি (পূর্বের রেকর্ডে ১০,০০০ টাকা প্রিপেইড; সাম্প্রতিক অপর রেকর্ডে ১২,০০০ টাকা স্ট্র্যাটেজি প্যাকেজ পিক্সেল/CAPI ব্যতীত — উভয় রেট চূড়ান্তকরণের জন্য এজেন্সির সাথে আলোচনা করা প্রয়োজন)।",
+    "keywords": ["service options", "full managed", "top up", "management only", "সার্ভিস অপশন", "ম্যানেজড অ্যাড", "টপ আপ"],
+    "banglish_aliases": ["service option ki ki", "full managed ki", "dollar topup ki", "management fee koto"],
+    "related_service_id": "facebook-instagram-ads"
+  },
+  {
+    "id": "faq-other-recorded-prices",
+    "question_en": "What are your charges for Page setup, Pixel setup, and Creative packages?",
+    "question_bn": "পেজ সেটআপ, পিক্সেল সেটআপ এবং ক্রিয়েটিভ প্যাকেজের খরচ কত?",
+    "answer_en": "The following prices are recorded in our business records (subject to verification against current package scopes):\n\n• **Business Page Setup:** ৳1,000.\n• **Creative Package:** ৳6,000 (recorded as 15 static creatives + 10 reels).\n• **Basic Pixel Setup:** ৳500.\n• **Full CMS Pixel / Tracking Setup:** ৳3,000 (WordPress/Shopify standard events).\n• **Custom Tracking Setup:** ৳5,000.\n\n⚠️ **Verification Notice:** These prices cover the specific listed deliverables only, excluding ad spend or third-party platform subscriptions. Please confirm with our team at 01518961899 or WhatsApp for current active offers.",
+    "answer_bn": "আমাদের পূর্ববর্তী ব্যবসায়িক রেকর্ডে সংরক্ষিত সেবামূল্য (বর্তমান প্যাকেজ পরিধির সাথে যাচাইসাপেক্ষ):\n\n• **বিজনেস পেজ সেটআপ:** ১,০০০ টাকা।\n• **ক্রিয়েটিভ প্যাকেজ:** ৬,০০০ টাকা (১৫টি স্ট্যাটিক ক্রিয়েটিভ + ১০টি রিলস ভিডিও)।\n• **বেসিক পিক্সেল সেটআপ:** ৫০০ টাকা।\n• **ফুল সিএমএস পিক্সেল/ট্র্যাকিং সেটআপ:** ৩,০০০ টাকা (ওয়ার্ডপ্রেস বা শপিফাইয়ের স্ট্যান্ডার্ড ইভেন্টসহ)।\n• **কাস্টম ট্র্যাকিং সেটআপ:** ৫,০০০ টাকা।\n\n⚠️ **যাচাইকরণ নোট:** এই খরচ শুধুমাত্র সংশ্লিষ্ট সার্ভিসের জন্য, এতে বিজ্ঞাপনের বাজেট বা থার্ড-পার্টি সাবস্ক্রিপশন অন্তর্ভুক্ত নয়। বর্তমান অফার নিশ্চিত করতে হোয়াটসঅ্যাপে (০১৫১৮৯৬১৮৯৯) নক দিন।",
+    "keywords": ["pixel price", "creative package", "page setup price", "500", "1000", "3000", "5000", "6000", "পিক্সেল খরচ", "ক্রিয়েটিভ প্যাকেজ", "পেজ সেটআপ"],
+    "banglish_aliases": ["pixel setup cost", "basic pixel", "creative package price", "page setup charge", "full cms pixel"],
+    "related_service_id": "server-side-tracking-capi"
+  },
+  {
+    "id": "faq-how-to-start",
+    "question_en": "How do I get started with Boosting Agency BD?",
+    "question_bn": "কীভাবে আপনাদের সাথে কাজ শুরু করব?",
+    "answer_en": "Getting started is straightforward! 1) Reach out to us via WhatsApp (01518961899) or the Contact form with your business goals. 2) We discuss your products, campaign objectives, and recommended budget ($20 / ৳2,900 minimum). 3) Once service terms and advance budget/fees are cleared, you grant page/ad account access. 4) Campaigns are configured and launched within 24 to 48 hours.",
+    "answer_bn": "আমাদের সাথে কাজ শুরু করার ধাপসমূহ: ১) হোয়াটসঅ্যাপে (01518961899) বা ওয়েবসাইটে যোগাযোগ করে আপনার পণ্যের বিবরণ জানান। ২) আমরা উপযুক্ত বাজেট (ন্যূনতম $২০ বা ২,৯০০ টাকা) ও স্ট্র্যাটেজি জানাব। ৩) প্যাকেজ ও পেমেন্ট ক্লিয়ার হওয়ার পর এক্সেস বুঝে নিয়ে ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ক্যাম্পেইন লাইভ করা হয়।",
+    "keywords": ["start", "how to start", "onboarding", "process", "শুরু", "কিকরে শুরু করব", "কাজের প্রক্রিয়া", "process kivabe"],
+    "banglish_aliases": ["kemne shuru korbo", "kivabe kaj shuru hoi", "kivabe start korbo", "kaj shuru korar niom", "process ki"],
+    "related_service_id": "facebook-instagram-ads"
+  },
+  {
+    "id": "faq-boosting-cost-budget",
+    "question_en": "How much does Facebook boosting or advertising cost in total?",
+    "question_bn": "ফেসবুক বুস্টিং বা বিজ্ঞাপনের সর্বমোট খরচ কেমন হয়?",
+    "answer_en": "Advertising costs consist of separate components:\n\n1. **Official Ad Spend (USD):** Minimum $20 total (or $2/day), converted at ৳145/USD for managed ads (e.g., $20 = ৳2,900).\n2. **Agency Service Fee:** ৳1,000 for single page boosts, or monthly retainers (e.g. ৳10,000 prepaid recorded fee) for comprehensive management.\n3. **Payment Processing Charges:** Any bank or gateway processing fees applicable to the transaction.\n\nWe always break down budget and agency fees transparently so you know exactly where every Taka goes.",
+    "answer_bn": "বিজ্ঞাপনের খরচ স্বচ্ছভাবে কয়েকটি অংশে বিভক্ত:\n\n১. **বিজ্ঞাপনের মূল বাজেট (ডলার):** সর্বনিম্ন $২০ (অথবা $২/দিন), ম্যানেজড সার্ভিসে প্রতি ডলার ১৪৫ টাকা (যেমন: $২০ = ২,৯০০ টাকা)।\n২. **এজেন্সি সার্ভিস চার্জ:** সিঙ্গেল পোস্ট বুস্টিং ১,০০০ টাকা বা মাসিক পূর্ণাঙ্গ ম্যানেজমেন্ট ফি (রেকর্ড অনুযায়ী ১০,০০০ টাকা প্রিপেইড)।\n৩. **পেমেন্ট প্রসেসিং চার্জ:** ব্যাংক বা নির্দিষ্ট গেটওয়ে ফি (প্রযোজ্য ক্ষেত্রে)।\n\nআমরা বাজেট ও সার্ভিস ফি আলাদা করে স্পষ্ট হিসাব প্রদান করি যাতে কোনো লুকানো খরচ না থাকে।",
+    "keywords": ["cost", "price", "budget", "pricing", "taka", "খরচ", "দাম", "বাজেট", "কত টাকা লাগবে"],
+    "banglish_aliases": ["koto taka lagbe", "boost er dam koto", "fb boost cost", "kharach koto", "minimum budget", "kom takai boost"],
+    "related_service_id": "facebook-page-boosting"
+  },
+  {
+    "id": "faq-refund-and-balance",
+    "question_en": "What is your refund policy? What happens to unspent ad spend?",
+    "question_bn": "আপনাদের রিফান্ড পলিসি কী? অব্যবহৃত বিজ্ঞাপনের বাজেটের কী হয়?",
+    "answer_en": "Our transparent policy on refunds and remaining balances:\n\n• **Unspent Ad Spend:** Fully refundable or can be held as an account credit for your next campaign if you choose to pause or stop.\n• **Agency Service Fees:** Non-refundable once research, creative work, or campaign configuration has commenced.\n• **Platform Restrictions:** If Meta restricts an account due to prohibited business categories or policy violations by the client, unspent ad budget remains intact, but completed service work is not refundable.",
+    "answer_bn": "রিফান্ড ও অবশিষ্ট ব্যালেন্স সংক্রান্ত নীতিমালা:\n\n• **অব্যবহৃত অ্যাড বাজেট:** ক্যাম্পেইন বন্ধ করলে যে পরিমাণ ডলার বা টাকা খরচ হয়নি তা সম্পূর্ণ ফেরতযোগ্য অথবা পরবর্তী ক্যাম্পেইনের জন্য ক্রেডিট হিসেবে জমা রাখা যায়।\n• **এজেন্সির সার্ভিস ফি:** স্ট্র্যাটেজি, রিসার্চ ও ক্যাম্পেইন তৈরির কাজ শুরু হওয়ার পর সার্ভিস ফি ফেরতযোগ্য নয়।\n• **প্ল্যাটফর্ম রেস্ট্রিকশন:** ক্লায়েন্টের নিষিদ্ধ পণ্যের কারণে ফেসবুক একাউন্ট সাময়িক বন্ধ করলে মূল অব্যবহৃত বাজেট সুরক্ষিত থাকে, কিন্তু সম্পাদিত কাজের ফি ফেরত হয় না।",
+    "keywords": ["refund", "cancel", "money back", "balance", "unspent", "রিফান্ড", "টাকা ফেরত", "অবশিষ্ট টাকা", "ব্যালেন্স"],
+    "banglish_aliases": ["taka ferot pabo", "refund policy ki", "ad bondho korle taka pabo", "unspent budget", "balance ferot"],
+    "related_service_id": null
+  },
+  {
+    "id": "faq-payment-methods",
+    "question_en": "What payment methods do you accept and what are the payment terms?",
+    "question_bn": "আপনারা কোন কোন মাধ্যমে পেমেন্ট নেন এবং পেমেন্টের শর্ত কী?",
+    "answer_en": "We accept all standard Bangladeshi payment channels:\n\n• **Mobile Financial Services:** bKash (Personal & Merchant), Nagad, Rocket.\n• **Bank Transfer:** Direct transfer to BRAC Bank, The City Bank, or Dutch-Bangla Bank (DBBL).\n• **Direct Cards:** Dual-currency card settlement.\n\n📌 **Payment Terms:** Advertising spend must be 100% prepaid before campaigns launch. Monthly management fees require advance payment (e.g. ৳10,000 prepaid) as agreed upon onboarding.",
+    "answer_bn": "আমরা বাংলাদেশের সকল প্রধান মাধ্যমে পেমেন্ট গ্রহণ করি:\n\n• **মোবাইল ব্যাংকিং:** বিকাশ (পার্সোনাল ও মার্চেন্ট), নগদ, রকেট।\n• **ব্যাংক ট্রান্সফার:** ব্র্যাক ব্যাংক, দি সিটি ব্যাংক, ডাচ-বাংলা ব্যাংক (DBBL)।\n• **ডুয়াল কারেন্সি কার্ড:** সরাসরি কার্ড সেটেলমেন্ট।\n\n📌 **পেমেন্ট শর্ত:** ক্যাম্পেইন লাইভ করার আগেই বিজ্ঞাপনের ডলার বাজেট সম্পূর্ণ অগ্রিম (প্রিপেইড) দিতে হয়। মাসিক ম্যানেজমেন্ট ফি অগ্রিম পরিশোধযোগ্য।",
+    "keywords": ["payment", "bkash", "nagad", "bank", "advance", "prepaid", "পেমেন্ট", "বিকাশ", "টাকা কীভাবে দেব", "অগ্রিম"],
+    "banglish_aliases": ["payment kivabe korbo", "bkash ache", "nagad e payment", "taka kemne dibo", "bank transfer", "advance dite hobe"],
+    "related_service_id": null
+  },
+  {
+    "id": "faq-campaign-launch-time",
+    "question_en": "When does my advertising campaign start after payment?",
+    "question_bn": "পেমেন্ট করার পর বিজ্ঞাপন কখন চালু হবে?",
+    "answer_en": "Campaign setup commences as soon as payment is confirmed and all required assets (Page/Ad Account access, ad copy, images/videos, audience preferences) are submitted. Typically, campaigns go live within 24 to 48 hours.",
+    "answer_bn": "পেমেন্ট নিশ্চিতকরণ এবং প্রয়োজনীয় সমস্ত তথ্য ও এক্সেস (পেজ/অ্যাড একাউন্ট এক্সেস, ইমেজ/ভিডিও এবং টার্গেটিং বিবরণী) পাওয়ার পর কাজ শুরু হয়। সাধারণত ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ক্যাম্পেইন লাইভ করা হয়।",
+    "keywords": ["campaign start", "launch time", "kobe chalu hobe", "how fast", "কখন চালু হবে", "ক্যাম্পেইন শুরু"],
+    "banglish_aliases": ["kobe start hobe", "koto somoy lagbe shuru hote", "launch somoy", "taka deyar por kobe chalu"],
+    "related_service_id": "facebook-instagram-ads"
+  },
+  {
+    "id": "faq-sales-guarantee",
+    "question_en": "Do you guarantee sales or ROAS?",
+    "question_bn": "আপনারা কি বিক্রির (Sales) গ্যারান্টি দেন?",
+    "answer_en": "In professional digital marketing, budget minimums and target setups are operational standards, not a blanket guarantee of sales. Consumer purchasing decisions depend heavily on product quality, competitive pricing, website UX, and customer service. However, we guarantee precision audience targeting, high-CTR ad creative setups, and continuous conversion optimization to maximize your Return on Ad Spend (ROAS).",
+    "answer_bn": "পেশাদার ডিজিটাল মার্কেটিংয়ে বিজ্ঞাপনের বাজেট বা টার্গেটিং সঠিক রাখার নিশ্চয়তা দেওয়া হলেও, সরাসরি বিক্রির ১০০% গ্যারান্টি দেওয়া সম্ভব নয়। কারণ বিক্রয় নির্ভর করে পণ্যের মান, প্রতিযোগিতা, ওয়েবসাইটের সহজবোধ্যতা ও কাস্টমার রেসপন্সের উপর। তবে আমরা সঠিক টার্গেটেড ট্রাফিক এবং সর্বোচ্চ সেলস আনার ডেটা-ড্রিভেন অপটিমাইজেশনের নিশ্চয়তা দিই।",
+    "keywords": ["sales guarantee", "guarantee", "roas", "বিক্রির নিশ্চয়তা", "গ্যারান্টি", "সেল আসবে তো"],
+    "banglish_aliases": ["sale er guarantee", "sales hobe to", "order ashbe to", "guarantee den", "loss hobe kina"],
+    "related_service_id": "facebook-instagram-ads"
+  },
+  {
+    "id": "faq-server-side-tracking-need",
+    "question_en": "Why do I need Server-Side Tracking & Meta CAPI?",
+    "question_bn": "সার্ভার-সাইড ট্র্যাকিং ও মেটা কনভার্সন এপিআই (CAPI) কেন প্রয়োজন?",
+    "answer_en": "Modern iOS updates (iOS 14.5+) and browser ad blockers discard 30–40% of standard Pixel events. Server-Side CAPI sends conversions directly from your cloud server to Meta. This prevents data loss, lowers your Cost Per Acquisition (CPA), and boosts Event Match Quality (EMQ). We offer setup options: Basic Pixel (৳500), Full CMS Pixel (৳3,000), and Custom Tracking (৳5,000) - subject to verification.",
+    "answer_bn": "আধুনিক ব্রাউজার এবং iOS আপডেটের কারণে ব্রাউজার পিক্সেলের ৩০-৪০% ট্র্যাকিং ডাটা হারিয়ে যায়। সার্ভার-সাইড CAPI ক্লাউড সার্ভার থেকে সরাসরি মেটায় ডাটা পাঠায়। এর ফলে ডাটা ড্রপ হয় না, বিজ্ঞাপনের খরচ কমে এবং সেলস বাড়ে। আমাদের সেটআপ অপশন: বেসিক পিক্সেল (৫০০ টাকা), ফুল সিএমএস (৩,০০০ টাকা) এবং কাস্টম ট্র্যাকিং (৫,০০০ টাকা) — যাচাইসাপেক্ষ।",
+    "keywords": ["capi", "server side", "pixel", "tracking", "পিক্সেল", "সার্ভার সাইড ট্র্যাকিং", "কনভার্সন এপিআই"],
+    "banglish_aliases": ["server side tracking keno lagbe", "capi ki", "pixel er kaj ki", "tracking keno dorkar"],
+    "related_service_id": "server-side-tracking-capi"
+  },
+  {
+    "id": "faq-office-location",
+    "question_en": "Where is your office located? Can we meet in person?",
+    "question_bn": "আপনাদের অফিস কোথায়? সরাসরি দেখা করে কথা বলা যাবে?",
+    "answer_en": "Our office is located at: Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh. You are warmly welcome to visit us for an in-person meeting! Please send a WhatsApp message to 01518961899 ahead of time to schedule a consultation.",
+    "answer_bn": "আমাদের অফিসের ঠিকানা: রূপনগর আ/এ, রোড-১৬, মিরপুর-২, ঢাকা-১২১৬, বাংলাদেশ। আপনি সরাসরি অফিসে এসে পরামর্শ করতে পারেন। সাক্ষাতের আগে দয়া করে হোয়াটসঅ্যাপে (01518961899) যোগাযোগ করে সময় নিশ্চিত করুন।",
+    "keywords": ["office", "location", "address", "meet", "mirpur", "dhaka", "অফিস", "ঠিকানা", "কোথায় অফিস", "দেখা করা"],
+    "banglish_aliases": ["office kothai", "thikana ki", "dekha kora jabe", "mirpur office", "dhaka office kothai"],
+    "related_service_id": null
+  },
+  {
+    "id": "faq-account-safety",
+    "question_en": "Is my Facebook Page or Ad Account safe with you?",
+    "question_bn": "আমার ফেসবুক পেজ বা অ্যাড একাউন্ট কি নিরাপদ থাকবে?",
+    "answer_en": "100% safe. We never ask for your personal Facebook account password. You simply invite our verified agency partner ID in Meta Business Suite. We strictly comply with Meta's advertising policies to ensure your accounts and pages remain in good standing.",
+    "answer_bn": "১০০% নিরাপদ। আমরা কখনোই আপনার ব্যক্তিগত পাসওয়ার্ড চাই না। মেটা বিজনেস স্যুট থেকে আমাদের এজেন্সিকে পার্টনার বা অ্যাডভার্টাইজার হিসেবে এক্সেস দেওয়া হয়। আমরা মেটার যাবতীয় অফিশিয়াল নীতিমালা মেনে বিজ্ঞাপন পরিচালনা করি।",
+    "keywords": ["safety", "security", "safe", "password", "নিরাপত্তা", "পাসওয়ার্ড", "নিরাপদ"],
+    "banglish_aliases": ["page safe thakbe", "password dite hobe", "account nosto hobe", "security kemon"],
+    "related_service_id": "facebook-instagram-ads"
+  }
+]

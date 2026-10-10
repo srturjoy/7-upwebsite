@@ -148,11 +148,11 @@ export function Testimonials() {
     <section className="py-24 gradient-dark text-primary-foreground overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold text-primary-foreground/70 uppercase tracking-wide">{t("testimonials")}</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-balance">
+          <p className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">{t("testimonials")}</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl text-balance">
             {t("whatOurClientsSay")}
           </h2>
-          <p className="mt-4 text-lg text-primary-foreground/70">
+          <p className="mt-4 text-lg text-slate-300">
             {t("testimonialsDescription")}
           </p>
         </ScrollReveal>
@@ -167,30 +167,36 @@ export function Testimonials() {
         {duplicatedTestimonials.map((testimonial, index) => (
           <Card 
             key={`${testimonial.author}-${index}`} 
-            className="flex-shrink-0 w-[320px] bg-primary-foreground/5 border-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/10 hover:border-primary-foreground/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
+            className="flex-shrink-0 w-[300px] sm:w-[340px] bg-slate-900/80 border border-slate-700/80 backdrop-blur-md hover:bg-slate-900 hover:border-cyan-400/60 card-3d rounded-3xl hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden"
           >
-            <CardContent className="p-6">
-              <Quote className="h-8 w-8 text-primary-foreground/30 mb-4" />
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
+            {/* Ambient subtle corner glow on hover */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-400/10 rounded-full blur-2xl pointer-events-none" />
+            
+            <CardContent className="p-6 relative">
+              <div className="flex items-center justify-between mb-4">
+                <Quote className="h-7 w-7 text-cyan-400" />
+                <div className="flex gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400 drop-shadow-sm" />
+                  ))}
+                </div>
               </div>
-              <p className="text-primary-foreground/90 text-sm leading-relaxed mb-6">
+              <p className="text-slate-200 text-sm leading-relaxed mb-6 font-normal">
                 {`"${isEnglish ? testimonial.content : testimonial.contentBn}"`}
               </p>
               {/* Clean professional layout without images */}
-              <div className="border-t border-primary-foreground/10 pt-4">
-                <p className="font-semibold text-primary-foreground text-sm">
-                  {isEnglish ? testimonial.author : testimonial.authorBn}
-                </p>
-                <p className="text-primary-foreground/60 text-xs mt-0.5">
-                  {isEnglish ? testimonial.role : testimonial.roleBn}
-                </p>
-                <p className="text-primary-foreground/40 text-xs mt-1 flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary-foreground/40"></span>
+              <div className="border-t border-slate-800 pt-4 flex items-center justify-between">
+                <div>
+                  <p className="font-bold text-white text-sm">
+                    {isEnglish ? testimonial.author : testimonial.authorBn}
+                  </p>
+                  <p className="text-cyan-300 text-xs mt-0.5 font-medium">
+                    {isEnglish ? testimonial.role : testimonial.roleBn}
+                  </p>
+                </div>
+                <span className="text-[11px] text-slate-300 bg-slate-800 px-2.5 py-1 rounded-full border border-slate-700">
                   {isEnglish ? testimonial.location : testimonial.locationBn}
-                </p>
+                </span>
               </div>
             </CardContent>
           </Card>
