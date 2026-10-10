@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { Menu, X, Phone, Globe, Sun, Moon } from "lucide-react"
+import { Menu, X, Phone, Globe, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 import { useTheme } from "next-themes"
@@ -79,6 +79,18 @@ export function Header() {
 
           {/* Mobile menu button - visible on screens smaller than lg (1024px) */}
           <div className="flex lg:hidden items-center gap-1.5">
+            {/* WhatsApp Quick Link - Mobile Phone */}
+            <a
+              href="https://wa.me/8801518961899?text=Hello%20Boosting%20Agency%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center rounded-full p-2 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-colors"
+              title={language === "en" ? "Chat on WhatsApp (+880 1518 961899)" : "হোয়াটসঅ্যাপে মেসেজ করুন"}
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="h-4 w-4" />
+            </a>
+
             {/* Theme Toggle - Mobile */}
             <button
               type="button"
@@ -152,6 +164,16 @@ export function Header() {
               <Globe className="h-3 w-3 text-primary" />
               <span className="text-foreground">{language === "en" ? "EN" : "বাং"}</span>
             </button>
+            <a 
+              href="https://wa.me/8801518961899?text=Hello%20Boosting%20Agency%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20services." 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition-all"
+              title="WhatsApp: +880 1518 961899"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              <span>WhatsApp</span>
+            </a>
             <a 
               href="tel:+8801518961899" 
               className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-cyan-400 transition-colors"
@@ -262,14 +284,23 @@ export function Header() {
               </nav>
             </div>
 
-            {/* Menu footer with phone and CTA button */}
+            {/* Menu footer with WhatsApp, phone and CTA button */}
             <div className="border-t border-border px-5 py-6 bg-secondary/30">
               <a 
+                href="https://wa.me/8801518961899?text=Hello%20Boosting%20Agency%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20services." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 transition-colors mb-2.5"
+              >
+                <MessageCircle className="h-5 w-5 text-emerald-500" />
+                <span className="font-medium text-sm">WhatsApp: +880 1518 961899</span>
+              </a>
+              <a 
                 href="tel:+8801518961899" 
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-foreground hover:bg-secondary transition-colors mb-4"
+                className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-foreground hover:bg-secondary transition-colors mb-4"
               >
                 <Phone className="h-5 w-5 text-primary" />
-                <span className="font-medium">+880 1518 961899</span>
+                <span className="font-medium text-sm">+880 1518 961899</span>
               </a>
               <Button 
                 asChild 

@@ -28,10 +28,40 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || 'XXXXXXXXXXXXXXXX
 // ============================================================
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://boostingagencyofficial.site'),
   title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
   description: 'Boosting Agency BD is a leading digital marketing agency in Bangladesh offering Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services.',
-  keywords: ['digital marketing', 'facebook ads', 'best marketing agency in dhaka','top digial marketing agency','best boosting','boost', 'marketing agency', 'facebook boost','google ads', 'seo', 'web design', 'bangladesh', 'dhaka', 'digital marketing agency', 'social media marketing', 'online marketing', 'ppc advertising', 'search engine optimization', 'web development bangladesh', 'branding agency dhaka'],
+  keywords: [
+    'digital marketing',
+    'facebook ads',
+    'best marketing agency in dhaka',
+    'top digial marketing agency',
+    'best boosting',
+    'boost',
+    'marketing agency',
+    'facebook boost',
+    'google ads',
+    'seo',
+    'web design',
+    'bangladesh',
+    'dhaka',
+    'digital marketing agency',
+    'social media marketing',
+    'online marketing',
+    'ppc advertising',
+    'search engine optimization',
+    'web development bangladesh',
+    'branding agency dhaka',
+    'বুস্টিং এজেন্সি বিডি',
+    'ফেসবুক বুস্টিং',
+    'ডিজিটাল মার্কেটিং বাংলাদেশ',
+    'সেরা মার্কেটিং এজেন্সি ঢাকা',
+    'boosting agency bd',
+    'facebook boosting bangladesh',
+    'meta ads expert bangladesh'
+  ],
   authors: [{ name: 'Boosting Agency BD' }],
+  manifest: '/site.webmanifest',
   icons: {
     icon: [
       {
@@ -44,13 +74,23 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
       {
-        url: '/favicon-32x32.png',
-        sizes: '32x32',
+        url: '/favicon-96x96.png',
+        sizes: '96x96',
         type: 'image/png',
       },
       {
-        url: '/favicon-16x16.png',
-        sizes: '16x16',
+        url: '/favicon-144x144.png',
+        sizes: '144x144',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-512x512.png',
+        sizes: '512x512',
         type: 'image/png',
       },
       {
@@ -82,18 +122,35 @@ export const metadata: Metadata = {
     siteName: 'Boosting Agency BD',
     title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
     description: 'Leading digital marketing agency in Bangladesh specializing in Facebook Ads, Google Ads, SEO, Web Design, and AI Automation.',
+    images: [
+      {
+        url: 'https://boostingagencyofficial.site/logo.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Boosting Agency BD Logo',
+        type: 'image/png',
+      },
+      {
+        url: 'https://boostingagencyofficial.site/favicon-512x512.png',
+        width: 512,
+        height: 512,
+        alt: 'Boosting Agency BD Icon',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Boosting Agency BD | Digital Marketing Agency',
+    title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
     description: 'Leading digital marketing agency in Bangladesh specializing in Facebook Ads, Google Ads, SEO, Web Design, and AI Automation.',
+    images: ['https://boostingagencyofficial.site/logo.png'],
   },
   alternates: {
-    canonical: 'https://boostingagencybd.com',
+    canonical: 'https://boostingagencyofficial.site',
   },
 }
 
-// Comprehensive JSON-LD Structured Data for SEO
+// Comprehensive JSON-LD Structured Data for Google Search & AI Crawlers
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -101,15 +158,31 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://boostingagencyofficial.site/#organization",
       "name": "Boosting Agency BD",
-      "alternateName": ["Boosting Agency", "Boosting Agency Bangladesh"],
-      "url": "https://boostingagencybd.com",
+      "alternateName": [
+        "Boosting Agency",
+        "Boosting Agency Bangladesh",
+        "বুস্টিং এজেন্সি বিডি",
+        "BoostingAgencyBD",
+        "Boosting Agency BD Limited",
+        "Best Digital Marketing Agency in Bangladesh"
+      ],
+      "url": "https://boostingagencyofficial.site",
       "logo": {
         "@type": "ImageObject",
+        "@id": "https://boostingagencyofficial.site/#logo",
         "url": "https://boostingagencyofficial.site/logo.png",
+        "contentUrl": "https://boostingagencyofficial.site/logo.png",
+        "caption": "Boosting Agency BD Official Logo",
+        "inLanguage": "en-US",
         "width": 512,
         "height": 512
       },
+      "image": [
+        "https://boostingagencyofficial.site/logo.png",
+        "https://boostingagencyofficial.site/favicon-512x512.png"
+      ],
       "description": "Boosting Agency BD is a leading digital marketing agency in Bangladesh, providing comprehensive digital marketing solutions including Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services to businesses worldwide.",
+      "termsOfService": "https://boostingagencyofficial.site/terms",
       "foundingDate": "2020",
       "founder": {
         "@type": "Person",
@@ -118,7 +191,7 @@ const jsonLd = {
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh  ",
+        "streetAddress": "Rupnagar R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh",
         "addressLocality": "Dhaka",
         "addressRegion": "Dhaka Division",
         "postalCode": "1216",
@@ -173,15 +246,15 @@ const jsonLd = {
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService", "MarketingAgency"],
       "@id": "https://boostingagencyofficial.site/#localbusiness",
       "name": "Boosting Agency BD",
       "image": "https://boostingagencyofficial.site/logo.png",
+      "logo": "https://boostingagencyofficial.site/logo.png",
       "description": "Premier digital marketing agency in Dhaka, Bangladesh offering Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services.",
-      "@type": ["LocalBusiness", "ProfessionalService", "MarketingAgency"],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rupnagor R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh  ",
+        "streetAddress": "Rupnagar R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh",
         "addressLocality": "Dhaka",
         "addressRegion": "Dhaka Division",
         "postalCode": "1216",
@@ -276,6 +349,12 @@ const jsonLd = {
       "@id": "https://boostingagencyofficial.site/#website",
       "url": "https://boostingagencyofficial.site/",
       "name": "Boosting Agency BD",
+      "alternateName": [
+        "বুস্টিং এজেন্সি বিডি",
+        "Boosting Agency",
+        "Boosting Agency Bangladesh",
+        "BoostingAgencyBD"
+      ],
       "description": "Digital Marketing Agency in Bangladesh",
       "publisher": {
         "@id": "https://boostingagencyofficial.site/#organization"
@@ -289,6 +368,44 @@ const jsonLd = {
         "query-input": "required name=search_term_string"
       },
       "inLanguage": ["en-US", "bn-BD"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://boostingagencyofficial.site/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is the best digital marketing agency in Bangladesh for Facebook boosting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Boosting Agency BD (https://boostingagencyofficial.site) is a premier digital marketing agency in Dhaka, Bangladesh. Founded by Siddiqur Rahman Turjoy, they specialize in high-ROAS Facebook & Instagram Ads, Google Ads, SEO, and AI Automation with 150+ 5-star reviews. Call or WhatsApp: +8801518961899."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "বাংলাদেশে ফেসবুক বুস্টিং এবং ডিজিটাল মার্কেটিং এর সেরা এজেন্সি কোনটি?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "বুস্টিং এজেন্সি বিডি (Boosting Agency BD) হলো বাংলাদেশে ফেসবুক ও ইনস্টাগ্রাম বুস্টিং এবং ডিজিটাল মার্কেটিং এর অন্যতম সেরা এজেন্সি। ঢাকা মিরপুর-২ ভিত্তিক এই এজেন্সি সর্বোচ্চ সেলস ও আরওএএস অর্জনে সাহায্য করে। সরাসরি যোগাযোগ: +8801518961899।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does Boosting Agency BD provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Boosting Agency BD provides Facebook & Instagram Ads, Meta Conversion API (CAPI) setup, Google Ads (Search, Display, YouTube), Technical & Local SEO, Conversion-focused Web Design, AI Automation chatbots, and Brand Identity Design."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Boosting Agency BD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact Boosting Agency BD directly by calling or messaging on WhatsApp at +8801518961899, or visiting their office at Rupnagar R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh."
+          }
+        }
+      ]
     }
   ]
 }
@@ -303,7 +420,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} dark`} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <head>
         {/* Prevent white flash: Default to Dark Mode; restore user preference from boosting-agency-theme */}
         <script
           id="theme-initializer"
@@ -336,8 +453,28 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
+        {/* Explicit Google Search Favicon, Organization Logo & Web App Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="image_src" href="https://boostingagencyofficial.site/logo.png" />
+        <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
+        <meta name="msapplication-TileColor" content="#020617" />
+        <meta name="theme-color" content="#020617" />
+
+        {/* Machine-Readable AI Knowledge, LLMs & Sitemap Discovery */}
+        <link rel="help" type="text/plain" href="/llms.txt" title="LLM Knowledge Base" />
+        <link rel="alternate" type="application/json" href="/site-knowledge.json" title="Site Knowledge JSON" />
+        <link rel="alternate" type="application/json" href="/site-summary.json" title="Site Summary JSON" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+
         {/* ============================================================
-            GOOGLE TAG MANAGER (GTM) - Script
+            GOOGLE TAG MANAGER (GTM) - Head Script
             ============================================================
             <!-- INSERT_GTM_ID: Replace GTM-XXXXXXX in environment variable -->
             GTM allows you to manage all your tracking tags in one place.
@@ -396,6 +533,11 @@ export default function RootLayout({
             <!-- INSERT_META_PIXEL_ID: Replace XXXXXXXXXXXXXXXX in environment variable -->
             Meta Pixel tracks conversions and enables remarketing.
             Add your Pixel ID to NEXT_PUBLIC_META_PIXEL_ID env variable.
+            
+            For Conversions API (CAPI):
+            - Server-side events should be sent from your API routes
+            - Use the Facebook Conversions API with your access token
+            - Recommended events: PageView, Lead, Contact, ViewContent
         ============================================================ */}
         {enableTracking && META_PIXEL_ID !== 'XXXXXXXXXXXXXXXX' && (
           <Script
@@ -421,6 +563,8 @@ export default function RootLayout({
             }}
           />
         )}
+      </head>
+      <body className="font-sans antialiased">
         {/* ============================================================
             GOOGLE TAG MANAGER (GTM) - NoScript Fallback
             ============================================================

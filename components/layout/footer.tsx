@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Twitter, MessageSquare, Phone, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function Footer() {
@@ -23,6 +23,7 @@ export function Footer() {
       { name: t("blog"), href: "/blog" },
       { name: isEnglish ? "Careers" : "ক্যারিয়ার", href: "/contact" },
       { name: t("contact"), href: "/contact" },
+      { name: "T&C", href: "/terms" },
     ],
     social: [
       { name: "Facebook", href: "https://www.facebook.com/boostingagencyofficial", icon: Facebook },
@@ -106,9 +107,9 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:turjoy144@gmail.com" className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors">
-                  <Mail className="h-4 w-4 mt-0.5 shrink-0 text-cyan-400" />
-                  turjoy144@gmail.com
+                <a href="https://wa.me/8801518961899" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors">
+                  <MessageSquare className="h-4 w-4 mt-0.5 shrink-0 text-cyan-400" />
+                  <span>{isEnglish ? "WhatsApp: +880 1518 961899" : "হোয়াটসঅ্যাপ: +৮৮০ ১৫১৮ ৯৬১৮৯৯"}</span>
                 </a>
               </li>
               <li>
@@ -121,10 +122,32 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-800 pt-8">
-          <p className="text-center text-sm text-slate-400">
+        <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-center sm:text-left text-sm text-slate-400">
             &copy; {new Date().getFullYear()} Boosting Agency BD. {t("allRightsReserved")}
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
+            <Link
+              href="/terms"
+              className="font-semibold text-cyan-400 hover:text-cyan-300 transition-colors underline-offset-4 hover:underline"
+            >
+              T&C
+            </Link>
+            <span className="text-slate-600">•</span>
+            <Link
+              href="/terms#privacy-policy-and-data-protection"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              {isEnglish ? "Privacy Policy" : "গোপনীয়তা নীতিমালা"}
+            </Link>
+            <span className="text-slate-600">•</span>
+            <Link
+              href="/terms#refund-and-balance-policy"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              {isEnglish ? "Refund Policy" : "রিফান্ড নীতিমালা"}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

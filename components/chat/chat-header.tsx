@@ -1,6 +1,6 @@
 "use client"
 
-import { Bot, X, Globe, Sparkles, RotateCcw } from "lucide-react"
+import { Bot, X, Globe, Sparkles, RotateCcw, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface ChatHeaderProps {
@@ -55,6 +55,19 @@ export function ChatHeader({
               <RotateCcw className="w-3.5 h-3.5" />
             </Button>
           )}
+
+          {/* Direct WhatsApp Action */}
+          <a
+            href="https://wa.me/8801518961899?text=Hello%20Boosting%20Agency%20BD%2C%20I%20want%20to%20chat%20with%20an%20agent."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-8 px-2 text-xs font-semibold bg-emerald-500/25 hover:bg-emerald-500/40 text-white rounded-lg flex items-center gap-1 transition-colors cursor-pointer border border-emerald-400/40 shadow-xs"
+            title={isEn ? "Chat directly on WhatsApp (+880 1518 961899)" : "সরাসরি হোয়াটসঅ্যাপে কথা বলুন"}
+            aria-label="Direct WhatsApp Chat"
+          >
+            <MessageCircle className="w-3.5 h-3.5 text-emerald-200 fill-emerald-400/30" />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </a>
 
           {/* Language Toggle */}
           <Button

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone, Mail } from "lucide-react"
+import { ArrowRight, Phone, MessageSquare } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { ScrollReveal, fadeInUp, staggerContainer } from "@/components/ui/motion"
 
@@ -81,9 +81,9 @@ export function CTASection() {
               +880 1518 961899
             </a>
             <span className="hidden sm:block">|</span>
-            <a href="mailto:turjoy144@gmail.com" className="flex items-center gap-2 hover:text-primary-foreground hover:scale-105 transition-all duration-300">
-              <Mail className="h-5 w-5" />
-              turjoy144@gmail.com
+            <a href="https://wa.me/8801518961899" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary-foreground hover:scale-105 transition-all duration-300">
+              <MessageSquare className="h-5 w-5" />
+              WhatsApp: +880 1518 961899
             </a>
           </motion.div>
         </motion.div>

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import { Phone, MessageSquare, MapPin, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export default function ContactPage() {
@@ -34,10 +34,10 @@ export default function ContactPage() {
       href: "tel:+8801518961899",
     },
     {
-      icon: Mail,
-      title: t("email"),
-      details: "turjoy144@gmail.com",
-      href: "mailto:turjoy144@gmail.com",
+      icon: MessageSquare,
+      title: isEnglish ? "WhatsApp" : "হোয়াটসঅ্যাপ",
+      details: "+880 1518 961899",
+      href: "https://wa.me/8801518961899",
     },
     {
       icon: MapPin,

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Bot } from "lucide-react"
+import { X, Bot, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { ChatHeader } from "./chat-header"
 import { ChatMessages } from "./chat-messages"
@@ -198,6 +198,41 @@ export function ChatWidget() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating WhatsApp CTA Button - Placed directly above the Agent button */}
+      <motion.a
+        href="https://wa.me/8801518961899?text=Hello%20Boosting%20Agency%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+        className="group relative flex items-center gap-2 mb-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-xl shadow-emerald-500/30 border border-white/30 transition-all duration-300 focus:outline-hidden focus:ring-4 focus:ring-emerald-400/40 cursor-pointer select-none p-3 sm:px-4 sm:py-2.5"
+        aria-label="Direct WhatsApp Message"
+        title={isEn ? "Chat directly on WhatsApp (+880 1518 961899)" : "হোয়াটসঅ্যাপে সহজে মেসেজ পাঠান"}
+      >
+        <div className="relative flex items-center justify-center">
+          <MessageCircle className="w-5 h-5 sm:w-4 sm:h-4 text-white fill-white/10 stroke-[2.2]" />
+          <span className="absolute -top-1 -right-1 flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-90" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+          </span>
+        </div>
+
+        {/* Small icon on phone screen; expanded label on sm+ desktop */}
+        <div className="hidden sm:flex flex-col items-start leading-tight">
+          <span className="text-xs font-bold tracking-tight">
+            {isEn ? "WhatsApp" : "হোয়াটসঅ্যাপ"}
+          </span>
+          <span className="text-[10px] text-emerald-100 font-medium">
+            {isEn ? "Easy Message" : "সহজে মেসেজ"}
+          </span>
+        </div>
+
+        {/* Tooltip on hover */}
+        <span className="pointer-events-none absolute right-full mr-2.5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-slate-900/90 dark:bg-black/90 text-white text-[11px] font-semibold px-2.5 py-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-white/10">
+          {isEn ? "Chat on WhatsApp (+8801518961899)" : "হোয়াটসঅ্যাপে মেসেজ পাঠান"}
+        </span>
+      </motion.a>
 
       {/* Floating Trigger Button */}
       <motion.button
