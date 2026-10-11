@@ -125,7 +125,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     whatsappMessage: "Hello Boosting Agency BD, I would like to discuss website development and creative marketing solutions with Joynal Abedin (Joy).",
     email: "contact@boostingagencyofficial.site",
     phone: "+8801518961899",
-    defaultImages: [],
+    defaultImages: [
+      {
+        url: "/images/team/joynal-abedin-joy.webp",
+        caption: "Creative & Marketing Technology Specialist",
+        captionBn: "ক্রিয়েটিভ ও মার্কেটিং টেকনোলজি বিশেষজ্ঞ",
+      },
+    ],
   },
   {
     id: "mohidul-islam-sojib",
@@ -174,7 +180,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     whatsappMessage: "Hello Boosting Agency BD, I would like to discuss performance marketing and Meta advertising strategy with Mohidul Islam Sojib.",
     email: "contact@boostingagencyofficial.site",
     phone: "+8801518961899",
-    defaultImages: [],
+    defaultImages: [
+      {
+        url: "/images/team/mohidul-islam-sojib.webp",
+        caption: "Performance Marketing & Meta Lead",
+        captionBn: "পারফরম্যান্স মার্কেটিং ও মেটা লিড",
+      },
+    ],
   },
   {
     id: "abir-islam-joy",
@@ -221,7 +233,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     whatsappMessage: "Hello Boosting Agency BD, I would like to discuss creative media buying and ad campaigns with Abir Islam Joy.",
     email: "contact@boostingagencyofficial.site",
     phone: "+8801518961899",
-    defaultImages: [],
+    defaultImages: [
+      {
+        url: "/images/team/abir-islam-joy.webp",
+        caption: "Creative Media Buyer & Campaign Strategist",
+        captionBn: "ক্রিয়েটিভ মিডিয়া বায়ার ও ক্যাম্পেইন স্ট্র্যাটেজিস্ট",
+      },
+    ],
   },
   {
     id: "azom",
@@ -268,7 +286,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     whatsappMessage: "Hello Boosting Agency BD, I would like to discuss eCommerce advertising and performance scaling with Azom.",
     email: "contact@boostingagencyofficial.site",
     phone: "+8801518961899",
-    defaultImages: [],
+    defaultImages: [
+      {
+        url: "/images/team/azom.webp",
+        caption: "eCommerce Scaling & Growth Specialist",
+        captionBn: "ই-কমার্স স্কেলিং ও গ্রোথ স্পেশালিস্ট",
+      },
+    ],
   },
 ]
 
