@@ -45,13 +45,32 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
   const storageKey = `ba_team_images_${member.id}`
 
   // State for gallery images
-  const [images, setImages] = useState<GalleryImage[]>([])
+  const [images, setImages] = useState<GalleryImage[]>(() =>
+    member.defaultImages.map((img, i) => ({
+      id: `default-${i}`,
+      url: img.url,
+      caption: isEnglish ? img.caption : (img.captionBn || img.caption),
+      isCustom: false,
+    }))
+  )
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [copiedLink, setCopiedLink] = useState(false)
 
-  // Initialize images from member default WebP images
+  // Initialize images from localStorage or member default WebP images
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(`ba_team_image_${member.id}`)
+      if (saved) {
+        setImages([{
+          id: "custom-saved",
+          url: saved,
+          caption: member.name,
+          isCustom: true,
+        }])
+        return
+      }
+    }
     const loadedImages: GalleryImage[] = member.defaultImages.map((img, i) => ({
       id: `default-${i}`,
       url: img.url,
