@@ -17,6 +17,15 @@
 /hero/*
   Cache-Control: public, max-age=31536000, immutable
 
+/images/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Access-Control-Allow-Origin: *
+  Content-Type: image/webp
+  Cache-Control: public, max-age=31536000, immutable
+
 /*.png
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=86400
