@@ -24,22 +24,7 @@ export function FounderCeoSpotlight() {
 
   const founder = TEAM_MEMBERS.find((m) => m.id === "siddiqur-rahman-turjoy") || TEAM_MEMBERS[0]
 
-  const [photoUrl, setPhotoUrl] = useState<string>(
-    founder.defaultImages[0]?.url || "/images/team/siddiqur-rahman-turjoy.webp"
-  )
-
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    try {
-      const saved = localStorage.getItem(`ba_team_images_${founder.id}`)
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.url) {
-          setPhotoUrl(parsed[0].url)
-        }
-      }
-    } catch {}
-  }, [founder.id])
+  const photoUrl = founder.defaultImages[0]?.url || "/images/team/siddiqur-rahman-turjoy.webp"
 
   const websiteUrl = founder.website || "https://turjoy.boostingagencyofficial.site/"
 

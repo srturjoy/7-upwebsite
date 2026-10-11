@@ -49,52 +49,9 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [copiedLink, setCopiedLink] = useState(false)
-  const [otherPhotos, setOtherPhotos] = useState<Record<string, string>>({})
 
-  // Load custom photos for all team members from localStorage
+  // Initialize images from member default WebP images
   useEffect(() => {
-    if (typeof window === "undefined") return
-    const map: Record<string, string> = {}
-    for (const m of TEAM_MEMBERS) {
-      try {
-        const saved = localStorage.getItem(`ba_team_images_${m.id}`)
-        if (saved) {
-          const parsed = JSON.parse(saved)
-          if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.url) {
-            map[m.id] = parsed[0].url
-          }
-        }
-      } catch {
-        // ignore
-      }
-    }
-    setOtherPhotos(map)
-  }, [])
-
-  // Initialize images from localStorage if present, else use member default WebP images
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(storageKey)
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setImages(parsed)
-          // In background, sync to server WebP conversion endpoint
-          const rawUrls = parsed.map((p: GalleryImage) => p.url).filter(Boolean)
-          if (rawUrls.length > 0) {
-            fetch("/api/team-images/sync", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ memberId: member.id, images: rawUrls }),
-            }).catch(() => {})
-          }
-          return
-        }
-      }
-    } catch {
-      // Ignore fallback
-    }
-
     // Default WebP images from data/team.ts
     const initial: GalleryImage[] = member.defaultImages.map((img, i) => ({
       id: `default-${i}`,
@@ -103,7 +60,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
       isCustom: false,
     }))
     setImages(initial)
-  }, [member, isEnglish, storageKey])
+  }, [member, isEnglish])
 
   // Copy profile link
   const handleCopyLink = () => {
@@ -397,7 +354,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {otherMembers.map((other) => {
-              const photoUrl = otherPhotos[other.id] || other.defaultImages[0]?.url || `/images/team/${other.id}.webp`
+              const photoUrl = other.defaultImages[0]?.url || `/images/team/${other.id}.webp`
               return (
                 <Card
                   key={other.id}

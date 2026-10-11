@@ -37,34 +37,12 @@ export function TeamCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isAutoScroll, setIsAutoScroll] = useState(true)
   const [viewMode, setViewMode] = useState<"carousel" | "grid">("carousel")
-  const [customPhotos, setCustomPhotos] = useState<Record<string, string>>({})
-  
   const isHoveredRef = useRef(false)
   const pointerStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
 
-  // Load any custom uploaded photos from browser localStorage
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    const map: Record<string, string> = {}
-    for (const m of TEAM_MEMBERS) {
-      try {
-        const saved = localStorage.getItem(`ba_team_images_${m.id}`)
-        if (saved) {
-          const parsed = JSON.parse(saved)
-          if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.url) {
-            map[m.id] = parsed[0].url
-          }
-        }
-      } catch {
-        // ignore
-      }
-    }
-    setCustomPhotos(map)
-  }, [])
-
   // Helper to get active photo URL for member
   const getPhotoUrl = (member: TeamMember) => {
-    return customPhotos[member.id] || member.defaultImages[0]?.url || `/images/team/${member.id}.webp`
+    return member.defaultImages[0]?.url || `/images/team/${member.id}.webp`
   }
 
   // Navigate to dedicated team member page
