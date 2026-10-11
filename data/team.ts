@@ -78,16 +78,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
         caption: "Founder & Lead Marketing Architect",
         captionBn: "প্রতিষ্ঠাতা ও লিড মার্কেটিং আর্কিটেক্ট",
       },
-      {
-        url: "/images/team/siddiqur-rahman-turjoy-1.webp",
-        caption: "Client Strategy & Performance Planning",
-        captionBn: "ক্লায়েন্ট স্ট্র্যাটেজি ও পারফরম্যান্স প্ল্যানিং",
-      },
-      {
-        url: "/images/team/siddiqur-rahman-turjoy-2.webp",
-        caption: "Analytics & Server-Side Tracking Systems",
-        captionBn: "অ্যানালিটিক্স ও সার্ভার-সাইড ট্র্যাকিং সিস্টেম",
-      },
     ],
   },
   {
@@ -140,16 +130,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
         url: "/images/team/joynal-abedin-joy.webp",
         caption: "Creative & Marketing Technology Specialist",
         captionBn: "ক্রিয়েটিভ ও মার্কেটিং টেকনোলজি বিশেষজ্ঞ",
-      },
-      {
-        url: "/images/team/joynal-abedin-joy-1.webp",
-        caption: "Web Development & Funnel Engineering",
-        captionBn: "ওয়েব ডেভেলপমেন্ট ও ফানেল ইঞ্জিনিয়ারিং",
-      },
-      {
-        url: "/images/team/joynal-abedin-joy-2.webp",
-        caption: "Video Production & Visual Storytelling",
-        captionBn: "ভিডিও প্রোডাকশন ও ভিজ্যুয়াল স্টোরিটেলিং",
       },
     ],
   },
@@ -206,16 +186,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
         caption: "Performance Marketing & Meta Lead",
         captionBn: "পারফরম্যান্স মার্কেটিং ও মেটা লিড",
       },
-      {
-        url: "/images/team/mohidul-islam-sojib-1.webp",
-        caption: "Campaign Scaling & ROI Analytics",
-        captionBn: "ক্যাম্পেইন স্কেলিং ও আরওআই অ্যানালিটিক্স",
-      },
-      {
-        url: "/images/team/mohidul-islam-sojib-2.webp",
-        caption: "Audience Research & Growth Strategy",
-        captionBn: "অডিয়েন্স রিসার্চ ও গ্রোথ স্ট্র্যাটেজি",
-      },
     ],
   },
   {
@@ -269,16 +239,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
         caption: "Creative Media Buyer & Campaign Strategist",
         captionBn: "ক্রিয়েটিভ মিডিয়া বায়ার ও ক্যাম্পেইন স্ট্র্যাটেজিস্ট",
       },
-      {
-        url: "/images/team/abir-islam-joy-1.webp",
-        caption: "High-Converting Ad Hooks & Copy Testing",
-        captionBn: "হাই-কনভার্টিং অ্যাড হুক ও কপি টেস্টিং",
-      },
-      {
-        url: "/images/team/abir-islam-joy-2.webp",
-        caption: "Team Campaign Execution & Review",
-        captionBn: "টিম ক্যাম্পেইন এক্সিকিউশন ও পারফরম্যান্স রিভিউ",
-      },
     ],
   },
   {
@@ -331,16 +291,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
         url: "/images/team/azom.webp",
         caption: "eCommerce Scaling & Growth Specialist",
         captionBn: "ই-কমার্স স্কেলিং ও গ্রোথ স্পেশালিস্ট",
-      },
-      {
-        url: "/images/team/azom-1.webp",
-        caption: "Online Store Funnels & Conversion Audits",
-        captionBn: "অনলাইন স্টোর ফানেল ও কনভার্সন অডিট",
-      },
-      {
-        url: "/images/team/azom-2.webp",
-        caption: "Daily Ad Performance & ROAS Optimization",
-        captionBn: "দৈনিক অ্যাড পারফরম্যান্স ও আরওআই অপটিমাইজেশন",
       },
     ],
   },

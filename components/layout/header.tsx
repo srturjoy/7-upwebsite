@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import { Menu, X, Phone, Globe, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
-import { useTheme } from "next-themes"
+import { useTheme } from "@/components/theme-provider"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -34,16 +34,26 @@ export function Header() {
   const handleOpenMobileMenu = () => {
     setMobileMenuOpen(true)
     if (typeof window !== "undefined") {
-      isClosingViaHistoryRef.current = false
-      window.history.pushState({ modal: "mobile-menu" }, "")
+      try {
+        isClosingViaHistoryRef.current = false
+        window.history.pushState({ modal: "mobile-menu" }, "")
+      } catch (e) {
+        // Ignore history push state errors in restricted sandbox
+      }
     }
   }
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpen(false)
-    if (typeof window !== "undefined" && window.history.state?.modal === "mobile-menu") {
-      isClosingViaHistoryRef.current = true
-      window.history.back()
+    if (typeof window !== "undefined") {
+      try {
+        if (window.history.state?.modal === "mobile-menu") {
+          isClosingViaHistoryRef.current = true
+          window.history.back()
+        }
+      } catch (e) {
+        // Ignore history back errors in restricted sandbox
+      }
     }
   }
 

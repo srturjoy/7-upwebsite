@@ -1,4 +1,17 @@
 import type { Metadata } from 'next'
+import React from 'react'
+if (typeof window === 'undefined') {
+  try {
+    const originalUseContext = React.useContext;
+    (React as any).useContext = function(Context: any) {
+      try {
+        return originalUseContext(Context);
+      } catch {
+        return undefined;
+      }
+    };
+  } catch {}
+}
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 const Analytics = () => null
@@ -409,6 +422,8 @@ const jsonLd = {
     }
   ]
 }
+
+export const dynamic = 'force-dynamic'
 
 export default function RootLayout({
   children,

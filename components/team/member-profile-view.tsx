@@ -52,14 +52,13 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
 
   // Initialize images from member default WebP images
   useEffect(() => {
-    // Default WebP images from data/team.ts
-    const initial: GalleryImage[] = member.defaultImages.map((img, i) => ({
+    const loadedImages: GalleryImage[] = member.defaultImages.map((img, i) => ({
       id: `default-${i}`,
       url: img.url,
       caption: isEnglish ? img.caption : (img.captionBn || img.caption),
       isCustom: false,
     }))
-    setImages(initial)
+    setImages(loadedImages)
   }, [member, isEnglish])
 
   // Copy profile link
@@ -155,32 +154,6 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
                 </button>
               </div>
             </div>
-
-            {/* Gallery Thumbnail Selector (if multiple photos available) */}
-            {images.length > 1 && (
-              <div className="grid grid-cols-3 gap-3">
-                {images.map((img, idx) => (
-                  <button
-                    key={img.id}
-                    type="button"
-                    onClick={() => setActiveImageIndex(idx)}
-                    className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${
-                      activeImageIndex === idx
-                        ? "border-cyan-500 shadow-md shadow-cyan-500/30 scale-105"
-                        : "border-border/60 hover:border-cyan-500/50 opacity-75 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={img.url}
-                      alt={`Photo ${idx + 1}`}
-                      fill
-                      sizes="120px"
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
 
             {/* Quick Contact & WhatsApp Box */}
             <div className="p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white border border-slate-700/80 shadow-xl space-y-4">
