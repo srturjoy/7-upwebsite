@@ -52,7 +52,7 @@ export function HeroImageCarousel({ isHovering = false }: HeroImageCarouselProps
 
   // Fetch verified hero images from manifest if available, fallback to OFFICIAL_HERO_IMAGES
   useEffect(() => {
-    fetch("/api/hero-images")
+    fetch("/hero-images.json")
       .then((res) => res.json())
       .then((data) => {
         if (data.customImages && Array.isArray(data.customImages) && data.customImages.length > 0) {
