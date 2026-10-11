@@ -58,7 +58,7 @@ export function BlogPreview() {
   const isEnglish = language === "en"
 
   return (
-    <section className="py-24">
+    <section className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>

@@ -78,42 +78,47 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
+        url: 'https://boostingagencyofficial.site/favicon.ico',
         sizes: '48x48 32x32 16x16',
       },
       {
-        url: '/favicon-48x48.png',
+        url: 'https://boostingagencyofficial.site/favicon-48x48.png',
         sizes: '48x48',
         type: 'image/png',
       },
       {
-        url: '/favicon-96x96.png',
+        url: 'https://boostingagencyofficial.site/favicon-96x96.png',
         sizes: '96x96',
         type: 'image/png',
       },
       {
-        url: '/favicon-144x144.png',
+        url: 'https://boostingagencyofficial.site/favicon-144x144.png',
         sizes: '144x144',
         type: 'image/png',
       },
       {
-        url: '/favicon-192x192.png',
+        url: 'https://boostingagencyofficial.site/favicon-192x192.png',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        url: '/favicon-512x512.png',
+        url: 'https://boostingagencyofficial.site/favicon-512x512.png',
         sizes: '512x512',
         type: 'image/png',
       },
       {
-        url: '/icon-light-32x32.png',
+        url: 'https://boostingagencyofficial.site/logo.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        url: 'https://boostingagencyofficial.site/icon-light-32x32.png',
         sizes: '32x32',
         type: 'image/png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: 'https://boostingagencyofficial.site/icon-dark-32x32.png',
         sizes: '32x32',
         type: 'image/png',
         media: '(prefers-color-scheme: dark)',
@@ -121,12 +126,12 @@ export const metadata: Metadata = {
     ],
     apple: [
       {
-        url: '/apple-icon.png',
+        url: 'https://boostingagencyofficial.site/apple-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: 'https://boostingagencyofficial.site/favicon.ico',
   },
   openGraph: {
     type: 'website',
@@ -167,6 +172,23 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://boostingagencyofficial.site/#website",
+      "url": "https://boostingagencyofficial.site",
+      "name": "Boosting Agency BD",
+      "alternateName": [
+        "Boosting Agency",
+        "Boosting Agency Bangladesh",
+        "বুস্টিং এজেন্সি বিডি",
+        "BoostingAgencyBD"
+      ],
+      "publisher": {
+        "@id": "https://boostingagencyofficial.site/#organization"
+      },
+      "image": "https://boostingagencyofficial.site/logo.png",
+      "inLanguage": "en-US"
+    },
     {
       "@type": "Organization",
       "@id": "https://boostingagencyofficial.site/#organization",

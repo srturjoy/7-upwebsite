@@ -46,7 +46,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-14 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 gradient-primary opacity-5" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
@@ -63,7 +63,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 border-y border-border bg-secondary/30">
+      <section className="py-10 lg:py-14 border-y border-border bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((stat) => (
@@ -77,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
             <div>
@@ -107,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 gradient-dark text-primary-foreground">
+      <section className="py-14 lg:py-20 gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
             <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
@@ -139,7 +139,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <p className="text-sm font-semibold text-primary uppercase tracking-wide">{t("ourValues")}</p>
@@ -167,7 +167,7 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Leadership & Team Section */}
-      <section className="py-24 bg-secondary/30 overflow-hidden">
+      <section className="py-14 lg:py-20 bg-secondary/30 overflow-hidden">
         {/* CEO & Founder Spotlight on TOP as requested */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-10">
@@ -200,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">

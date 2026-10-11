@@ -80,7 +80,7 @@ export function ServicesOverview() {
   const isEnglish = language === "en"
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-14 lg:py-20 bg-secondary/30">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold text-primary uppercase tracking-wide">{t("ourServices")}</p>

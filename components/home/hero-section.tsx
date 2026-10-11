@@ -301,7 +301,7 @@ export function HeroSection() {
         }}
       />
       
-      <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Text Content with High Contrast */}
           <div 

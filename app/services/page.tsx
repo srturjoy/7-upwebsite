@@ -235,7 +235,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-14 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 gradient-primary opacity-5" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal className="mx-auto max-w-3xl text-center">
@@ -305,9 +305,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="space-y-32">
+          <div className="space-y-16 lg:space-y-20">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -397,7 +397,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 gradient-primary relative overflow-hidden">
+      <section className="py-14 lg:py-20 gradient-primary relative overflow-hidden">
         {/* Animated glow orbs */}
         <motion.div 
           className="absolute -top-20 -left-20 w-60 h-60 bg-white/10 rounded-full blur-3xl"

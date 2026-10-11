@@ -106,7 +106,7 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-24 gradient-dark text-primary-foreground overflow-hidden relative">
+    <section className="py-14 lg:py-20 gradient-dark text-primary-foreground overflow-hidden relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-400/10 text-cyan-400 text-xs font-semibold mb-3 border border-cyan-400/20">

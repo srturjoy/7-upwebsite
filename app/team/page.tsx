@@ -18,7 +18,7 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-secondary/40 via-background to-background text-center relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-gradient-to-b from-secondary/40 via-background to-background text-center relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold mb-4 border border-cyan-500/20">
             <ShieldCheck className="h-4 w-4" />

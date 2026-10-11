@@ -57,6 +57,23 @@ export function Header() {
     }
   }
 
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false)
+    if (typeof window !== "undefined") {
+      try {
+        if (window.history.state?.modal === "mobile-menu") {
+          isClosingViaHistoryRef.current = true
+          window.history.back()
+        }
+      } catch (e) {
+        // Ignore history back errors in restricted sandbox
+      }
+    }
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = ""
+    }
+  }
+
   // Handle browser Back button / mobile swipe back gesture for mobile menu
   useEffect(() => {
     const handlePopState = () => {
@@ -336,7 +353,7 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     className="flex items-center rounded-lg px-4 py-3.5 text-base font-medium text-foreground hover:bg-secondary transition-colors"
-                    onClick={handleCloseMobileMenu}
+                    onClick={handleLinkClick}
                   >
                     {item.name}
                   </Link>
@@ -366,7 +383,7 @@ export function Header() {
                 asChild 
                 className="w-full gradient-primary text-white h-12 text-base font-semibold btn-get-started"
               >
-                <Link href="/contact" onClick={handleCloseMobileMenu}>
+                <Link href="/contact" onClick={handleLinkClick}>
                   {t("getStarted")}
                 </Link>
               </Button>

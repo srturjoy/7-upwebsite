@@ -51,7 +51,7 @@ export function WhyChooseUs() {
   const isEnglish = language === "en"
 
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="py-14 lg:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
           <ScrollReveal variants={slideInLeft}>

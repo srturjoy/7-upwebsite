@@ -20,7 +20,7 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
+      <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
         <div className="absolute inset-0 gradient-primary opacity-5 pointer-events-none" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
           <div className="mx-auto max-w-3xl text-center">
@@ -55,7 +55,7 @@ export default function PortfolioPage() {
       <PortfolioContent />
 
       {/* Stats Section */}
-      <section className="py-20 gradient-dark text-primary-foreground">
+      <section className="py-12 lg:py-16 gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((stat) => (
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-background">
+      <section className="py-14 lg:py-20 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
