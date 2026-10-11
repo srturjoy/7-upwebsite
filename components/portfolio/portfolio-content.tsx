@@ -1,13 +1,15 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TrendingUp } from "lucide-react"
+import { TrendingUp, X, MessageCircle, ArrowRight } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import { fadeInUp, staggerContainer } from "@/components/ui/motion"
+import { useLanguage } from "@/lib/language-context"
 
 const categories = ["All", "E-commerce", "Lead Generation", "Branding", "SEO", "Social Media"] as const
 
@@ -189,6 +191,64 @@ const projects: Project[] = [
 
 export function PortfolioContent() {
   const [activeCategory, setActiveCategory] = useState<Category>("All")
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const isClosingViaHistoryRef = useRef(false)
+  const { language } = useLanguage()
+  const isEnglish = language === "en"
+
+  // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
+  const handleOpenProject = useCallback((project: Project) => {
+    setSelectedProject(project)
+    if (typeof window !== "undefined") {
+      isClosingViaHistoryRef.current = false
+      window.history.pushState({ modal: "portfolio-project", title: project.title }, "")
+    }
+  }, [])
+
+  // Close modal and cleanly pop history state if it was pushed
+  const handleCloseProject = useCallback(() => {
+    setSelectedProject((current) => {
+      if (!current) return null
+      if (typeof window !== "undefined" && window.history.state?.modal === "portfolio-project") {
+        isClosingViaHistoryRef.current = true
+        window.history.back()
+      }
+      return null
+    })
+  }, [])
+
+  // Browser Back button / mobile swipe back gesture listener
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isClosingViaHistoryRef.current) {
+        isClosingViaHistoryRef.current = false
+        return
+      }
+      // If modal was open, close it so user stays on the website
+      setSelectedProject(null)
+    }
+
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [])
+
+  // Keyboard Backspace ("back speacch") and Escape key listener
+  useEffect(() => {
+    if (!selectedProject) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+
+      if ((e.key === "Backspace" && !isInput) || e.key === "Escape") {
+        e.preventDefault()
+        handleCloseProject()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedProject, handleCloseProject])
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") {
@@ -255,7 +315,8 @@ export function PortfolioContent() {
                   layout
                 >
                   <Card 
-                    className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 h-full bg-card flex flex-col justify-between"
+                    onClick={() => handleOpenProject(project)}
+                    className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 h-full bg-card flex flex-col justify-between cursor-pointer"
                   >
                     {/* Glow effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0">
@@ -332,6 +393,104 @@ export function PortfolioContent() {
           )}
         </div>
       </section>
+
+      {/* Project Detail Modal with Back Button & Backspace Protection */}
+      <Dialog open={!!selectedProject} onOpenChange={(open) => { if (!open) handleCloseProject() }}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+          {selectedProject && (
+            <>
+              {/* Hero Image */}
+              <div className="relative aspect-[21/9] overflow-hidden">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="inline-flex items-center rounded-full gradient-primary text-white px-4 py-1.5 text-sm font-medium mb-3">
+                    {selectedProject.category}
+                  </span>
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl sm:text-3xl font-bold text-foreground">
+                      {selectedProject.title}
+                    </DialogTitle>
+                    <DialogDescription className="text-base sm:text-lg text-muted-foreground">
+                      {selectedProject.client}
+                    </DialogDescription>
+                  </DialogHeader>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCloseProject}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors cursor-pointer"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="p-6 lg:p-8">
+                {/* Overview */}
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  {selectedProject.description}
+                </p>
+
+                {/* Key Results */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-primary mb-3">
+                    {isEnglish ? "Key Campaign Results" : "প্রধান ক্যাম্পেইন ফলাফল"}
+                  </h4>
+                  <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-secondary/60 border border-border/50">
+                    {selectedProject.results.map((result) => (
+                      <div key={result.label} className="text-center">
+                        <p className="text-base sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 flex items-center justify-center gap-1">
+                          <TrendingUp className="h-4 w-4 text-cyan-500" />
+                          {result.value}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1 font-medium">{result.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Services Delivered */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                    {isEnglish ? "Services Delivered" : "প্রদত্ত সেবাসমূহ"}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.services.map((service) => (
+                      <Badge key={service} variant="secondary" className="px-3 py-1 text-xs">
+                        {service}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* WhatsApp Consultation Action */}
+                <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-xs text-muted-foreground text-center sm:text-left">
+                    {isEnglish 
+                      ? "Want similar results for your business? Chat with our growth specialists." 
+                      : "আপনার ব্যবসার জন্যও কি অনুরূপ ফলাফল চান? আমাদের স্পেশালিস্টদের সাথে কথা বলুন।"}
+                  </p>
+                  <a
+                    href={`https://wa.me/8801518961899?text=${encodeURIComponent(`Hello Boosting Agency BD, I saw your project "${selectedProject.title}" and would like a consultation.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs px-5 py-3 shadow-md shadow-emerald-500/20 transition-all hover:scale-105"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span>{isEnglish ? "Discuss on WhatsApp" : "হোয়াটসঅ্যাপে আলোচনা করুন"}</span>
+                  </a>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

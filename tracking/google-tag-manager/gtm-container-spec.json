@@ -1,0 +1,28 @@
+{
+  "containerName": "Boosting Agency BD Web Container",
+  "containerType": "web",
+  "tags": [
+    {
+      "name": "Meta Pixel Base",
+      "type": "html"
+    },
+    {
+      "name": "GA4 Configuration",
+      "type": "gaaw_config"
+    },
+    {
+      "name": "WhatsApp Click Tracker",
+      "type": "html"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "All Pages",
+      "type": "pageview"
+    },
+    {
+      "name": "Click WhatsApp CTA",
+      "type": "click"
+    }
+  ]
+}

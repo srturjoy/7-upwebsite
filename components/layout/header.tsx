@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Menu, X, Phone, Globe, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
@@ -28,6 +28,56 @@ export function Header() {
     { name: t("blog"), href: "/blog" },
     { name: t("contact"), href: "/contact" },
   ]
+
+  const isClosingViaHistoryRef = useRef(false)
+
+  const handleOpenMobileMenu = () => {
+    setMobileMenuOpen(true)
+    if (typeof window !== "undefined") {
+      isClosingViaHistoryRef.current = false
+      window.history.pushState({ modal: "mobile-menu" }, "")
+    }
+  }
+
+  const handleCloseMobileMenu = () => {
+    setMobileMenuOpen(false)
+    if (typeof window !== "undefined" && window.history.state?.modal === "mobile-menu") {
+      isClosingViaHistoryRef.current = true
+      window.history.back()
+    }
+  }
+
+  // Handle browser Back button / mobile swipe back gesture for mobile menu
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isClosingViaHistoryRef.current) {
+        isClosingViaHistoryRef.current = false
+        return
+      }
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [mobileMenuOpen])
+
+  // Handle keyboard Escape and Backspace to close mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!mobileMenuOpen) return
+      const target = e.target as HTMLElement | null
+      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+
+      if (e.key === "Escape" || (e.key === "Backspace" && !isInput)) {
+        e.preventDefault()
+        handleCloseMobileMenu()
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [mobileMenuOpen])
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -117,7 +167,7 @@ export function Header() {
             <button
               type="button"
               className="flex items-center justify-center rounded-md p-2 text-foreground bg-secondary hover:bg-secondary/80 transition-colors"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={handleOpenMobileMenu}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
             >
@@ -194,7 +244,7 @@ export function Header() {
           {/* Backdrop overlay */}
           <div
             className="fixed inset-0 bg-black/60"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={handleCloseMobileMenu}
             aria-hidden="true"
           />
           
@@ -211,7 +261,7 @@ export function Header() {
               <Link 
                 href="/" 
                 className="flex items-center gap-2.5 flex-shrink-0" 
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={handleCloseMobileMenu}
               >
                 <Image
                   src="/icon.png"
@@ -225,7 +275,7 @@ export function Header() {
               <button
                 type="button"
                 className="flex items-center justify-center rounded-full p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={handleCloseMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -276,7 +326,7 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     className="flex items-center rounded-lg px-4 py-3.5 text-base font-medium text-foreground hover:bg-secondary transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={handleCloseMobileMenu}
                   >
                     {item.name}
                   </Link>
@@ -306,7 +356,7 @@ export function Header() {
                 asChild 
                 className="w-full gradient-primary text-white h-12 text-base font-semibold btn-get-started"
               >
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/contact" onClick={handleCloseMobileMenu}>
                   {t("getStarted")}
                 </Link>
               </Button>

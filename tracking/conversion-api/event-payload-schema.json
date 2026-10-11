@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Meta Conversions API Event Schema",
+  "type": "object",
+  "properties": {
+    "event_name": {
+      "type": "string"
+    },
+    "event_time": {
+      "type": "integer"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "action_source": {
+      "type": "string",
+      "enum": [
+        "website",
+        "app",
+        "system_generated"
+      ]
+    },
+    "event_source_url": {
+      "type": "string"
+    },
+    "user_data": {
+      "type": "object"
+    },
+    "custom_data": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "event_name",
+    "event_time",
+    "event_id",
+    "action_source"
+  ]
+}

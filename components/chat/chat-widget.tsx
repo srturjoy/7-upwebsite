@@ -72,14 +72,24 @@ export function ChatWidget() {
     }
   }, [messages, context])
 
-  // Clear unread badge when opened
+  const isClosingViaHistoryRef = useRef(false)
+
+  // Clear unread badge when opened and push history state so phone back button / swipe back gesture closes assistant
   const handleOpen = () => {
     setIsOpen(true)
     setUnreadCount(0)
+    if (typeof window !== "undefined") {
+      isClosingViaHistoryRef.current = false
+      window.history.pushState({ modal: "chat-widget" }, "")
+    }
   }
 
   const handleClose = () => {
     setIsOpen(false)
+    if (typeof window !== "undefined" && window.history.state?.modal === "chat-widget") {
+      isClosingViaHistoryRef.current = true
+      window.history.back()
+    }
   }
 
   const handleToggleLanguage = () => {
@@ -103,10 +113,31 @@ export function ChatWidget() {
     }
   }
 
-  // Handle keyboard Escape to close
+  // Handle browser Back button / mobile swipe back gesture for chat widget
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isClosingViaHistoryRef.current) {
+        isClosingViaHistoryRef.current = false
+        return
+      }
+      if (isOpen) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [isOpen])
+
+  // Handle keyboard Escape and Backspace (outside input) to close
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (!isOpen) return
+      const target = e.target as HTMLElement | null
+      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+
+      if (e.key === "Escape" || (e.key === "Backspace" && !isInput)) {
+        e.preventDefault()
         handleClose()
       }
     }

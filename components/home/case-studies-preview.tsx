@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -197,8 +197,63 @@ const caseStudies = [
 
 export function CaseStudiesPreview() {
   const [selectedStudy, setSelectedStudy] = useState<typeof caseStudies[0] | null>(null)
+  const isClosingViaHistoryRef = useRef(false)
   const { language, t } = useLanguage()
   const isEnglish = language === "en"
+
+  // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
+  const handleOpenStudy = useCallback((study: typeof caseStudies[0]) => {
+    setSelectedStudy(study)
+    if (typeof window !== "undefined") {
+      isClosingViaHistoryRef.current = false
+      window.history.pushState({ modal: "case-study-card", id: study.title }, "")
+    }
+  }, [])
+
+  // Close modal and cleanly pop history state if it was pushed
+  const handleCloseStudy = useCallback(() => {
+    setSelectedStudy((current) => {
+      if (!current) return null
+      if (typeof window !== "undefined" && window.history.state?.modal === "case-study-card") {
+        isClosingViaHistoryRef.current = true
+        window.history.back()
+      }
+      return null
+    })
+  }, [])
+
+  // Browser Back button / mobile swipe back gesture listener
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isClosingViaHistoryRef.current) {
+        isClosingViaHistoryRef.current = false
+        return
+      }
+      // If modal was open, close it so user stays on the website
+      setSelectedStudy(null)
+    }
+
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [])
+
+  // Keyboard Backspace ("back speacch") and Escape key listener
+  useEffect(() => {
+    if (!selectedStudy) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+
+      if ((e.key === "Backspace" && !isInput) || e.key === "Escape") {
+        e.preventDefault()
+        handleCloseStudy()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedStudy, handleCloseStudy])
 
   return (
     <>
@@ -230,7 +285,7 @@ export function CaseStudiesPreview() {
               <motion.button
                 key={study.title}
                 variants={fadeInUp}
-                onClick={() => setSelectedStudy(study)}
+                onClick={() => handleOpenStudy(study)}
                 className="group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-card border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 text-left flex flex-col justify-between"
               >
                 {/* 3D Luminous glow effect */}
@@ -285,7 +340,7 @@ export function CaseStudiesPreview() {
       </section>
 
       {/* Case Study Detail Modal */}
-      <Dialog open={!!selectedStudy} onOpenChange={() => setSelectedStudy(null)}>
+      <Dialog open={!!selectedStudy} onOpenChange={(open) => { if (!open) handleCloseStudy() }}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
           {selectedStudy && (
             <>
@@ -312,7 +367,8 @@ export function CaseStudiesPreview() {
                   </DialogHeader>
                 </div>
                 <button
-                  onClick={() => setSelectedStudy(null)}
+                  type="button"
+                  onClick={handleCloseStudy}
                   className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
                 >
                   <X className="h-5 w-5" />
