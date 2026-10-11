@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Target, Eye, Lightbulb, Users, Award } from "lucide-react"
 import { TeamCarousel } from "@/components/about/team-carousel"
+import { FounderCeoSpotlight } from "@/components/about/founder-ceo-spotlight"
 import { useLanguage } from "@/lib/language-context"
 
 export default function AboutPage() {
@@ -165,14 +166,34 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Executive Leadership & Team Section */}
       <section className="py-24 bg-secondary/30 overflow-hidden">
+        {/* CEO & Founder Spotlight on TOP as requested */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+              {isEnglish ? "Executive Leadership" : "নির্বাহী নেতৃত্ব"}
+            </p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+              {isEnglish ? "Founder & CEO" : "প্রতিষ্ঠাতা ও প্রধান নির্বাহী কর্মকর্তা"}
+            </h2>
+          </div>
+        </div>
+
+        <FounderCeoSpotlight />
+
+        {/* Then the specialist team below */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-12 pt-10 border-t border-border/70">
             <p className="text-sm font-semibold text-primary uppercase tracking-wide">{t("ourTeam")}</p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               {t("meetExperts")}
             </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              {isEnglish 
+                ? "Our specialized growth engineers, media buyers, and marketing technologists."
+                : "আমাদের বিশেষায়িত গ্রোথ ইঞ্জিনিয়ার, মিডিয়া বায়ার ও মার্কেটিং টেকনোলজিস্ট টিম।"}
+            </p>
           </div>
         </div>
         <TeamCarousel />

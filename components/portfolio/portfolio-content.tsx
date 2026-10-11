@@ -1,231 +1,91 @@
 "use client"
 
 import { useState, useMemo, useEffect, useCallback, useRef } from "react"
-import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TrendingUp, X, MessageCircle, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { cn } from "@/lib/utils"
-import { fadeInUp, staggerContainer } from "@/components/ui/motion"
+import { 
+  Search, 
+  ExternalLink, 
+  Globe, 
+  MessageCircle, 
+  Sparkles, 
+  CheckCircle2, 
+  X, 
+  ArrowRight,
+  ShieldCheck,
+  Building2,
+  ChevronDown
+} from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-
-const categories = ["All", "E-commerce", "Lead Generation", "Branding", "SEO", "Social Media"] as const
-
-type Category = typeof categories[number]
-
-interface ProjectResult {
-  label: string
-  value: string
-}
-
-interface Project {
-  title: string
-  client: string
-  category: Exclude<Category, "All">
-  description: string
-  image: string
-  results: ProjectResult[]
-  services: string[]
-}
-
-const projects: Project[] = [
-  {
-    title: "Fashion E-commerce Revenue Boost",
-    client: "StyleHub Bangladesh",
-    category: "E-commerce",
-    description: "Transformed an underperforming e-commerce store into a revenue-generating machine through strategic Facebook and Google Ads campaigns.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    results: [
-      { label: "Revenue Increase", value: "+450%" },
-      { label: "ROAS", value: "5.2x" },
-      { label: "Conversion Rate", value: "+180%" },
-    ],
-    services: ["Facebook Ads", "Google Ads", "SEO"],
-  },
-  {
-    title: "SaaS Lead Generation Campaign",
-    client: "TechSolve BD",
-    category: "Lead Generation",
-    description: "Generated high-quality B2B leads for a SaaS company through LinkedIn ads and content marketing strategies.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    results: [
-      { label: "Leads/Month", value: "2,000+" },
-      { label: "Cost Per Lead", value: "-65%" },
-      { label: "Sales Pipeline", value: "+320%" },
-    ],
-    services: ["LinkedIn Ads", "Content Marketing", "Email Marketing"],
-  },
-  {
-    title: "Restaurant Chain Local SEO",
-    client: "Spice Kitchen",
-    category: "SEO",
-    description: "Achieved top search rankings for 50+ local keywords, dramatically increasing foot traffic and online orders.",
-    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop",
-    results: [
-      { label: "Keyword Rankings", value: "Top 3" },
-      { label: "Organic Traffic", value: "+400%" },
-      { label: "Online Orders", value: "+200%" },
-    ],
-    services: ["Local SEO", "Google My Business", "Content Strategy"],
-  },
-  {
-    title: "Fitness Brand Social Growth",
-    client: "FitLife BD",
-    category: "Social Media",
-    description: "Built a thriving social media community and generated consistent leads through engaging content and targeted ads.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
-    results: [
-      { label: "Followers", value: "100K+" },
-      { label: "Engagement Rate", value: "8.5%" },
-      { label: "Monthly Leads", value: "500+" },
-    ],
-    services: ["Social Media Management", "Content Creation", "Influencer Marketing"],
-  },
-  {
-    title: "Real Estate Brand Identity",
-    client: "HomeSpace Properties",
-    category: "Branding",
-    description: "Created a premium brand identity that positioned the client as a leader in luxury real estate in Dhaka.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
-    results: [
-      { label: "Brand Recognition", value: "+250%" },
-      { label: "Lead Quality", value: "+180%" },
-      { label: "Average Deal Size", value: "+45%" },
-    ],
-    services: ["Brand Identity", "Web Design", "Digital Strategy"],
-  },
-  {
-    title: "Healthcare Lead Generation",
-    client: "MediCare Clinic",
-    category: "Lead Generation",
-    description: "Developed a multi-channel marketing strategy that tripled patient appointments for a healthcare clinic.",
-    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=600&fit=crop",
-    results: [
-      { label: "Appointments", value: "+300%" },
-      { label: "Cost Per Lead", value: "-50%" },
-      { label: "Patient Retention", value: "+85%" },
-    ],
-    services: ["Google Ads", "Facebook Ads", "Landing Pages"],
-  },
-  {
-    title: "Online Education Platform",
-    client: "EduLearn BD",
-    category: "E-commerce",
-    description: "Scaled an online education platform from 500 to 10,000+ active students through performance marketing.",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop",
-    results: [
-      { label: "Student Growth", value: "20x" },
-      { label: "Course Revenue", value: "+850%" },
-      { label: "Completion Rate", value: "+40%" },
-    ],
-    services: ["Facebook Ads", "Email Marketing", "Content Marketing"],
-  },
-  {
-    title: "Jewelry Brand E-commerce Launch",
-    client: "Golden Touch",
-    category: "E-commerce",
-    description: "Launched a new jewelry e-commerce brand and achieved profitability within the first 3 months.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=600&fit=crop",
-    results: [
-      { label: "Month 1 Revenue", value: "৳15L+" },
-      { label: "ROAS", value: "4.8x" },
-      { label: "Repeat Customers", value: "35%" },
-    ],
-    services: ["E-commerce Strategy", "Facebook Ads", "Instagram Marketing"],
-  },
-  {
-    title: "Tech Startup Brand Launch",
-    client: "InnovateTech BD",
-    category: "Branding",
-    description: "Developed a complete brand identity and digital presence for a tech startup entering the Bangladesh market.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
-    results: [
-      { label: "Brand Awareness", value: "+500%" },
-      { label: "Website Traffic", value: "+350%" },
-      { label: "Investor Interest", value: "12 Meetings" },
-    ],
-    services: ["Brand Strategy", "Logo Design", "Web Development"],
-  },
-  {
-    title: "Travel Agency SEO Domination",
-    client: "Wanderlust BD",
-    category: "SEO",
-    description: "Achieved page 1 rankings for 100+ high-value travel keywords, becoming the top organic result in Bangladesh.",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
-    results: [
-      { label: "Keywords Ranked", value: "100+" },
-      { label: "Organic Traffic", value: "+600%" },
-      { label: "Bookings", value: "+280%" },
-    ],
-    services: ["Technical SEO", "Content Marketing", "Link Building"],
-  },
-  {
-    title: "Fashion Influencer Campaign",
-    client: "Trendy Threads",
-    category: "Social Media",
-    description: "Executed a viral influencer marketing campaign that generated massive brand awareness and sales.",
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=600&fit=crop",
-    results: [
-      { label: "Reach", value: "5M+" },
-      { label: "Engagement", value: "450K" },
-      { label: "Sales Increase", value: "+220%" },
-    ],
-    services: ["Influencer Marketing", "Content Creation", "Social Ads"],
-  },
-  {
-    title: "B2B Software Lead Gen",
-    client: "CloudSync Solutions",
-    category: "Lead Generation",
-    description: "Built a comprehensive lead generation funnel for enterprise software, targeting C-level executives.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    results: [
-      { label: "Qualified Leads", value: "150/month" },
-      { label: "Demo Bookings", value: "+400%" },
-      { label: "Deal Size", value: "+65%" },
-    ],
-    services: ["LinkedIn Ads", "ABM Strategy", "Email Sequences"],
-  },
-]
+import { CLIENTS, CLIENT_CATEGORIES, ClientRecord, ClientCategory } from "@/data/clients"
 
 export function PortfolioContent() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All")
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const isClosingViaHistoryRef = useRef(false)
   const { language } = useLanguage()
   const isEnglish = language === "en"
 
+  const [searchQuery, setSearchQuery] = useState("")
+  const [activeCategory, setActiveCategory] = useState<typeof CLIENT_CATEGORIES[number]>("All")
+  const [visibleCount, setVisibleCount] = useState(15)
+  const [selectedClient, setSelectedClient] = useState<ClientRecord | null>(null)
+
+  // Guard references for modal history back & backspace navigation
+  const isOpeningRef = useRef(false)
+  const isClosingViaHistoryRef = useRef(false)
+
   // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
-  const handleOpenProject = useCallback((project: Project) => {
-    setSelectedProject(project)
+  const handleOpenClient = useCallback((client: ClientRecord) => {
+    setSelectedClient(client)
+    isOpeningRef.current = true
+
     if (typeof window !== "undefined") {
-      isClosingViaHistoryRef.current = false
-      window.history.pushState({ modal: "portfolio-project", title: project.title }, "")
+      try {
+        const hash = `#client-${client.id}`
+        if (window.location.hash !== hash) {
+          window.history.pushState(
+            { ...(window.history.state || {}), modal: "client-card", id: client.id },
+            "",
+            hash
+          )
+        }
+      } catch {
+        // Safe fallback
+      }
     }
+
+    setTimeout(() => {
+      isOpeningRef.current = false
+    }, 200)
   }, [])
 
   // Close modal and cleanly pop history state if it was pushed
-  const handleCloseProject = useCallback(() => {
-    setSelectedProject((current) => {
-      if (!current) return null
-      if (typeof window !== "undefined" && window.history.state?.modal === "portfolio-project") {
-        isClosingViaHistoryRef.current = true
+  const handleCloseClient = useCallback(() => {
+    setSelectedClient(null)
+
+    if (typeof window !== "undefined" && window.location.hash.startsWith("#client-")) {
+      isClosingViaHistoryRef.current = true
+      try {
         window.history.back()
+      } catch {
+        // Safe fallback
       }
-      return null
-    })
+      setTimeout(() => {
+        isClosingViaHistoryRef.current = false
+      }, 250)
+    }
   }, [])
 
   // Browser Back button / mobile swipe back gesture listener
   useEffect(() => {
     const handlePopState = () => {
+      if (isOpeningRef.current) return
       if (isClosingViaHistoryRef.current) {
         isClosingViaHistoryRef.current = false
         return
       }
-      // If modal was open, close it so user stays on the website
-      setSelectedProject(null)
+      setSelectedClient(null)
     }
 
     window.addEventListener("popstate", handlePopState)
@@ -234,7 +94,7 @@ export function PortfolioContent() {
 
   // Keyboard Backspace ("back speacch") and Escape key listener
   useEffect(() => {
-    if (!selectedProject) return
+    if (!selectedClient) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null
@@ -242,252 +102,486 @@ export function PortfolioContent() {
 
       if ((e.key === "Backspace" && !isInput) || e.key === "Escape") {
         e.preventDefault()
-        handleCloseProject()
+        handleCloseClient()
       }
     }
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [selectedProject, handleCloseProject])
+  }, [selectedClient, handleCloseClient])
 
-  const filteredProjects = useMemo(() => {
-    if (activeCategory === "All") {
-      return projects
+  // Reset pagination count when category or search changes
+  useEffect(() => {
+    setVisibleCount(15)
+  }, [activeCategory, searchQuery])
+
+  // Filter and sort clients: Priority Group A first, then Group B
+  const filteredClients = useMemo(() => {
+    let result = CLIENTS
+
+    if (activeCategory !== "All") {
+      result = result.filter((client) => client.category === activeCategory)
     }
-    return projects.filter((project) => project.category === activeCategory)
-  }, [activeCategory])
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim()
+      result = result.filter(
+        (client) =>
+          client.name.toLowerCase().includes(q) ||
+          (client.nameBn && client.nameBn.toLowerCase().includes(q)) ||
+          client.description.toLowerCase().includes(q) ||
+          client.category.toLowerCase().includes(q)
+      )
+    }
+
+    // Stable sort: priority ascending (1 -> 49)
+    return [...result].sort((a, b) => a.priority - b.priority)
+  }, [activeCategory, searchQuery])
+
+  // Paginated slice
+  const displayedClients = useMemo(() => {
+    return filteredClients.slice(0, visibleCount)
+  }, [filteredClients, visibleCount])
+
+  // Count by category for filter pills
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { All: CLIENTS.length }
+    CLIENTS.forEach((c) => {
+      counts[c.category] = (counts[c.category] || 0) + 1
+    })
+    return counts
+  }, [])
+
+  // Generate initials for avatar badge
+  const getInitials = (name: string) => {
+    const clean = name.replace(/[^a-zA-Z0-9\s]/g, "").trim()
+    const parts = clean.split(/\s+/).filter(Boolean)
+    if (parts.length === 0) return "BA"
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
+    return (parts[0][0] + parts[1][0]).toUpperCase()
+  }
 
   return (
     <>
-      {/* Category Filter */}
-      <section className="border-b border-border sticky top-[73px] bg-background/95 backdrop-blur-sm z-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={cn(
-                  "inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
-                  activeCategory === category
-                    ? "bg-gradient-to-r from-primary to-cyan-500 text-white shadow-md"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border"
-                )}
-              >
-                {category}
-                {activeCategory === category && (
-                  <span className="ml-2 inline-flex items-center justify-center rounded-full bg-white/20 px-2 py-0.5 text-xs">
-                    {category === "All" ? projects.length : projects.filter(p => p.category === category).length}
+      {/* Search & Category Filter Navigation Bar */}
+      <section className="border-b border-border sticky top-[73px] bg-background/95 backdrop-blur-md z-40 shadow-xs">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4 space-y-4">
+          {/* Top row: Live search bar & results summary */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="relative w-full sm:w-80">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={isEnglish ? "Search business or page name..." : "ব্যবসা বা পেজের নাম দিয়ে খুঁজুন..."}
+                className="w-full pl-10 pr-9 py-2 rounded-xl bg-secondary/80 border border-border/80 text-foreground placeholder:text-muted-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  aria-label="Clear search"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>
+                {isEnglish
+                  ? `Showing ${displayedClients.length} of ${filteredClients.length} verified pages (${CLIENTS.length} total)`
+                  : `${CLIENTS.length} টির মধ্যে ${displayedClients.length} টি ভেরিফাইড পেজ প্রদর্শিত`}
+              </span>
+            </div>
+          </div>
+
+          {/* Bottom row: Category Filter Pills */}
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {CLIENT_CATEGORIES.map((cat) => {
+              const count = categoryCounts[cat] || 0
+              const isActive = activeCategory === cat
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`inline-flex items-center whitespace-nowrap rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-cyan-500/20"
+                      : "bg-secondary/70 text-secondary-foreground hover:bg-secondary border border-border/70"
+                  }`}
+                >
+                  <span>{cat}</span>
+                  <span
+                    className={`ml-2 text-[10px] px-1.5 py-0.2 rounded-full ${
+                      isActive ? "bg-white/25 text-white" : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {count}
                   </span>
-                )}
-              </button>
-            ))}
+                </button>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-24">
+      {/* Main Client Portfolio Grid */}
+      <section className="py-16 lg:py-20 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Results count */}
-          <div className="mb-8">
-            <p className="text-muted-foreground">
-              Showing <span className="font-semibold text-foreground">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? "s" : ""}
-              {activeCategory !== "All" && (
-                <span> in <span className="font-semibold text-primary">{activeCategory}</span></span>
-              )}
+          {/* Section Introduction */}
+          <div className="mb-10 text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 text-xs font-semibold mb-2">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              <span>{isEnglish ? "Authentic Client Portfolio" : "প্রামাণিক ক্লায়েন্ট পোর্টফোলিও"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+              {isEnglish ? "Our Clients & Marketing Projects" : "আমাদের ক্লায়েন্ট ও মার্কেটিং প্রজেক্টসমূহ"}
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+              {isEnglish
+                ? "At Boosting Agency BD, we work with businesses across fashion, e-commerce, furniture, education, healthcare, travel, and other industries. Explore a selection of business pages and websites associated with our marketing work."
+                : "বুস্টিং এজেন্সি বিডি-তে আমরা ফ্যাশন, ই-কমার্স, ফার্নিচার, শিক্ষা, স্বাস্থ্যসেবা, ট্রাভেল এবং অন্যান্য বিভিন্ন খাতের ব্যবসার সাথে কাজ করি। আমাদের মার্কেটিং কাজের সাথে যুক্ত বিজনেস পেজ ও ওয়েবসাইটগুলোর একটি নির্বাচিত তালিকা এখানে এক্সপ্লোর করুন।"}
             </p>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={activeCategory}
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-              className="grid grid-cols-2 gap-3.5 sm:gap-6 lg:gap-8"
-            >
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  variants={fadeInUp}
-                  custom={index}
-                  layout
-                >
-                  <Card 
-                    onClick={() => handleOpenProject(project)}
-                    className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border/70 hover:border-cyan-500/60 transition-all duration-500 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 h-full bg-card flex flex-col justify-between cursor-pointer"
-                  >
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0">
-                      <div className="absolute -top-10 -right-10 w-32 sm:w-44 h-32 sm:h-44 bg-cyan-500/20 rounded-full blur-3xl" />
-                    </div>
-                    <div>
-                      <div className="aspect-[4/3] overflow-hidden relative rounded-t-2xl sm:rounded-t-3xl">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={800}
-                          height={600}
-                          className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      </div>
-                      <CardContent className="p-3.5 sm:p-5 lg:p-6 relative">
-                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                          <Badge 
-                            variant="secondary" 
-                            className="text-[10px] sm:text-xs bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20 px-2 py-0.5"
-                          >
-                            {project.category}
-                          </Badge>
-                          <span className="text-[11px] sm:text-xs text-muted-foreground line-clamp-1">{project.client}</span>
-                        </div>
-                        <h3 className="text-xs sm:text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
-                          {project.title}
-                        </h3>
-                        <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2">
-                          {project.description}
-                        </p>
-                        
-                        {/* Results */}
-                        <div className="mt-3 sm:mt-5 grid grid-cols-3 gap-1 sm:gap-3 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-secondary/50 border border-border/50 group-hover:bg-secondary/70 transition-colors duration-300">
-                          {project.results.map((result) => (
-                            <div key={result.label} className="text-center">
-                              <p className="text-xs sm:text-base lg:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center gap-0.5">
-                                <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
-                                {result.value}
-                              </p>
-                              <p className="text-[9px] sm:text-[11px] text-muted-foreground leading-tight mt-0.5">{result.label}</p>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Services */}
-                        <div className="mt-3 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
-                          {project.services.map((service) => (
-                            <Badge key={service} variant="outline" className="text-[9px] sm:text-xs hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-colors duration-300 px-1.5 py-0.5">
-                              {service}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Empty state */}
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground text-lg">No projects found in this category.</p>
-              <button
-                onClick={() => setActiveCategory("All")}
-                className="mt-4 text-primary hover:underline"
+          {/* Grid of Client Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayedClients.map((client) => (
+              <Card
+                key={client.id}
+                onClick={() => handleOpenClient(client)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    handleOpenClient(client)
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View details of ${isEnglish ? client.name : (client.nameBn || client.name)}`}
+                className="group rounded-3xl border border-border/80 hover:border-cyan-500/70 transition-all duration-300 card-3d hover:shadow-xl hover:shadow-cyan-500/15 bg-card flex flex-col justify-between overflow-hidden relative cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
               >
-                View all projects
+                {/* Subtle corner hover glow */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <CardContent className="p-6 relative flex flex-col h-full">
+                  {/* Card Header: Initials Avatar + Category & Featured Tag */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl gradient-primary text-white text-lg font-black shadow-md shadow-cyan-500/20 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300 flex-shrink-0">
+                      {getInitials(client.name)}
+                    </div>
+
+                    <div className="flex flex-col items-end gap-1.5">
+                      <Badge
+                        variant="secondary"
+                        className="text-[10px] font-semibold bg-secondary/90 hover:bg-secondary text-secondary-foreground border border-border/60 px-2 py-0.5 rounded-lg"
+                      >
+                        {client.category}
+                      </Badge>
+                      {client.isGroupA && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-500 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full">
+                          <Sparkles className="h-2.5 w-2.5" />
+                          <span>{isEnglish ? "Featured" : "ফিচার্ড"}</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Business Name */}
+                  <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-cyan-500 transition-colors line-clamp-2">
+                    {isEnglish ? client.name : (client.nameBn || client.name)}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-grow">
+                    {isEnglish ? client.description : (client.descriptionBn || client.description)}
+                  </p>
+
+                  {/* Verified Follower Count (ONLY shown if verified) */}
+                  {client.followerCount && (
+                    <div className="mt-3 flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-xl w-fit">
+                      <CheckCircle2 className="h-3.5 w-3.5" />
+                      <span>{client.followerCount} Verified Followers</span>
+                    </div>
+                  )}
+
+                  {/* Featured Service tags (if known) */}
+                  {client.featuredServices && client.featuredServices.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-1">
+                      {(isEnglish ? client.featuredServices : (client.featuredServicesBn || client.featuredServices)).map(
+                        (srv) => (
+                          <span
+                            key={srv}
+                            className="text-[10px] text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md font-medium"
+                          >
+                            {srv}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  )}
+
+                  {/* Action Buttons: Facebook & Official Website */}
+                  <div className="mt-5 pt-4 border-t border-border/60 flex flex-wrap items-center gap-2">
+                    {/* Facebook Button (Always Present) */}
+                    <a
+                      href={client.facebookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 text-blue-600 hover:text-white dark:text-blue-400 dark:hover:text-white text-xs font-semibold transition-all duration-200 border border-blue-500/20"
+                      aria-label={`Visit Facebook Page of ${client.name}`}
+                    >
+                      <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                      <span>Facebook</span>
+                      <ExternalLink className="h-3 w-3 opacity-70" />
+                    </a>
+
+                    {/* Official Website Button (ONLY rendered when verified website URL exists) */}
+                    {client.websiteUrl && (
+                      <a
+                        href={client.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-600 hover:text-white dark:text-cyan-400 dark:hover:text-white text-xs font-semibold transition-all duration-200 border border-cyan-500/20"
+                        aria-label={`Visit Official Website of ${client.name}`}
+                      >
+                        <Globe className="h-3.5 w-3.5" />
+                        <span>Website</span>
+                        <ExternalLink className="h-3 w-3 opacity-70" />
+                      </a>
+                    )}
+
+                    {/* Quick View Details Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleOpenClient(client)
+                      }}
+                      className="ml-auto p-1.5 text-xs text-muted-foreground hover:text-cyan-500 rounded-lg hover:bg-secondary transition-colors"
+                      title={isEnglish ? "View details" : "বিস্তারিত দেখুন"}
+                      aria-label={`View details of ${client.name}`}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Empty State */}
+          {filteredClients.length === 0 && (
+            <div className="text-center py-16 bg-secondary/30 rounded-3xl border border-border/60">
+              <Building2 className="h-12 w-12 text-muted-foreground mx-auto mb-3 opacity-60" />
+              <p className="text-base font-semibold text-foreground">
+                {isEnglish ? "No client pages match your search." : "আপনার অনুসন্ধানের সাথে কোনো পেজ মেলেনি।"}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery("")
+                  setActiveCategory("All")
+                }}
+                className="mt-3 text-xs font-semibold text-cyan-500 hover:underline"
+              >
+                {isEnglish ? "Clear filters and view all 49 clients" : "ফিল্টার পরিষ্কার করে সব ৪৯টি পেজ দেখুন"}
               </button>
             </div>
           )}
+
+          {/* Load More Interaction (Keeps page fast while allowing complete discovery) */}
+          {visibleCount < filteredClients.length && (
+            <div className="mt-12 text-center">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setVisibleCount((prev) => Math.min(prev + 18, filteredClients.length))}
+                className="rounded-2xl px-8 border-border hover:border-cyan-500/50 hover:bg-secondary text-sm font-semibold group shadow-sm cursor-pointer"
+              >
+                <span>
+                  {isEnglish
+                    ? `Load More Clients (${displayedClients.length} of ${filteredClients.length})`
+                    : `আরও পেজ লোড করুন (${displayedClients.length} / ${filteredClients.length})`}
+                </span>
+                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              </Button>
+            </div>
+          )}
+
+          {/* SECTION 8 DISCLOSURES — TRANSPARENT & COMPLIANT */}
+          <div className="mt-16 p-6 sm:p-8 rounded-3xl bg-secondary/40 border border-border/70 space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="h-8 w-8 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0 mt-0.5">
+                <ShieldCheck className="h-4 w-4" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-foreground">
+                  {isEnglish
+                    ? "Selected Business Pages & Portfolio Examples"
+                    : "নির্বাচিত বিজনেস পেজ ও পোর্টফোলিও উদাহরণ"}
+                </h4>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "This section highlights selected business pages and websites across different industries. The examples shown are not a complete directory of all businesses or projects, and inclusion does not imply that every listed business used every service offered by Boosting Agency BD."
+                    : "এই সেকশনে বিভিন্ন খাতের নির্বাচিত বিজনেস পেজ ও ওয়েবসাইটগুলো তুলে ধরা হয়েছে। এখানে প্রদর্শিত তালিকাটি সব ব্যবসা বা প্রজেক্টের পূর্ণাঙ্গ ডিরেক্টরি নয় এবং তালিকায় অন্তর্ভুক্তি নির্দেশ করে না যে প্রতিটি ব্যবসা প্রতিষ্ঠান বুস্টিং এজেন্সি বিডি-র প্রতিটি সেবা গ্রহণ করেছে।"}
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-border/40 text-xs text-muted-foreground/90 leading-relaxed pl-11">
+              <span className="font-semibold text-foreground/80">
+                {isEnglish ? "Pricing Disclosure: " : "মূল্য সংক্রান্ত তথ্য: "}
+              </span>
+              {isEnglish
+                ? "Service prices shown on our website are starting prices and may vary depending on project scope, campaign objectives, advertising budget, technical requirements, and the services selected."
+                : "আমাদের ওয়েবসাইটে প্রদর্শিত সেবামূল্য প্রাথমিক বা প্রারম্ভিক মূল্য এবং প্রজেক্টের পরিধি, ক্যাম্পেইনের লক্ষ্য, বিজ্ঞাপনের বাজেট, প্রযুক্তিগত প্রয়োজনীয়তা ও নির্বাচিত সেবার ওপর ভিত্তি করে পরিবর্তিত হতে পারে।"}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Project Detail Modal with Back Button & Backspace Protection */}
-      <Dialog open={!!selectedProject} onOpenChange={(open) => { if (!open) handleCloseProject() }}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
-          {selectedProject && (
-            <>
-              {/* Hero Image */}
-              <div className="relative aspect-[21/9] overflow-hidden">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <span className="inline-flex items-center rounded-full gradient-primary text-white px-4 py-1.5 text-sm font-medium mb-3">
-                    {selectedProject.category}
-                  </span>
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl sm:text-3xl font-bold text-foreground">
-                      {selectedProject.title}
-                    </DialogTitle>
-                    <DialogDescription className="text-base sm:text-lg text-muted-foreground">
-                      {selectedProject.client}
-                    </DialogDescription>
-                  </DialogHeader>
-                </div>
+      {/* CLIENT DETAIL MODAL with History Back & Backspace Protection */}
+      <Dialog
+        open={!!selectedClient}
+        onOpenChange={(open) => {
+          if (!open) handleCloseClient()
+        }}
+      >
+        <DialogContent
+          showCloseButton={false}
+          className="max-w-2xl max-h-[90vh] overflow-y-auto p-0 rounded-3xl border-border bg-card shadow-2xl z-[100]"
+        >
+          {selectedClient && (
+            <div className="relative">
+              {/* Header Banner */}
+              <div className="relative p-6 sm:p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-t-3xl overflow-hidden border-b border-border/40">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+
+                {/* Close Button */}
                 <button
                   type="button"
-                  onClick={handleCloseProject}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors cursor-pointer"
-                  aria-label="Close"
+                  onClick={handleCloseClient}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer z-20"
+                  aria-label="Close client modal"
                 >
                   <X className="h-5 w-5" />
                 </button>
-              </div>
 
-              <div className="p-6 lg:p-8">
-                {/* Overview */}
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  {selectedProject.description}
-                </p>
+                <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                  <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-3xl gradient-primary text-white text-3xl font-black shadow-xl shadow-cyan-500/30 flex-shrink-0">
+                    {getInitials(selectedClient.name)}
+                  </div>
 
-                {/* Key Results */}
-                <div className="mb-8">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-primary mb-3">
-                    {isEnglish ? "Key Campaign Results" : "প্রধান ক্যাম্পেইন ফলাফল"}
-                  </h4>
-                  <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-secondary/60 border border-border/50">
-                    {selectedProject.results.map((result) => (
-                      <div key={result.label} className="text-center">
-                        <p className="text-base sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 flex items-center justify-center gap-1">
-                          <TrendingUp className="h-4 w-4 text-cyan-500" />
-                          {result.value}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1 font-medium">{result.label}</p>
-                      </div>
-                    ))}
+                  <div className="flex-1 pr-6 sm:pr-0">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-semibold mb-2">
+                      <ShieldCheck className="h-3.5 w-3.5" />
+                      <span>{selectedClient.category}</span>
+                      {selectedClient.isGroupA && <span>· Featured</span>}
+                    </div>
+
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl sm:text-3xl font-bold text-white">
+                        {isEnglish ? selectedClient.name : (selectedClient.nameBn || selectedClient.name)}
+                      </DialogTitle>
+                      <DialogDescription className="text-xs sm:text-sm text-cyan-300 mt-1 font-medium">
+                        {isEnglish ? "Verified Client Page Record" : "যাচাইকৃত ক্লায়েন্ট পেজ রেকর্ড"}
+                      </DialogDescription>
+                    </DialogHeader>
                   </div>
                 </div>
+              </div>
 
-                {/* Services Delivered */}
-                <div className="mb-8">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                    {isEnglish ? "Services Delivered" : "প্রদত্ত সেবাসমূহ"}
+              {/* Modal Body */}
+              <div className="p-6 sm:p-8 space-y-6">
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                    {isEnglish ? "Business Overview" : "ব্যবসার সংক্ষিপ্ত বিবরণ"}
                   </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.services.map((service) => (
-                      <Badge key={service} variant="secondary" className="px-3 py-1 text-xs">
-                        {service}
-                      </Badge>
-                    ))}
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {isEnglish ? selectedClient.description : (selectedClient.descriptionBn || selectedClient.description)}
+                  </p>
+                </div>
+
+                {/* Verified Follower Count (if available) */}
+                {selectedClient.followerCount && (
+                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
+                    <div>
+                      <p className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
+                        {selectedClient.followerCount} Verified Facebook Followers
+                      </p>
+                      <p className="text-[11px] text-muted-foreground">
+                        Public follower metric recorded during profile verification.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Links */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">
+                    {isEnglish ? "Official Verified Links" : "অফিশিয়াল ভেরিফাইড লিংকসমূহ"}
+                  </h4>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={selectedClient.facebookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-blue-500/20 transition-all hover:scale-105"
+                    >
+                      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                      <span>{isEnglish ? "Open Facebook Page" : "ফেসবুক পেজ দেখুন"}</span>
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+
+                    {selectedClient.websiteUrl && (
+                      <a
+                        href={selectedClient.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90 text-white text-xs font-semibold shadow-md shadow-cyan-500/20 transition-all hover:scale-105"
+                      >
+                        <Globe className="h-4 w-4" />
+                        <span>{isEnglish ? "Visit Official Website" : "অফিশিয়াল ওয়েবসাইট"}</span>
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
                 {/* WhatsApp Consultation Action */}
-                <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
                   <p className="text-xs text-muted-foreground text-center sm:text-left">
-                    {isEnglish 
-                      ? "Want similar results for your business? Chat with our growth specialists." 
-                      : "আপনার ব্যবসার জন্যও কি অনুরূপ ফলাফল চান? আমাদের স্পেশালিস্টদের সাথে কথা বলুন।"}
+                    {isEnglish
+                      ? "Looking to scale your brand like this client? Connect directly with Boosting Agency BD."
+                      : "আপনার ব্র্যান্ডকেও এভাবে এগিয়ে নিতে চান? বুস্টিং এজেন্সি বিডি-র সাথে যোগাযোগ করুন।"}
                   </p>
                   <a
-                    href={`https://wa.me/8801518961899?text=${encodeURIComponent(`Hello Boosting Agency BD, I saw your project "${selectedProject.title}" and would like a consultation.`)}`}
+                    href={`https://wa.me/8801518961899?text=${encodeURIComponent(
+                      `Hello Boosting Agency BD, I saw your client project "${selectedClient.name}" and would like to discuss digital marketing services.`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs px-5 py-3 shadow-md shadow-emerald-500/20 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs px-5 py-3 shadow-md shadow-emerald-500/20 transition-all hover:scale-105 shrink-0"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    <span>{isEnglish ? "Discuss on WhatsApp" : "হোয়াটসঅ্যাপে আলোচনা করুন"}</span>
+                    <span>{isEnglish ? "WhatsApp Discussion" : "হোয়াটসঅ্যাপে যোগাযোগ"}</span>
                   </a>
                 </div>
               </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>

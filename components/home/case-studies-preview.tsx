@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -198,33 +199,54 @@ const caseStudies = [
 export function CaseStudiesPreview() {
   const [selectedStudy, setSelectedStudy] = useState<typeof caseStudies[0] | null>(null)
   const isClosingViaHistoryRef = useRef(false)
+  const isOpeningRef = useRef(false)
   const { language, t } = useLanguage()
   const isEnglish = language === "en"
 
   // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
   const handleOpenStudy = useCallback((study: typeof caseStudies[0]) => {
     setSelectedStudy(study)
+    isOpeningRef.current = true
     if (typeof window !== "undefined") {
       isClosingViaHistoryRef.current = false
-      window.history.pushState({ modal: "case-study-card", id: study.title }, "")
+      try {
+        const hash = "#case-study"
+        if (window.location.hash !== hash) {
+          window.history.pushState(
+            { ...(window.history.state || {}), modal: "case-study-card", id: study.title },
+            "",
+            hash
+          )
+        }
+      } catch {
+        // Safe fallback
+      }
     }
+    setTimeout(() => {
+      isOpeningRef.current = false
+    }, 200)
   }, [])
 
   // Close modal and cleanly pop history state if it was pushed
   const handleCloseStudy = useCallback(() => {
-    setSelectedStudy((current) => {
-      if (!current) return null
-      if (typeof window !== "undefined" && window.history.state?.modal === "case-study-card") {
-        isClosingViaHistoryRef.current = true
+    setSelectedStudy(null)
+    if (typeof window !== "undefined" && window.location.hash === "#case-study") {
+      isClosingViaHistoryRef.current = true
+      try {
         window.history.back()
+      } catch {
+        // Safe fallback
       }
-      return null
-    })
+      setTimeout(() => {
+        isClosingViaHistoryRef.current = false
+      }, 250)
+    }
   }, [])
 
   // Browser Back button / mobile swipe back gesture listener
   useEffect(() => {
     const handlePopState = () => {
+      if (isOpeningRef.current) return
       if (isClosingViaHistoryRef.current) {
         isClosingViaHistoryRef.current = false
         return
@@ -267,10 +289,10 @@ export function CaseStudiesPreview() {
               </h2>
             </div>
             <Button variant="outline" asChild className="group hover:shadow-lg transition-all duration-300">
-              <a href="/portfolio">
+              <Link href="/portfolio">
                 {t("viewAllProjects")}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
           </ScrollReveal>
           

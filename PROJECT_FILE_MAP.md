@@ -130,6 +130,10 @@ project-root/
 | `integrations/meta-graph/` | Integrations | Meta Marketing Graph API connector specs | Ad Account Sync | Newly categorized | Unified ad metrics connector |
 | `integrations/gemini/` | Integrations | Server-side Gemini model proxy specs | AI Assistant Logic | Newly categorized | Enforces API key server privacy |
 | `data/knowledge-base/` | Data | 6 structured JSON knowledge bases | AI FAQ Engine | Left in place | Imported by lib/faq-engine |
+| `data/clients.ts` | Data | 49 authentic client records with verified URLs & categories | Client Portfolio & Showcase | Newly created | Imported by portfolio & testimonials |
+| `data/team.ts` | Data | 5 real team member records with bio, skills, default gallery | Team System | Newly created | Imported by team pages & carousel |
+| `app/team/[id]/page.tsx` | Route | Dedicated team member profile page with gallery & uploader | Team Deep-dive | Newly created | Dynamic static-exported route |
+| `components/team/member-profile-view.tsx` | Component | Rich member profile view with 2-3 image gallery & live upload manager | Team Deep-dive | Newly created | Used by app/team/[id]/page.tsx |
 | `lib/faq-engine/` | Core Library | Banglish NLP tokenizer, normalizer, search matcher | Interactive Bot | Left in place | Referenced across site components |
 | `lib/language-context.tsx` | Core Library | English and Bengali bilingual provider | Bilingual Experience | Left in place | Root context provider |
 | `scripts/verify-assets.mjs` | Scripts | Standalone asset integrity verification | DevOps / QA | Newly categorized | Operational utility |
