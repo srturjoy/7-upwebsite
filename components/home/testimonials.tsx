@@ -140,7 +140,7 @@ export function Testimonials() {
                   className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer whitespace-nowrap ${
                     selectedCategory === cat
                       ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-cyan-500/20"
-                      : "text-slate-400 hover:text-white"
+                      : "text-slate-300 hover:text-white"
                   }`}
                 >
                   {cat}
@@ -154,7 +154,7 @@ export function Testimonials() {
                 type="button"
                 onClick={() => setViewMode("carousel")}
                 className={`p-1.5 rounded-xl text-xs font-medium flex items-center gap-1 transition-all ${
-                  viewMode === "carousel" ? "bg-slate-800 text-cyan-300 shadow-xs" : "text-slate-400 hover:text-white"
+                  viewMode === "carousel" ? "bg-slate-800 text-cyan-300 shadow-xs" : "text-slate-300 hover:text-white"
                 }`}
                 title={isEnglish ? "Carousel View" : "ক্যারোসেল ভিউ"}
                 aria-label="Carousel View"
@@ -165,7 +165,7 @@ export function Testimonials() {
                 type="button"
                 onClick={() => setViewMode("grid")}
                 className={`p-1.5 rounded-xl text-xs font-medium flex items-center gap-1 transition-all ${
-                  viewMode === "grid" ? "bg-slate-800 text-cyan-300 shadow-xs" : "text-slate-400 hover:text-white"
+                  viewMode === "grid" ? "bg-slate-800 text-cyan-300 shadow-xs" : "text-slate-300 hover:text-white"
                 }`}
                 title={isEnglish ? "Grid View" : "গ্রিড ভিউ"}
                 aria-label="Grid View"
@@ -273,14 +273,14 @@ export function Testimonials() {
                       href={client.facebookUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-cyan-300 hover:text-white transition-colors"
                       aria-label={`Visit Facebook page of ${client.name}`}
                     >
                       <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                       </svg>
                       <span>Facebook Page</span>
-                      <ExternalLink className="h-2.5 w-2.5 opacity-60" />
+                      <ExternalLink className="h-2.5 w-2.5" />
                     </a>
 
                     {client.websiteUrl && (
@@ -352,13 +352,13 @@ export function Testimonials() {
                       href={client.facebookUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-blue-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-cyan-300 hover:text-white transition-colors"
                     >
                       <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                       </svg>
                       <span>Facebook</span>
-                      <ExternalLink className="h-2.5 w-2.5 opacity-60" />
+                      <ExternalLink className="h-2.5 w-2.5" />
                     </a>
 
                     {client.websiteUrl && (

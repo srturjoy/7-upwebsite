@@ -63,7 +63,7 @@ export default function PortfolioPage() {
                 <p className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">
                   {stat.value}
                 </p>
-                <p className="mt-1.5 text-xs sm:text-sm text-primary-foreground/80 font-medium">
+                <p className="mt-1.5 text-xs sm:text-sm text-slate-200 font-medium">
                   {stat.label}
                 </p>
               </div>

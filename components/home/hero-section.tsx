@@ -336,7 +336,7 @@ export function HeroSection() {
               <span className="text-slate-900 dark:text-slate-100">
                 {t("heroTitle1")}{" "}
               </span>
-              <span className="relative inline-block min-w-[200px] sm:min-w-[280px] text-blue-600 dark:text-blue-400">
+              <span className="relative inline-block min-w-[200px] sm:min-w-[280px] text-blue-600 dark:text-cyan-300 font-extrabold">
                 <TypewriterText 
                   words={
                     isEnglish 
@@ -345,8 +345,8 @@ export function HeroSection() {
                   } 
                 />
                 <span 
-                  className="absolute -inset-2 rounded-lg -z-10 opacity-20 blur-xl"
-                  style={{ background: "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)" }}
+                  className="absolute -inset-2 rounded-lg -z-10 opacity-15 blur-lg pointer-events-none"
+                  style={{ background: "linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)" }}
                 />
               </span>
             </h1>
@@ -398,17 +398,17 @@ export function HeroSection() {
               
               <div className="text-center relative">
                 <AnimatedCounter value="500+" />
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">{t("happyClients")}</p>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-200 font-medium">{t("happyClients")}</p>
               </div>
               <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-600 to-transparent" />
               <div className="text-center relative">
                 <AnimatedCounter value="95%" />
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">{t("clientRetention")}</p>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-200 font-medium">{t("clientRetention")}</p>
               </div>
               <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-600 to-transparent" />
               <div className="text-center relative">
                 <AnimatedCounter value="10M+" />
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">{t("adSpendManaged")}</p>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-200 font-medium">{t("adSpendManaged")}</p>
               </div>
             </div>
           </div>

@@ -31,76 +31,22 @@ export function PortfolioContent() {
   const [visibleCount, setVisibleCount] = useState(15)
   const [selectedClient, setSelectedClient] = useState<ClientRecord | null>(null)
 
-  // Guard references for modal history back & backspace navigation
-  const isOpeningRef = useRef(false)
-  const isClosingViaHistoryRef = useRef(false)
-
-  // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
+  // Open modal cleanly without modifying browser history stack
   const handleOpenClient = useCallback((client: ClientRecord) => {
     setSelectedClient(client)
-    isOpeningRef.current = true
-
-    if (typeof window !== "undefined") {
-      try {
-        const hash = `#client-${client.id}`
-        if (window.location.hash !== hash) {
-          window.history.pushState(
-            { ...(window.history.state || {}), modal: "client-card", id: client.id },
-            "",
-            hash
-          )
-        }
-      } catch {
-        // Safe fallback
-      }
-    }
-
-    setTimeout(() => {
-      isOpeningRef.current = false
-    }, 200)
   }, [])
 
-  // Close modal and cleanly pop history state if it was pushed
+  // Close modal cleanly
   const handleCloseClient = useCallback(() => {
     setSelectedClient(null)
-
-    if (typeof window !== "undefined" && window.location.hash.startsWith("#client-")) {
-      isClosingViaHistoryRef.current = true
-      try {
-        window.history.back()
-      } catch {
-        // Safe fallback
-      }
-      setTimeout(() => {
-        isClosingViaHistoryRef.current = false
-      }, 250)
-    }
   }, [])
 
-  // Browser Back button / mobile swipe back gesture listener
-  useEffect(() => {
-    const handlePopState = () => {
-      if (isOpeningRef.current) return
-      if (isClosingViaHistoryRef.current) {
-        isClosingViaHistoryRef.current = false
-        return
-      }
-      setSelectedClient(null)
-    }
-
-    window.addEventListener("popstate", handlePopState)
-    return () => window.removeEventListener("popstate", handlePopState)
-  }, [])
-
-  // Keyboard Backspace ("back speacch") and Escape key listener
+  // Keyboard Escape key listener to close modal
   useEffect(() => {
     if (!selectedClient) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement | null
-      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
-
-      if ((e.key === "Backspace" && !isInput) || e.key === "Escape") {
+      if (e.key === "Escape") {
         e.preventDefault()
         handleCloseClient()
       }
@@ -175,13 +121,13 @@ export function PortfolioContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={isEnglish ? "Search business or page name..." : "ব্যবসা বা পেজের নাম দিয়ে খুঁজুন..."}
-                className="w-full pl-10 pr-9 py-2 rounded-xl bg-secondary/80 border border-border/80 text-foreground placeholder:text-muted-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
+                className="w-full pl-10 pr-9 py-2 rounded-xl bg-secondary/80 border border-border/80 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground dark:text-slate-300 hover:text-foreground"
                   aria-label="Clear search"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -189,7 +135,7 @@ export function PortfolioContent() {
               )}
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground dark:text-slate-300 font-medium">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>
                 {isEnglish
@@ -216,8 +162,8 @@ export function PortfolioContent() {
                 >
                   <span>{cat}</span>
                   <span
-                    className={`ml-2 text-[10px] px-1.5 py-0.2 rounded-full ${
-                      isActive ? "bg-white/25 text-white" : "bg-muted text-muted-foreground"
+                    className={`ml-2 text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                      isActive ? "bg-white/25 text-white" : "bg-muted text-muted-foreground dark:text-slate-200"
                     }`}
                   >
                     {count}
@@ -297,7 +243,7 @@ export function PortfolioContent() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-grow">
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground dark:text-slate-300 leading-relaxed line-clamp-3 flex-grow">
                     {isEnglish ? client.description : (client.descriptionBn || client.description)}
                   </p>
 
@@ -333,14 +279,14 @@ export function PortfolioContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 text-blue-600 hover:text-white dark:text-blue-400 dark:hover:text-white text-xs font-semibold transition-all duration-200 border border-blue-500/20"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 text-blue-600 hover:text-white dark:bg-cyan-500/10 dark:text-cyan-300 dark:hover:bg-cyan-500 dark:hover:text-slate-950 text-xs font-semibold transition-all duration-200 border border-blue-500/20 dark:border-cyan-500/25"
                       aria-label={`Visit Facebook Page of ${client.name}`}
                     >
                       <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                       </svg>
                       <span>Facebook</span>
-                      <ExternalLink className="h-3 w-3 opacity-70" />
+                      <ExternalLink className="h-3 w-3" />
                     </a>
 
                     {/* Official Website Button (ONLY rendered when verified website URL exists) */}
@@ -355,7 +301,7 @@ export function PortfolioContent() {
                       >
                         <Globe className="h-3.5 w-3.5" />
                         <span>Website</span>
-                        <ExternalLink className="h-3 w-3 opacity-70" />
+                        <ExternalLink className="h-3 w-3" />
                       </a>
                     )}
 
@@ -437,8 +383,8 @@ export function PortfolioContent() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-border/40 text-xs text-muted-foreground/90 leading-relaxed pl-11">
-              <span className="font-semibold text-foreground/80">
+            <div className="pt-3 border-t border-border/40 text-xs text-slate-600 dark:text-slate-300 leading-relaxed pl-11">
+              <span className="font-semibold text-foreground dark:text-white">
                 {isEnglish ? "Pricing Disclosure: " : "মূল্য সংক্রান্ত তথ্য: "}
               </span>
               {isEnglish

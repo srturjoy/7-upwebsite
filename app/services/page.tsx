@@ -283,7 +283,7 @@ export default function ServicesPage() {
                         : "আমাদের সকল ডিজিটাল মার্কেটিং সেবা এক্সপ্লোর করুন"}
                     </h2>
 
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 leading-relaxed">
                       {isEnglish
                         ? "Discover our complete range of digital marketing, advertising, tracking, and growth solutions."
                         : "আমাদের সম্পূর্ণ ডিজিটাল মার্কেটিং, বিজ্ঞাপন, ট্র্যাকিং এবং বিজনেস গ্রোথ সলিউশনসমূহ বিস্তারিত জানুন।"}
@@ -341,10 +341,10 @@ export default function ServicesPage() {
                     ) : null}
                     <h2 className="text-3xl font-bold text-foreground">{service.title}</h2>
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-lg text-muted-foreground dark:text-slate-300 leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <p className="text-foreground font-medium mb-6">
+                  <p className="text-foreground dark:text-slate-100 font-medium mb-6">
                     {service.benefits}
                   </p>
                   <motion.div 
@@ -361,7 +361,7 @@ export default function ServicesPage() {
                         className="flex items-center gap-2 group"
                       >
                         <CheckCircle2 className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                        <span className="text-sm text-slate-700 dark:text-slate-200 font-medium">{feature}</span>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -414,7 +414,7 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl text-balance">
               {t("readyToBoost")}
             </h2>
-            <p className="mt-4 text-lg text-white/80">
+            <p className="mt-4 text-lg text-white/95 font-medium leading-relaxed">
               {t("ctaDescription")}
             </p>
             <div className="mt-8">

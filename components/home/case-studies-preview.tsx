@@ -198,76 +198,25 @@ const caseStudies = [
 
 export function CaseStudiesPreview() {
   const [selectedStudy, setSelectedStudy] = useState<typeof caseStudies[0] | null>(null)
-  const isClosingViaHistoryRef = useRef(false)
-  const isOpeningRef = useRef(false)
   const { language, t } = useLanguage()
   const isEnglish = language === "en"
 
-  // Open modal and push history state so phone back button / swipe back gesture closes modal without leaving website
+  // Open modal cleanly without modifying browser history stack
   const handleOpenStudy = useCallback((study: typeof caseStudies[0]) => {
     setSelectedStudy(study)
-    isOpeningRef.current = true
-    if (typeof window !== "undefined") {
-      isClosingViaHistoryRef.current = false
-      try {
-        const hash = "#case-study"
-        if (window.location.hash !== hash) {
-          window.history.pushState(
-            { ...(window.history.state || {}), modal: "case-study-card", id: study.title },
-            "",
-            hash
-          )
-        }
-      } catch {
-        // Safe fallback
-      }
-    }
-    setTimeout(() => {
-      isOpeningRef.current = false
-    }, 200)
   }, [])
 
-  // Close modal and cleanly pop history state if it was pushed
+  // Close modal cleanly
   const handleCloseStudy = useCallback(() => {
     setSelectedStudy(null)
-    if (typeof window !== "undefined" && window.location.hash === "#case-study") {
-      isClosingViaHistoryRef.current = true
-      try {
-        window.history.back()
-      } catch {
-        // Safe fallback
-      }
-      setTimeout(() => {
-        isClosingViaHistoryRef.current = false
-      }, 250)
-    }
   }, [])
 
-  // Browser Back button / mobile swipe back gesture listener
-  useEffect(() => {
-    const handlePopState = () => {
-      if (isOpeningRef.current) return
-      if (isClosingViaHistoryRef.current) {
-        isClosingViaHistoryRef.current = false
-        return
-      }
-      // If modal was open, close it so user stays on the website
-      setSelectedStudy(null)
-    }
-
-    window.addEventListener("popstate", handlePopState)
-    return () => window.removeEventListener("popstate", handlePopState)
-  }, [])
-
-  // Keyboard Backspace ("back speacch") and Escape key listener
+  // Keyboard Escape key listener to close modal
   useEffect(() => {
     if (!selectedStudy) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement | null
-      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
-
-      if ((e.key === "Backspace" && !isInput) || e.key === "Escape") {
+      if (e.key === "Escape") {
         e.preventDefault()
         handleCloseStudy()
       }
@@ -335,7 +284,7 @@ export function CaseStudiesPreview() {
                     <h3 className="text-xs sm:text-base lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
                       {isEnglish ? study.title : study.titleBn}
                     </h3>
-                    <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2">
+                    <p className="mt-1.5 sm:mt-2 text-muted-foreground dark:text-slate-300 text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2">
                       {isEnglish ? study.description : study.descriptionBn}
                     </p>
                   </div>
@@ -346,11 +295,11 @@ export function CaseStudiesPreview() {
                           <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
                           {result.value}
                         </p>
-                        <p className="text-[9px] sm:text-[11px] text-muted-foreground mt-0.5 font-medium leading-none">{isEnglish ? result.label : result.labelBn}</p>
+                        <p className="text-[9px] sm:text-[11px] text-muted-foreground dark:text-slate-300 mt-0.5 font-medium leading-none">{isEnglish ? result.label : result.labelBn}</p>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary group-hover:text-cyan-500 transition-colors">
+                  <div className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary dark:text-cyan-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition-colors">
                     {t("viewDetails")}
                     <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-1.5 transition-transform" />
                   </div>
@@ -399,7 +348,7 @@ export function CaseStudiesPreview() {
 
               <div className="p-6 lg:p-8">
                 {/* Overview */}
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                <p className="text-lg text-muted-foreground dark:text-slate-200 leading-relaxed mb-8">
                   {isEnglish ? selectedStudy.description : selectedStudy.descriptionBn}
                 </p>
 
@@ -417,7 +366,7 @@ export function CaseStudiesPreview() {
                     </div>
                     <ul className="space-y-3">
                       {(isEnglish ? selectedStudy.strategy.points : selectedStudy.strategy.pointsBn).map((point, i) => (
-                        <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-200 font-normal">
                           <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                           {point}
                         </li>
@@ -437,7 +386,7 @@ export function CaseStudiesPreview() {
                     </div>
                     <ul className="space-y-3">
                       {(isEnglish ? selectedStudy.execution.points : selectedStudy.execution.pointsBn).map((point, i) => (
-                        <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-200 font-normal">
                           <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                           {point}
                         </li>

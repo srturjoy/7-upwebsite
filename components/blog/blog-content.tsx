@@ -165,7 +165,7 @@ export function BlogContent() {
 
             {/* Functional Search Bar */}
             <div className="mt-8 max-w-md mx-auto relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300 dark:text-slate-300" />
               <Input
                 placeholder={isEnglish ? "Search updates, keywords, or topics..." : "নিবন্ধ, কীওয়ার্ড বা বিষয় দিয়ে খুঁজুন..."}
                 className="pl-11 pr-4 h-12 rounded-full bg-card border-border/80 text-foreground placeholder:text-muted-foreground focus-visible:ring-cyan-500 shadow-lg"
@@ -282,11 +282,11 @@ export function BlogContent() {
                     <Badge variant="secondary" className="text-xs font-semibold">
                       {isEnglish ? featuredPost.category : categoriesBn[featuredPost.category] || featuredPost.category}
                     </Badge>
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <span className="text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5 text-cyan-500" />
                       {isEnglish ? featuredPost.date : featuredPost.dateBn}
                     </span>
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <span className="text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-cyan-500" />
                       {isEnglish ? featuredPost.readTime : featuredPost.readTimeBn}
                     </span>
@@ -348,7 +348,7 @@ export function BlogContent() {
                 : `${isEnglish ? activeCategory : categoriesBn[activeCategory]} ${isEnglish ? "Articles" : "আর্টিকেল"}`}
             </h2>
             {totalPages > 1 && (
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">
                 {isEnglish ? `Page ${currentPage} of ${totalPages}` : `পৃষ্ঠা ${currentPage} এর ${totalPages}`}
               </p>
             )}
@@ -403,7 +403,7 @@ export function BlogContent() {
                         <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
                           <div>
                             {/* Date & Read time */}
-                            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-3">
+                            <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium mb-3">
                               <span className="flex items-center gap-1.5">
                                 <Calendar className="h-3.5 w-3.5 text-cyan-500" />
                                 {isEnglish ? post.date : post.dateBn}

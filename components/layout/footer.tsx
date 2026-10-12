@@ -51,7 +51,7 @@ export function Footer() {
                 Boosting Agency BD
               </span>
             </Link>
-            <p className="mt-4 text-sm text-slate-300 leading-relaxed">
+            <p className="mt-4 text-sm text-slate-200 leading-relaxed">
               {t("footerDescription")}
             </p>
             <div className="mt-6 flex gap-4">
@@ -59,7 +59,7 @@ export function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-slate-300 hover:text-white transition-colors"
+                  className="text-slate-200 hover:text-white transition-colors"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-5 w-5" aria-hidden="true" />
@@ -123,7 +123,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-center sm:text-left text-sm text-slate-400">
+          <p className="text-center sm:text-left text-sm text-slate-300">
             &copy; {new Date().getFullYear()} Boosting Agency BD. {t("allRightsReserved")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
@@ -133,17 +133,17 @@ export function Footer() {
             >
               T&C
             </Link>
-            <span className="text-slate-600">•</span>
+            <span className="text-slate-500">•</span>
             <Link
               href="/terms#privacy-policy-and-data-protection"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-300 hover:text-white transition-colors"
             >
               {isEnglish ? "Privacy Policy" : "গোপনীয়তা নীতিমালা"}
             </Link>
-            <span className="text-slate-600">•</span>
+            <span className="text-slate-500">•</span>
             <Link
               href="/terms#refund-and-balance-policy"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-300 hover:text-white transition-colors"
             >
               {isEnglish ? "Refund Policy" : "রিফান্ড নীতিমালা"}
             </Link>

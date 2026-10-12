@@ -1,17 +1,5 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import React from 'react'
-if (typeof window === 'undefined') {
-  try {
-    const originalUseContext = React.useContext;
-    (React as any).useContext = function(Context: any) {
-      try {
-        return originalUseContext(Context);
-      } catch {
-        return undefined;
-      }
-    };
-  } catch {}
-}
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 const Analytics = () => null
@@ -40,6 +28,12 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || 'XXXXXXXXXXXXXXXX
 
 // ============================================================
 
+export const viewport: Viewport = {
+  themeColor: '#020617',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://boostingagencyofficial.site'),
   title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
@@ -58,80 +52,13 @@ export const metadata: Metadata = {
     'web design',
     'bangladesh',
     'dhaka',
-    'digital marketing agency',
-    'social media marketing',
-    'online marketing',
-    'ppc advertising',
-    'search engine optimization',
-    'web development bangladesh',
-    'branding agency dhaka',
-    'বুস্টিং এজেন্সি বিডি',
-    'ফেসবুক বুস্টিং',
-    'ডিজিটাল মার্কেটিং বাংলাদেশ',
-    'সেরা মার্কেটিং এজেন্সি ঢাকা',
-    'boosting agency bd',
-    'facebook boosting bangladesh',
-    'meta ads expert bangladesh'
+    'boosting agency bd'
   ],
   authors: [{ name: 'Boosting Agency BD' }],
   manifest: '/site.webmanifest',
   icons: {
-    icon: [
-      {
-        url: 'https://boostingagencyofficial.site/favicon.ico',
-        sizes: '48x48 32x32 16x16',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/favicon-48x48.png',
-        sizes: '48x48',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/favicon-96x96.png',
-        sizes: '96x96',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/favicon-144x144.png',
-        sizes: '144x144',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/favicon-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/favicon-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/logo.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/icon-light-32x32.png',
-        sizes: '32x32',
-        type: 'image/png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: 'https://boostingagencyofficial.site/icon-dark-32x32.png',
-        sizes: '32x32',
-        type: 'image/png',
-        media: '(prefers-color-scheme: dark)',
-      },
-    ],
-    apple: [
-      {
-        url: 'https://boostingagencyofficial.site/apple-icon.png',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
-    shortcut: 'https://boostingagencyofficial.site/favicon.ico',
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
   openGraph: {
     type: 'website',
@@ -445,8 +372,6 @@ const jsonLd = {
   ]
 }
 
-export const dynamic = 'force-static'
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -457,9 +382,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} dark`} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <head>
+      <body className="font-sans antialiased">
         {/* Prevent white flash: Default to Dark Mode; restore user preference from boosting-agency-theme */}
         <script
+          key="theme-initializer-script"
           id="theme-initializer"
           dangerouslySetInnerHTML={{
             __html: `
@@ -486,37 +412,12 @@ export default function RootLayout({
         />
         {/* JSON-LD Structured Data for SEO */}
         <script
+          key="root-jsonld-script"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* Explicit Google Search Favicon, Organization Logo & Web App Icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="image_src" href="https://boostingagencyofficial.site/logo.png" />
-        <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
-        <meta name="msapplication-TileColor" content="#020617" />
-        <meta name="theme-color" content="#020617" />
-
-        {/* Machine-Readable AI Knowledge, LLMs & Sitemap Discovery */}
-        <link rel="help" type="text/plain" href="/llms.txt" title="LLM Knowledge Base" />
-        <link rel="alternate" type="application/json" href="/site-knowledge.json" title="Site Knowledge JSON" />
-        <link rel="alternate" type="application/json" href="/site-summary.json" title="Site Summary JSON" />
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-
-        {/* ============================================================
-            GOOGLE TAG MANAGER (GTM) - Head Script
-            ============================================================
-            <!-- INSERT_GTM_ID: Replace GTM-XXXXXXX in environment variable -->
-            GTM allows you to manage all your tracking tags in one place.
-            Add your GTM container ID to NEXT_PUBLIC_GTM_ID env variable.
-        ============================================================ */}
+        {/* GOOGLE TAG MANAGER (GTM) - Head Script */}
         {enableTracking && GTM_ID !== 'GTM-XXXXXXX' && (
           <Script
             id="gtm-script"
@@ -533,13 +434,7 @@ export default function RootLayout({
           />
         )}
 
-        {/* ============================================================
-            GOOGLE ANALYTICS 4 (GA4) - Direct Integration
-            ============================================================
-            <!-- INSERT_GA4_ID: Replace G-XXXXXXXXXX in environment variable -->
-            If not using GTM, you can add GA4 directly here.
-            Add your Measurement ID to NEXT_PUBLIC_GA4_ID env variable.
-        ============================================================ */}
+        {/* GOOGLE ANALYTICS 4 (GA4) - Direct Integration */}
         {enableTracking && GA4_ID !== 'G-XXXXXXXXXX' && (
           <>
             <Script
@@ -564,18 +459,7 @@ export default function RootLayout({
           </>
         )}
 
-        {/* ============================================================
-            META (FACEBOOK) PIXEL - With Conversions API Preparation
-            ============================================================
-            <!-- INSERT_META_PIXEL_ID: Replace XXXXXXXXXXXXXXXX in environment variable -->
-            Meta Pixel tracks conversions and enables remarketing.
-            Add your Pixel ID to NEXT_PUBLIC_META_PIXEL_ID env variable.
-            
-            For Conversions API (CAPI):
-            - Server-side events should be sent from your API routes
-            - Use the Facebook Conversions API with your access token
-            - Recommended events: PageView, Lead, Contact, ViewContent
-        ============================================================ */}
+        {/* META (FACEBOOK) PIXEL */}
         {enableTracking && META_PIXEL_ID !== 'XXXXXXXXXXXXXXXX' && (
           <Script
             id="meta-pixel"
@@ -592,21 +476,13 @@ export default function RootLayout({
                 'https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '${META_PIXEL_ID}');
                 fbq('track', 'PageView');
-                
-                // CAPI Preparation: Event ID for deduplication
-                // Use this event_id when sending server-side events
                 window.fbEventId = 'event_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
               `,
             }}
           />
         )}
-      </head>
-      <body className="font-sans antialiased">
-        {/* ============================================================
-            GOOGLE TAG MANAGER (GTM) - NoScript Fallback
-            ============================================================
-            Required for users with JavaScript disabled.
-        ============================================================ */}
+
+        {/* GOOGLE TAG MANAGER (GTM) - NoScript Fallback */}
         {enableTracking && GTM_ID !== 'GTM-XXXXXXX' && (
           <noscript>
             <iframe

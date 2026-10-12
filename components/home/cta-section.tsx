@@ -49,7 +49,7 @@ export function CTASection() {
           </motion.h2>
           <motion.p 
             variants={fadeInUp}
-            className="mt-4 text-lg text-primary-foreground/80"
+            className="mt-4 text-lg text-white/95 font-medium leading-relaxed"
           >
             {t("ctaDescription")}
           </motion.p>
@@ -74,14 +74,14 @@ export function CTASection() {
           
           <motion.div 
             variants={fadeInUp}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/80"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-white font-medium"
           >
-            <a href="tel:+8801518961899" className="flex items-center gap-2 hover:text-primary-foreground hover:scale-105 transition-all duration-300">
+            <a href="tel:+8801518961899" className="flex items-center gap-2 hover:text-cyan-200 hover:scale-105 transition-all duration-300">
               <Phone className="h-5 w-5" />
               +880 1518 961899
             </a>
-            <span className="hidden sm:block">|</span>
-            <a href="https://wa.me/8801518961899" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary-foreground hover:scale-105 transition-all duration-300">
+            <span className="hidden sm:block text-white/60">|</span>
+            <a href="https://wa.me/8801518961899" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-cyan-200 hover:scale-105 transition-all duration-300">
               <MessageSquare className="h-5 w-5" />
               WhatsApp: +880 1518 961899
             </a>

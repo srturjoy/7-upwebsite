@@ -123,12 +123,12 @@ export function ServicesOverview() {
                 </CardHeader>
                 
                 <CardContent className="relative p-3.5 sm:p-6 pt-0 sm:pt-0 flex flex-col justify-between flex-1">
-                  <CardDescription className="text-[11px] sm:text-xs lg:text-sm text-muted-foreground leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  <CardDescription className="text-[11px] sm:text-xs lg:text-sm text-muted-foreground dark:text-slate-300 leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {isEnglish ? service.description : service.descriptionBn}
                   </CardDescription>
                   <Link 
                     href={service.href}
-                    className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary hover:text-cyan-500 transition-colors group/link"
+                    className="mt-3 sm:mt-4 inline-flex items-center text-[11px] sm:text-xs lg:text-sm font-semibold text-primary dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors group/link"
                   >
                     {t("learnMore")}
                     <ArrowRight className="ml-1 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover/link:translate-x-1 transition-transform" />

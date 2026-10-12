@@ -172,7 +172,7 @@ export default function TermsAndConditionsPage() {
               </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300">
               <span>{isEnglish ? "Last Updated: October 10, 2026" : "সর্বশেষ হালনাগাদ: ১০ অক্টোবর, ২০২৬"}</span>
               <span>•</span>
               <span>{isEnglish ? "Effective for: All Active Clients" : "প্রযোজ্য: সকল সক্রিয় ক্লায়েন্ট"}</span>
@@ -210,7 +210,7 @@ export default function TermsAndConditionsPage() {
                   <span>{isEnglish ? cat.label_en : cat.label_bn}</span>
                   <span
                     className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
-                      isActive ? "bg-slate-950/20 text-slate-950" : "bg-slate-800 text-slate-400"
+                      isActive ? "bg-slate-950/20 text-slate-950" : "bg-slate-800 text-slate-300"
                     }`}
                   >
                     {cat.count}
@@ -222,7 +222,7 @@ export default function TermsAndConditionsPage() {
 
           {/* Search Box */}
           <div className="relative w-full md:w-72">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-300" />
             <input
               type="text"
               value={searchQuery}
@@ -232,12 +232,12 @@ export default function TermsAndConditionsPage() {
                   ? "Search in terms (e.g. refund, dollar)..."
                   : "খুঁজুন (যেমন: রিফান্ড, ডলার, পেমেন্ট)..."
               }
-              className="w-full rounded-lg border border-slate-800 bg-slate-900/90 py-2 pl-9 pr-4 text-xs text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+              className="w-full rounded-lg border border-slate-800 bg-slate-900/90 py-2 pl-9 pr-4 text-xs text-white placeholder:text-slate-400 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-300 hover:text-white"
               >
                 ✕
               </button>
@@ -248,11 +248,11 @@ export default function TermsAndConditionsPage() {
         {/* Section Cards */}
         {filteredSections.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-800 p-12 text-center">
-            <AlertCircle className="mx-auto h-10 w-10 text-slate-500" />
+            <AlertCircle className="mx-auto h-10 w-10 text-slate-400" />
             <h3 className="mt-4 text-base font-semibold text-white">
               {isEnglish ? "No matching policy sections found" : "কোনো পলিসি সেকশন পাওয়া যায়নি"}
             </h3>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-sm text-slate-300">
               {isEnglish
                 ? "Try searching with a different keyword or reset category filters."
                 : "অন্য কি-ওয়ার্ড দিয়ে খুঁজুন অথবা ক্যাটাগরি ফিল্টার রিসেট করুন।"}
@@ -397,7 +397,7 @@ export default function TermsAndConditionsPage() {
         <div className="mt-12 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors"
           >
             <span>←</span>
             <span>{isEnglish ? "Back to Home Page" : "হোমপেজে ফিরে যান"}</span>

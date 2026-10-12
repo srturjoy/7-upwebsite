@@ -83,7 +83,7 @@ export function WhyChooseUs() {
                     <h3 className="text-xs sm:text-base font-bold text-foreground leading-snug">
                       {isEnglish ? feature.name : feature.nameBn}
                     </h3>
-                    <p className="mt-1 text-[11px] sm:text-sm text-muted-foreground leading-snug sm:leading-relaxed">
+                    <p className="mt-1 text-[11px] sm:text-sm text-muted-foreground dark:text-slate-300 leading-snug sm:leading-relaxed">
                       {isEnglish ? feature.description : feature.descriptionBn}
                     </p>
                   </div>
@@ -124,7 +124,7 @@ export function WhyChooseUs() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + index * 0.05 }}
-                    className="flex items-center gap-2 text-xs sm:text-sm text-foreground/80 font-medium"
+                    className="flex items-center gap-2 text-xs sm:text-sm text-foreground dark:text-slate-100 font-medium"
                   >
                     <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500 shrink-0" />
                     {isEnglish ? benefit.en : benefit.bn}

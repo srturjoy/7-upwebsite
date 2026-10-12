@@ -55,7 +55,7 @@ export function ChatInput({ onSendMessage, disabled, language }: ChatInputProps)
               ? "Ask about boosting, pricing, CAPI, office..."
               : "বুস্টিং, প্যাকেজ খরচ, CAPI বা অফিস সম্পর্কে লিখুন..."
           }
-          className="w-full bg-slate-100/80 dark:bg-slate-800/80 text-foreground placeholder:text-muted-foreground text-sm rounded-xl px-3.5 py-2.5 pr-10 focus:outline-hidden focus:ring-2 focus:ring-cyan-500/50 border border-transparent transition-all"
+          className="w-full bg-slate-100/80 dark:bg-slate-800/80 text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400 text-sm rounded-xl px-3.5 py-2.5 pr-10 focus:outline-hidden focus:ring-2 focus:ring-cyan-500/50 border border-slate-200/80 dark:border-slate-700/80 transition-all"
         />
 
         <Button
@@ -70,11 +70,11 @@ export function ChatInput({ onSendMessage, disabled, language }: ChatInputProps)
         </Button>
       </div>
 
-      <div className="flex items-center justify-between mt-1.5 px-1 text-[11px] text-muted-foreground">
+      <div className="flex items-center justify-between mt-1.5 px-1 text-[11px] text-slate-500 dark:text-slate-400">
         <span>
           {isEn ? "Press Enter to send" : "পাঠাতে Enter চাপুন"}
         </span>
-        <span className="flex items-center gap-1 text-[10px] opacity-75">
+        <span className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
           <CornerDownLeft className="w-2.5 h-2.5" />
           Zero-API Local Retrieval
         </span>

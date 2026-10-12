@@ -50,14 +50,11 @@ export function Header() {
     router.push(href)
   }
 
-  // Handle keyboard Escape and Backspace to close mobile menu
+  // Handle keyboard Escape to close mobile menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!mobileMenuOpen) return
-      const target = e.target as HTMLElement | null
-      const isInput = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
-
-      if (e.key === "Escape" || (e.key === "Backspace" && !isInput)) {
+      if (e.key === "Escape") {
         e.preventDefault()
         handleCloseMobileMenu()
       }

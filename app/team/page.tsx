@@ -85,7 +85,7 @@ export default function TeamPage() {
                       {member.expertise.slice(0, 3).map((skill) => (
                         <span
                           key={skill}
-                          className="text-[11px] font-medium bg-secondary/80 text-foreground/80 px-2.5 py-0.5 rounded-lg border border-border/50"
+                          className="text-[11px] font-medium bg-secondary/80 text-foreground dark:text-slate-200 px-2.5 py-0.5 rounded-lg border border-border/50"
                         >
                           {skill}
                         </span>

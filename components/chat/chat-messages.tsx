@@ -46,7 +46,7 @@ export function ChatMessages({
             }
             if (part.startsWith("_") && part.endsWith("_")) {
               return (
-                <em key={pIdx} className="italic text-muted-foreground text-xs">
+                <em key={pIdx} className="italic text-slate-600 dark:text-slate-300 text-xs font-normal">
                   {part.slice(1, -1)}
                 </em>
               )
@@ -122,7 +122,7 @@ export function ChatMessages({
             </div>
 
             {/* Message Meta Info: Timestamp */}
-            <div className="flex items-center gap-2 px-1 text-[11px] text-muted-foreground">
+            <div className="flex items-center gap-2 px-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
               <span>{msg.timestamp}</span>
             </div>
 
@@ -158,7 +158,7 @@ export function ChatMessages({
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce" style={{ animationDelay: "0ms" }} />
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "150ms" }} />
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-bounce" style={{ animationDelay: "300ms" }} />
-            <span className="text-xs ml-1 text-slate-500">
+            <span className="text-xs ml-1 text-slate-600 dark:text-slate-300 font-medium">
               {isEn ? "Searching knowledge base..." : "তথ্য খোঁজা হচ্ছে..."}
             </span>
           </div>

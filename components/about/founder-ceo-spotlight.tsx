@@ -76,12 +76,12 @@ export function FounderCeoSpotlight() {
                 <p className="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 mt-1">
                   {isEnglish ? founder.role : (founder.roleBn || founder.role)}
                 </p>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium leading-relaxed mt-1">
+                <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 font-medium leading-relaxed mt-1">
                   {isEnglish ? founder.titles : (founder.titlesBn || founder.titles)}
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 leading-relaxed">
                 {isEnglish ? founder.bio : (founder.bioBn || founder.bio)}
               </p>
 
@@ -90,7 +90,7 @@ export function FounderCeoSpotlight() {
                 {(isEnglish ? founder.strengths : (founder.strengthsBn || founder.strengths)).slice(0, 4).map((str, i) => (
                   <div
                     key={i}
-                    className="p-3 rounded-2xl bg-secondary/40 border border-border/60 flex items-start gap-2.5 text-xs text-foreground/90 font-medium"
+                    className="p-3 rounded-2xl bg-secondary/40 border border-border/60 flex items-start gap-2.5 text-xs text-foreground dark:text-slate-100 font-medium"
                   >
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span className="leading-snug">{str}</span>

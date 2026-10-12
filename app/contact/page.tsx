@@ -146,12 +146,12 @@ ${formData.message}
                           href={item.href}
                           target={item.href.startsWith("http") ? "_blank" : undefined}
                           rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="text-muted-foreground hover:text-primary transition-colors"
+                          className="text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-cyan-400 transition-colors"
                         >
                           {item.details}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground">{item.details}</p>
+                        <p className="text-muted-foreground dark:text-slate-300">{item.details}</p>
                       )}
                     </div>
                   </div>

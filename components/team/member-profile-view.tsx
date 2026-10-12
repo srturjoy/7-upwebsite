@@ -194,12 +194,12 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
               </a>
 
               {member.phone && (
-                <div className="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-300">
-                  <span className="flex items-center gap-1.5 text-slate-400">
+                <div className="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-200">
+                  <span className="flex items-center gap-1.5 text-slate-300">
                     <Phone className="h-3.5 w-3.5 text-cyan-400" />
                     <span>{member.phone}</span>
                   </span>
-                  <span className="flex items-center gap-1.5 text-slate-400">
+                  <span className="flex items-center gap-1.5 text-slate-300">
                     <Mail className="h-3.5 w-3.5 text-cyan-400" />
                     <span className="truncate max-w-[150px]">{member.email || "srturjoy@gmail.com"}</span>
                   </span>
@@ -225,7 +225,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
                 {isEnglish ? member.role : (member.roleBn || member.role)}
               </p>
 
-              <p className="text-xs sm:text-sm text-muted-foreground font-medium leading-relaxed pt-1">
+              <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 font-medium leading-relaxed pt-1">
                 {isEnglish ? member.titles : (member.titlesBn || member.titles)}
               </p>
             </div>
@@ -233,7 +233,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
             {/* Member Quotation / Highlights Callout */}
             <div className="p-5 sm:p-6 rounded-3xl bg-secondary/50 border border-border/80 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-              <p className="text-sm sm:text-base italic text-foreground font-medium leading-relaxed relative">
+              <p className="text-sm sm:text-base italic text-foreground dark:text-slate-100 font-medium leading-relaxed relative">
                 &ldquo;{isEnglish ? member.description : (member.descriptionBn || member.description)}&rdquo;
               </p>
             </div>
@@ -243,7 +243,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
               <h3 className="text-xs font-bold uppercase tracking-wider text-primary">
                 {isEnglish ? "Professional Biography & Career Overview" : "পেশাদার পরিচিতি ও কর্মজীবন"}
               </h3>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
+              <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 leading-relaxed whitespace-pre-line">
                 {isEnglish ? member.bio : (member.bioBn || member.bio)}
               </p>
             </div>
@@ -278,7 +278,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
                     className="p-3.5 rounded-2xl bg-secondary/30 border border-border/60 flex items-start gap-3 text-xs sm:text-sm text-muted-foreground"
                   >
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed text-foreground/90 font-medium">{strength}</span>
+                    <span className="leading-relaxed text-foreground dark:text-slate-100 font-medium">{strength}</span>
                   </div>
                 ))}
               </div>
@@ -290,7 +290,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
                 <h4 className="text-sm font-bold text-foreground">
                   {isEnglish ? "Schedule a Direct Session" : "সরাসরি সেশন বুক করুন"}
                 </h4>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground dark:text-slate-300">
                   {isEnglish
                     ? "Available for full-funnel consulting, account audits, and media buying planning."
                     : "ফুল-ফানেল অডিট, বিজ্ঞাপন বাজেট প্ল্যানিং এবং স্ট্র্যাটেজি সেশনের জন্য প্রস্তুত।"}
@@ -366,7 +366,7 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
                       </p>
 
                       {/* Expertise / Titles */}
-                      <p className="text-[11px] text-muted-foreground/75 leading-relaxed font-medium mt-1.5 line-clamp-1">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-300 leading-relaxed font-medium mt-1.5 line-clamp-1">
                         {isEnglish ? other.titles : (other.titlesBn || other.titles)}
                       </p>
                     </div>

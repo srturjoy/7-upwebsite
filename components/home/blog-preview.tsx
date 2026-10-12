@@ -118,16 +118,16 @@ export function BlogPreview() {
                     <h3 className="text-xs sm:text-base lg:text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
                       {isEnglish ? post.title : post.titleBn}
                     </h3>
-                    <p className="mt-1.5 sm:mt-2 text-muted-foreground text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2 flex-1">
+                    <p className="mt-1.5 sm:mt-2 text-muted-foreground dark:text-slate-300 text-[11px] sm:text-xs lg:text-sm leading-snug sm:leading-relaxed line-clamp-2 flex-1">
                       {isEnglish ? post.excerpt : post.excerptBn}
                     </p>
                   </div>
                   <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-border/50 flex items-center justify-between">
-                    <span className="flex items-center gap-1 text-[10px] sm:text-xs text-muted-foreground font-medium">
+                    <span className="flex items-center gap-1 text-[10px] sm:text-xs text-muted-foreground dark:text-slate-300 font-medium">
                       <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-500" />
                       {isEnglish ? post.readTime : post.readTimeBn}
                     </span>
-                    <span className="text-[11px] sm:text-xs lg:text-sm font-semibold text-primary flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                    <span className="text-[11px] sm:text-xs lg:text-sm font-semibold text-primary dark:text-cyan-400 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
                       {isEnglish ? "Read" : "পড়ুন"}
                       <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                     </span>

@@ -85,7 +85,7 @@ export default function AboutPage() {
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
                 {t("fromSmallTeam")}
               </h2>
-              <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+              <div className="mt-6 space-y-4 text-muted-foreground dark:text-slate-300 leading-relaxed">
                 <p>{t("aboutStoryP1")}</p>
                 <p>{t("aboutStoryP2")}</p>
                 <p>{t("aboutStoryP3")}</p>
@@ -158,7 +158,7 @@ export default function AboutPage() {
                     <value.icon className="h-5 w-5 sm:h-7 sm:w-7" />
                   </div>
                   <h3 className="text-xs sm:text-lg font-bold text-foreground leading-tight">{value.title}</h3>
-                  <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-sm text-muted-foreground leading-snug sm:leading-relaxed">{value.description}</p>
+                  <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-sm text-muted-foreground dark:text-slate-300 leading-snug sm:leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -189,7 +189,7 @@ export default function AboutPage() {
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               {t("meetExperts")}
             </h2>
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground dark:text-slate-300">
               {isEnglish 
                 ? "Our specialized growth engineers, media buyers, and marketing technologists."
                 : "আমাদের বিশেষায়িত গ্রোথ ইঞ্জিনিয়ার, মিডিয়া বায়ার ও মার্কেটিং টেকনোলজিস্ট টিম।"}

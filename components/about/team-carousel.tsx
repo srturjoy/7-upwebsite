@@ -268,7 +268,7 @@ export function TeamCarousel() {
                   </p>
 
                   {/* Expertise / Titles */}
-                  <p className="text-[11px] text-muted-foreground/75 leading-relaxed font-medium mt-2 line-clamp-1">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-300 leading-relaxed font-medium mt-2 line-clamp-1">
                     {isEnglish ? member.titles : (member.titlesBn || member.titles)}
                   </p>
                 </div>
@@ -333,7 +333,7 @@ export function TeamCarousel() {
                     </p>
 
                     {/* Expertise / Titles */}
-                    <p className="text-[11px] text-muted-foreground/75 leading-relaxed font-medium mt-1.5 line-clamp-1">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-300 leading-relaxed font-medium mt-1.5 line-clamp-1">
                       {isEnglish ? member.titles : (member.titlesBn || member.titles)}
                     </p>
                   </div>

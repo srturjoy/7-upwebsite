@@ -6,7 +6,6 @@ import { allBlogPosts, freshBlogPosts } from "@/lib/blog-data"
 import { Calendar, Clock, ArrowRight, ExternalLink, ShieldCheck, Tag, ArrowLeft, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const dynamic = "force-static"
 export const dynamicParams = false
 
 interface Props {
@@ -140,10 +139,12 @@ export default async function BlogPostPage({ params }: Props) {
     <article className="min-h-screen bg-background text-foreground py-12 lg:py-20">
       {/* JSON-LD Schemas */}
       <script
+        key="article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <script
+        key="breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
@@ -195,7 +196,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ShieldCheck className="h-5 w-5 text-cyan-500 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Official Source Citation:</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">{post.officialSource.name}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300">{post.officialSource.name}</p>
                 </div>
               </div>
               <a
