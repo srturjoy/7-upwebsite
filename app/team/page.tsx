@@ -58,13 +58,10 @@ export default function TeamPage() {
               >
                 {/* Photo Thumbnail */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-slate-900">
-                  <Image
+                  <img
                     src={member.defaultImages[0]?.url || `/images/team/${member.id}.webp`}
                     alt={member.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                   

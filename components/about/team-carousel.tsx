@@ -40,23 +40,9 @@ export function TeamCarousel() {
   const isHoveredRef = useRef(false)
   const pointerStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
 
-  const [customPhotos, setCustomPhotos] = useState<Record<string, string>>({})
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const photos: Record<string, string> = {}
-      TEAM_MEMBERS.forEach((m) => {
-        const saved = localStorage.getItem(`ba_team_image_${m.id}`)
-        if (saved) photos[m.id] = saved
-      })
-      setCustomPhotos(photos)
-    }
-  }, [])
-
-  // Helper to get active photo URL for member
+  // Helper to get active photo URL for member (genuine team image only)
   const getPhotoUrl = (member: TeamMember) => {
-    if (customPhotos[member.id]) return customPhotos[member.id]
-    return member.defaultImages[0]?.url || ""
+    return member.defaultImages[0]?.url || `/images/team/${member.id}.webp`
   }
 
   // Navigate to dedicated team member page
@@ -251,20 +237,17 @@ export function TeamCarousel() {
               {/* Card Photo Banner */}
               <div className="aspect-[4/3] relative overflow-hidden bg-slate-900 flex items-center justify-center">
                 {getPhotoUrl(member) ? (
-                  <Image
+                  <img
                     src={getPhotoUrl(member)}
                     alt={isEnglish ? member.name : (member.nameBn || member.name)}
-                    fill
-                    sizes="(max-width: 640px) 290px, 320px"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 text-cyan-400 text-3xl font-black">
                     {getInitials(member.name)}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
               <CardContent className="p-5 relative flex flex-col flex-grow justify-between">
@@ -324,15 +307,12 @@ export function TeamCarousel() {
 
                 {/* Card Photo Banner */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-slate-900">
-                  <Image
+                  <img
                     src={getPhotoUrl(member)}
                     alt={isEnglish ? member.name : (member.nameBn || member.name)}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 <CardContent className="p-5 relative flex flex-col flex-grow justify-between">

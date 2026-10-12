@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useState, useEffect, useRef } from "react"
 import { Menu, X, Phone, Globe, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,7 @@ import { useLanguage } from "@/lib/language-context"
 import { useTheme } from "@/components/theme-provider"
 
 export function Header() {
+  const router = useRouter()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { language, setLanguage, t } = useLanguage()
@@ -29,66 +31,24 @@ export function Header() {
     { name: t("contact"), href: "/contact" },
   ]
 
-  const isClosingViaHistoryRef = useRef(false)
-
   const handleOpenMobileMenu = () => {
     setMobileMenuOpen(true)
-    if (typeof window !== "undefined") {
-      try {
-        isClosingViaHistoryRef.current = false
-        window.history.pushState({ modal: "mobile-menu" }, "")
-      } catch (e) {
-        // Ignore history push state errors in restricted sandbox
-      }
-    }
   }
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpen(false)
-    if (typeof window !== "undefined") {
-      try {
-        if (window.history.state?.modal === "mobile-menu") {
-          isClosingViaHistoryRef.current = true
-          window.history.back()
-        }
-      } catch (e) {
-        // Ignore history back errors in restricted sandbox
-      }
-    }
-  }
-
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false)
-    if (typeof window !== "undefined") {
-      try {
-        if (window.history.state?.modal === "mobile-menu") {
-          isClosingViaHistoryRef.current = true
-          window.history.back()
-        }
-      } catch (e) {
-        // Ignore history back errors in restricted sandbox
-      }
-    }
     if (typeof document !== "undefined") {
       document.body.style.overflow = ""
     }
   }
 
-  // Handle browser Back button / mobile swipe back gesture for mobile menu
-  useEffect(() => {
-    const handlePopState = () => {
-      if (isClosingViaHistoryRef.current) {
-        isClosingViaHistoryRef.current = false
-        return
-      }
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false)
-      }
+  const handleLinkClick = (href: string) => {
+    setMobileMenuOpen(false)
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = ""
     }
-
-    window.addEventListener("popstate", handlePopState)
-    return () => window.removeEventListener("popstate", handlePopState)
-  }, [mobileMenuOpen])
+    router.push(href)
+  }
 
   // Handle keyboard Escape and Backspace to close mobile menu
   useEffect(() => {
@@ -353,7 +313,7 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     className="flex items-center rounded-lg px-4 py-3.5 text-base font-medium text-foreground hover:bg-secondary transition-colors"
-                    onClick={handleLinkClick}
+                    onClick={() => handleLinkClick(item.href)}
                   >
                     {item.name}
                   </Link>
@@ -383,7 +343,7 @@ export function Header() {
                 asChild 
                 className="w-full gradient-primary text-white h-12 text-base font-semibold btn-get-started"
               >
-                <Link href="/contact" onClick={handleLinkClick}>
+                <Link href="/contact" onClick={() => handleLinkClick("/contact")}>
                   {t("getStarted")}
                 </Link>
               </Button>

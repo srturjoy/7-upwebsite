@@ -41,9 +41,6 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
   const { language } = useLanguage()
   const isEnglish = language === "en"
 
-  // Storage key for custom uploaded images
-  const storageKey = `ba_team_images_${member.id}`
-
   // State for gallery images
   const [images, setImages] = useState<GalleryImage[]>(() =>
     member.defaultImages.map((img, i) => ({
@@ -57,20 +54,8 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [copiedLink, setCopiedLink] = useState(false)
 
-  // Initialize images from localStorage or member default WebP images
+  // Initialize images from member genuine WebP images
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem(`ba_team_image_${member.id}`)
-      if (saved) {
-        setImages([{
-          id: "custom-saved",
-          url: saved,
-          caption: member.name,
-          isCustom: true,
-        }])
-        return
-      }
-    }
     const loadedImages: GalleryImage[] = member.defaultImages.map((img, i) => ({
       id: `default-${i}`,
       url: img.url,
@@ -147,13 +132,10 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
             <div className="relative rounded-3xl overflow-hidden border border-border/80 bg-card shadow-2xl group">
               <div className="aspect-square relative overflow-hidden bg-slate-900">
                 {activeImage ? (
-                  <Image
+                  <img
                     src={activeImage.url}
                     alt={member.name}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center gradient-primary text-white text-5xl font-black">
@@ -358,13 +340,10 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
 
                   {/* Card Photo Banner - Full Image exactly like About */}
                   <div className="aspect-[4/3] relative overflow-hidden bg-slate-900">
-                    <Image
+                    <img
                       src={photoUrl}
                       alt={isEnglish ? other.name : (other.nameBn || other.name)}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   </div>
@@ -430,11 +409,10 @@ export function MemberProfileView({ member }: MemberProfileViewProps) {
             onClick={(e) => e.stopPropagation()}
           >
             {activeImage && (
-              <Image
+              <img
                 src={activeImage.url}
                 alt={activeImage.caption}
-                fill
-                className="object-contain"
+                className="w-full h-full object-contain"
               />
             )}
             <div className="absolute bottom-4 left-4 right-4 text-center">

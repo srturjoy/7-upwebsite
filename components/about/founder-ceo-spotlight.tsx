@@ -38,14 +38,10 @@ export function FounderCeoSpotlight() {
           {/* Photo Column */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="aspect-[4/5] sm:aspect-square lg:aspect-[4/5] relative rounded-3xl overflow-hidden bg-slate-900 border border-border/80 shadow-2xl">
-              <Image
+              <img
                 src={photoUrl}
                 alt={founder.name}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
 
