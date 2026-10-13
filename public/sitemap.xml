@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Canonical Founder & CEO Personal Profile -->
+  <url>
+    <loc>https://turjoy.boostingagencyofficial.site/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
+      <image:title>Siddiqur Rahman Turjoy — Founder &amp; CEO</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Founder Dedicated Profile Page -->
+  <url>
+    <loc>https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
+      <image:title>Siddiqur Rahman Turjoy — Founder &amp; CEO of Boosting Agency BD</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Core Agency Pages -->
+  <url>
+    <loc>https://boostingagencyofficial.site/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/about</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
+      <image:title>Siddiqur Rahman Turjoy — Executive Leadership</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Founder &amp; CEO</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/team</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/services</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/portfolio</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/blog</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boostingagencyofficial.site/contact</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+</urlset>

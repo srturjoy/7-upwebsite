@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Siddiqur Rahman",
+  "givenName": "Siddiqur",
+  "familyName": "Rahman",
+  "additionalName": "Turjoy",
+  "preferredName": "Turjoy",
+  "alternateName": [
+    "Turjoy",
+    "Siddiqur Rahman Turjoy",
+    "Turjoy Siddiqur Rahman",
+    "Turjoy — Founder & CEO of Boosting Agency BD"
+  ],
+  "url": "https://turjoy.boostingagencyofficial.site/",
+  "jobTitle": "Founder & CEO",
+  "organization": "Boosting Agency BD",
+  "worksFor": {
+    "name": "Boosting Agency BD",
+    "url": "https://boostingagencyofficial.site/"
+  },
+  "address": {
+    "addressLocality": "Dhaka",
+    "addressCountry": "BD"
+  },
+  "nationality": "Bangladeshi",
+  "headline": "Founder & CEO | Digital Marketing Strategist | Branding & Business Growth Consultant | AI Automation Specialist",
+  "description": "Official machine-readable profile of Siddiqur Rahman Turjoy, Founder & CEO of Boosting Agency BD. Full-stack digital growth strategist, performance marketing consultant, and AI automation specialist based in Bangladesh.",
+  "positioning": "I help businesses connect marketing strategy, brand development, intelligent automation, and marketing technology to build stronger digital operations and sustainable growth.",
+  "yearsExperience": "5+ Years Stated Experience",
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science & Engineering (B.Sc. in CSE)",
+      "institution": "Bangladesh University of Business and Technology (BUBT)",
+      "graduationYear": "2024"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Meta Blueprint Certification",
+      "issuer": "Meta",
+      "badgeType": "Advertising Standard",
+      "description": "Advanced campaign planning, full-funnel audience architecture, Meta catalog setup, and ad optimization standards."
+    },
+    {
+      "name": "Google Ads Certification",
+      "issuer": "Google",
+      "badgeType": "Paid Search & Video",
+      "description": "Expertise across Google Search, Display, Measurement, Video, and Performance Max campaign execution."
+    },
+    {
+      "name": "Google Data Analytics Professional Certificate",
+      "issuer": "Google / Coursera",
+      "badgeType": "Data & Analytics",
+      "description": "Data exploration, cleaning, statistical analysis, dashboard reporting, and business metrics synthesis."
+    },
+    {
+      "name": "HubSpot Marketing Software Certification",
+      "issuer": "HubSpot Academy",
+      "badgeType": "Inbound & CRM",
+      "description": "Inbound marketing methodology, email automation, CRM workflows, and lead nurturing pipeline management."
+    },
+    {
+      "name": "Ethical Hacking Certification",
+      "issuer": "Creative IT Institute",
+      "badgeType": "Cybersecurity",
+      "description": "Cybersecurity fundamentals, network scanning, web vulnerability assessment, and digital asset security hygiene."
+    }
+  ],
+  "practiceAreas": [
+    {
+      "title": "Performance Marketing",
+      "description": "Data-driven advertising designed for measurable return on investment, full-funnel acquisition, and scalable revenue.",
+      "skills": [
+        "Meta Ads (Facebook & Instagram)",
+        "Google Ads (Search, Display, PMax)",
+        "YouTube Advertising",
+        "TikTok Advertising",
+        "Paid Advertising Strategy",
+        "Campaign Optimization",
+        "Lead Generation",
+        "E-commerce Marketing & Scaling",
+        "Retargeting & Multi-Stage Funnels",
+        "Conversion Rate Optimization (CRO)",
+        "Marketing Analytics & ROI Reporting"
+      ]
+    },
+    {
+      "title": "Branding & Business Consulting",
+      "description": "Transforming businesses into recognizable, defensible market presences through cohesive strategy and positioning.",
+      "skills": [
+        "Brand Strategy & Core Pillars",
+        "Brand Positioning & Differentiation",
+        "Brand Identity & Visual Direction",
+        "Digital Brand Presence & Authority",
+        "Marketing Strategy Consulting",
+        "Business Growth & Expansion Advisory",
+        "Competitor & Market Landscape Analysis",
+        "Social Media Content Strategy",
+        "Customer Acquisition Strategy"
+      ]
+    },
+    {
+      "title": "AI & Business Automation",
+      "description": "Deploying intelligent autonomous agents and automated workflows to eliminate manual bottlenecks and accelerate growth.",
+      "skills": [
+        "AI-Powered Customer Support Agents",
+        "Autonomous FAQ & Inbound Chatbots",
+        "Business Workflow Automation",
+        "Marketing Operations Automation",
+        "API & Webhook Integrations",
+        "Automated Reporting & Data Sync",
+        "Lead Management & CRM Routing",
+        "Internal Process Optimization"
+      ]
+    },
+    {
+      "title": "Marketing Technology & Software",
+      "description": "Robust data architectures, server-side tracking, and web foundations that ensure clean attribution and data privacy.",
+      "skills": [
+        "Meta Pixel & Advanced Events",
+        "Meta Conversion API (CAPI)",
+        "Google Analytics 4 (GA4)",
+        "Google Tag Manager (GTM Server-Side)",
+        "Conversion Tracking & Attribution",
+        "Data Analytics & Custom Dashboards",
+        "High-Converting Landing Page Architecture",
+        "E-commerce Technology Infrastructure",
+        "Software & Web Engineering Principles",
+        "Cybersecurity & Data Privacy Fundamentals"
+      ]
+    }
+  ],
+  "skillsByCategory": {
+    "advertisingPlatforms": [
+      "Meta Ads Manager",
+      "Google Ads",
+      "YouTube Advertising",
+      "TikTok Ads Manager",
+      "Meta Commerce Manager"
+    ],
+    "analyticsAndTracking": [
+      "Meta Conversion API (CAPI)",
+      "Meta Pixel",
+      "Google Analytics 4 (GA4)",
+      "Google Tag Manager (GTM)",
+      "Server-Side Tracking",
+      "Stape.io / Cloud GTM"
+    ],
+    "brandingAndStrategy": [
+      "Brand Positioning",
+      "Visual Brand Identity",
+      "Full-Funnel Architecture",
+      "Conversion Rate Optimization (CRO)",
+      "Customer Acquisition",
+      "Competitive Benchmarking"
+    ],
+    "aiAndWorkflowAutomation": [
+      "AI Autonomous Agents",
+      "AI Customer Service Bots",
+      "Zapier / Make Automation",
+      "Webhook Integrations",
+      "Automated Performance Reports",
+      "Lead Pipeline Automation"
+    ],
+    "webAndSoftwareEngineering": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Python Fundamentals",
+      "RESTful APIs",
+      "SQL & Relational Databases",
+      "Tailwind CSS"
+    ],
+    "cybersecurityFundamentals": [
+      "Ethical Hacking Fundamentals",
+      "Web Application Security",
+      "API Token & Secret Management",
+      "Data Privacy Hygiene"
+    ]
+  },
+  "experience": [
+    {
+      "role": "Founder & CEO",
+      "company": "Boosting Agency BD",
+      "period": "2021 – Present",
+      "status": "current",
+      "responsibilities": [
+        "Directing agency strategy, business growth, client consulting, and high-performance execution teams.",
+        "Engineering full-funnel Meta and Google advertising strategies for e-commerce, retail, and corporate brands.",
+        "Architecting enterprise-grade conversion tracking, Meta Conversion API (CAPI), and GA4 measurement systems.",
+        "Designing intelligent AI customer service agents, automated inquiry routing, and business workflow integrations.",
+        "Consulting brand owners on positioning, creative visual identity, and sustainable digital customer acquisition."
+      ]
+    },
+    {
+      "role": "Senior Social Media Marketer & Brand Strategist",
+      "company": "Algonest",
+      "period": "Prior Experience",
+      "status": "prior",
+      "responsibilities": [
+        "Developed cross-platform social media strategy and digital brand presence for client portfolios.",
+        "Directed market research, audience segment profiling, and content marketing framework planning.",
+        "Monitored social media campaign performance, engagement metrics, and growth analytics reporting."
+      ]
+    },
+    {
+      "role": "Digital Marketing Specialist",
+      "company": "Robo Tech Valley",
+      "period": "Prior Experience",
+      "status": "prior",
+      "responsibilities": [
+        "Executed multi-channel digital advertising campaigns targeting niche technical and student demographics.",
+        "Implemented search engine optimization (SEO) best practices and organic presence enhancements.",
+        "Analyzed digital acquisition channels and optimized conversion pathways to reduce acquisition costs."
+      ]
+    },
+    {
+      "role": "Software Engineer & AI Automation Specialist",
+      "company": "Tech Innovations Ltd",
+      "period": "2022 – 2023",
+      "status": "review",
+      "verificationNote": "Information preserved from profile history; flagged for review against formal employment records.",
+      "responsibilities": [
+        "Developed software logic, web components, and API integrations using modern JavaScript and frameworks.",
+        "Integrated AI automation routines and webhooks to streamline repetitive data entry and operational workflows.",
+        "Maintained backend endpoints, database interactions, and system security fundamentals."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Fashion & Retail Multi-Channel Growth",
+      "type": "verified",
+      "typeLabel": "Verified Client Project",
+      "industry": "E-Commerce & Fashion",
+      "role": "Lead Growth Strategist & Paid Media Buyer",
+      "description": "Implemented catalog-based Meta Ads retargeting, localized Google Shopping, and automated purchase events to scale customer orders consistently.",
+      "keyHighlight": "Attributable positive ROI and restored signal accuracy via Meta CAPI."
+    },
+    {
+      "title": "Enterprise Server-Side CAPI & GA4 Tracking Infrastructure",
+      "type": "verified",
+      "typeLabel": "Verified Client Project",
+      "industry": "Digital Services & Retail",
+      "role": "Technical Tracking Architect",
+      "description": "Engineered complete server-side Google Tag Manager and Meta Conversion API infrastructure to recover signal loss caused by browser ad-blockers and iOS restrictions.",
+      "keyHighlight": "Near 100% event delivery match rate with deduplication."
+    },
+    {
+      "title": "Furniture & Lifestyle Omnichannel Lead Generation",
+      "type": "verified",
+      "typeLabel": "Verified Client Project",
+      "industry": "Home Decor & Furnishing",
+      "role": "Consultant & Media Buyer",
+      "description": "Targeted high-intent local homeowners via Meta visual carousel formats and Google Search intent campaigns, driving direct WhatsApp and showroom consultations.",
+      "keyHighlight": "Consistent weekly qualified showroom appointments."
+    },
+    {
+      "title": "SaaS Multi-Stage Automated Lead Engine",
+      "type": "demo",
+      "typeLabel": "Demonstration Project",
+      "industry": "Software & Technology",
+      "role": "Architecture & Framework Designer",
+      "description": "Sample demonstration framework modeling multi-channel paid acquisition linked with automated CRM lead scoring, email nurturing sequences, and live webhook routing.",
+      "keyHighlight": "Simulated end-to-end inbound marketing automation blueprint."
+    },
+    {
+      "title": "Multi-Location Healthcare & Clinic Funnel",
+      "type": "concept",
+      "typeLabel": "Concept Project",
+      "industry": "Healthcare & Specialized Clinics",
+      "role": "Growth Strategy & Concept Designer",
+      "description": "Conceptual blueprint demonstrating geo-radius patient acquisition campaigns paired with automated WhatsApp appointment scheduling and reminder workflows.",
+      "keyHighlight": "Structured patient journey from localized ad to confirmed booking."
+    }
+  ],
+  "sameAs": [
+    "https://turjoy.boostingagencyofficial.site/",
+    "https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy",
+    "https://boostingagencyofficial.site/about"
+  ],
+  "images": [
+    {
+      "url": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp",
+      "title": "Siddiqur Rahman Turjoy — Portrait",
+      "alt": "Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD",
+      "caption": "Founder & CEO | Siddiqur Rahman Turjoy",
+      "width": 800,
+      "height": 1000,
+      "format": "image/webp"
+    }
+  ]
+}

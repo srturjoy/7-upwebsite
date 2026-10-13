@@ -148,8 +148,24 @@ const jsonLd = {
       "foundingDate": "2020",
       "founder": {
         "@type": "Person",
-        "name": "Siddiqur Rahman Turjoy",
-        "jobTitle": "Founder & CEO"
+        "@id": "https://turjoy.boostingagencyofficial.site/#person",
+        "name": "Siddiqur Rahman",
+        "givenName": "Siddiqur",
+        "familyName": "Rahman",
+        "additionalName": "Turjoy",
+        "alternateName": [
+          "Turjoy",
+          "Siddiqur Rahman Turjoy",
+          "Turjoy Siddiqur Rahman",
+          "Turjoy — Founder & CEO of Boosting Agency BD"
+        ],
+        "jobTitle": "Founder & CEO",
+        "url": "https://turjoy.boostingagencyofficial.site/",
+        "image": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp",
+        "sameAs": [
+          "https://turjoy.boostingagencyofficial.site/",
+          "https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy"
+        ]
       },
       "address": {
         "@type": "PostalAddress",
@@ -366,7 +382,54 @@ const jsonLd = {
             "@type": "Answer",
             "text": "You can contact Boosting Agency BD directly by calling or messaging on WhatsApp at +8801518961899, or visiting their office at Rupnagar R/A, Road-16, Mirpur-2, Dhaka-1216, Bangladesh."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Siddiqur Rahman Turjoy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Siddiqur Rahman (Turjoy) is the Founder & CEO of Boosting Agency BD (https://turjoy.boostingagencyofficial.site/). He is a full-stack digital growth strategist, performance marketing consultant, and AI automation specialist based in Bangladesh with a B.Sc. in Computer Science & Engineering from BUBT."
+          }
         }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://turjoy.boostingagencyofficial.site/#person",
+      "name": "Siddiqur Rahman",
+      "givenName": "Siddiqur",
+      "familyName": "Rahman",
+      "additionalName": "Turjoy",
+      "alternateName": [
+        "Turjoy",
+        "Siddiqur Rahman Turjoy",
+        "Turjoy Siddiqur Rahman",
+        "Turjoy — Founder & CEO of Boosting Agency BD"
+      ],
+      "url": "https://turjoy.boostingagencyofficial.site/",
+      "jobTitle": "Founder & CEO",
+      "worksFor": {
+        "@id": "https://boostingagencyofficial.site/#organization"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Bangladesh University of Business and Technology (BUBT)",
+        "url": "https://www.bubt.edu.bd"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp#primaryimage",
+        "url": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp",
+        "contentUrl": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp",
+        "caption": "Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD",
+        "width": 800,
+        "height": 1000,
+        "encodingFormat": "image/webp"
+      },
+      "sameAs": [
+        "https://turjoy.boostingagencyofficial.site/",
+        "https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy",
+        "https://boostingagencyofficial.site/about"
       ]
     }
   ]

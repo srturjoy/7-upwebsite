@@ -43,8 +43,47 @@ export default function AboutPage() {
     { value: "50M+", label: t("adImpressions") },
   ]
 
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://boostingagencyofficial.site/#organization",
+        "name": "Boosting Agency BD",
+        "url": "https://boostingagencyofficial.site/",
+        "logo": "https://boostingagencyofficial.site/logo.png",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://turjoy.boostingagencyofficial.site/#person",
+          "name": "Siddiqur Rahman",
+          "givenName": "Siddiqur",
+          "familyName": "Rahman",
+          "additionalName": "Turjoy",
+          "alternateName": [
+            "Turjoy",
+            "Siddiqur Rahman Turjoy",
+            "Turjoy Siddiqur Rahman"
+          ],
+          "jobTitle": "Founder & CEO",
+          "url": "https://turjoy.boostingagencyofficial.site/",
+          "image": "https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp",
+          "sameAs": [
+            "https://turjoy.boostingagencyofficial.site/",
+            "https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy"
+          ]
+        }
+      }
+    ]
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutStructuredData),
+        }}
+      />
       {/* Hero Section */}
       <section className="relative py-14 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 gradient-primary opacity-5" />
