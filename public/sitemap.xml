@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Canonical Founder & CEO Personal Profile -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ======================================================== -->
+  <!-- 1. PRIMARY CANONICAL PROFILES (FOUNDER & CEO)             -->
+  <!-- ======================================================== -->
   <url>
     <loc>https://turjoy.boostingagencyofficial.site/</loc>
     <lastmod>2026-10-13</lastmod>
@@ -9,12 +13,11 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
-      <image:title>Siddiqur Rahman Turjoy — Founder &amp; CEO</image:title>
-      <image:caption>Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD</image:caption>
+      <image:title>Siddiqur Rahman Turjoy — Founder &amp; CEO of Boosting Agency BD</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Full-Stack Digital Growth Professional, AI Automation Specialist and Founder of Boosting Agency BD</image:caption>
     </image:image>
   </url>
 
-  <!-- Founder Dedicated Profile Page -->
   <url>
     <loc>https://boostingagencyofficial.site/team/siddiqur-rahman-turjoy</loc>
     <lastmod>2026-10-13</lastmod>
@@ -22,18 +25,33 @@
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
-      <image:title>Siddiqur Rahman Turjoy — Founder &amp; CEO of Boosting Agency BD</image:title>
-      <image:caption>Siddiqur Rahman Turjoy, Founder and CEO of Boosting Agency BD</image:caption>
+      <image:title>Siddiqur Rahman Turjoy — Executive Leadership Profile</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Founder &amp; CEO — Performance Marketing, Branding, AI Automation &amp; MarTech</image:caption>
     </image:image>
   </url>
 
-  <!-- Core Agency Pages -->
+  <!-- ======================================================== -->
+  <!-- 2. CORE AGENCY PAGES                                     -->
+  <!-- ======================================================== -->
   <url>
     <loc>https://boostingagencyofficial.site/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boostingagencyofficial.site/" />
+    <xhtml:link rel="alternate" hreflang="bn" href="https://boostingagencyofficial.site/" />
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/logo.png</image:loc>
+      <image:title>Boosting Agency BD — Best Digital Marketing Agency in Bangladesh</image:title>
+      <image:caption>Boosting Agency BD Official Brand Identity</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/hero/hero-slide-1.png</image:loc>
+      <image:title>Meta Ads &amp; Creative AI Optimization — Boosting Agency BD</image:title>
+      <image:caption>High ROAS Facebook &amp; Instagram Advertising Strategies</image:caption>
+    </image:image>
   </url>
+
   <url>
     <loc>https://boostingagencyofficial.site/about</loc>
     <lastmod>2026-10-13</lastmod>
@@ -41,38 +59,269 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
-      <image:title>Siddiqur Rahman Turjoy — Executive Leadership</image:title>
-      <image:caption>Siddiqur Rahman Turjoy, Founder &amp; CEO</image:caption>
+      <image:title>Boosting Agency BD — Founder &amp; CEO Spotlight</image:title>
+      <image:caption>Siddiqur Rahman Turjoy, Founder &amp; CEO of Boosting Agency BD</image:caption>
     </image:image>
   </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/services</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://cdn.prod.website-files.com/655e0fa544c67c1ee5ce01c7/655e0fa544c67c1ee5ce0f19_a-guide-to-facebook-and-instagram-ads-for-musicians-header.webp</image:loc>
+      <image:title>Facebook &amp; Instagram Ads Management</image:title>
+      <image:caption>Precision Meta Ads and Retargeting Services in Bangladesh</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Google Ads Management &amp; Search Engine Marketing</image:title>
+      <image:caption>High Conversion Google Search, Display, and YouTube Video Campaigns</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/portfolio</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Verified Client Portfolio &amp; Case Studies</image:title>
+      <image:caption>Over 49+ Verified Client Projects and Proven Marketing ROAS</image:caption>
+    </image:image>
+  </url>
+
   <url>
     <loc>https://boostingagencyofficial.site/team</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/siddiqur-rahman-turjoy.webp</image:loc>
+      <image:title>Executive Team &amp; Digital Marketing Specialists</image:title>
+      <image:caption>Boosting Agency BD Core Team &amp; Growth Engineers</image:caption>
+    </image:image>
   </url>
-  <url>
-    <loc>https://boostingagencyofficial.site/services</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://boostingagencyofficial.site/portfolio</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://boostingagencyofficial.site/blog</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&amp;h=675&amp;fit=crop</image:loc>
+      <image:title>Digital Marketing &amp; AI Insights Blog</image:title>
+      <image:caption>Latest Meta Ads Updates, Google Algorithm Changes, and SEO Guides</image:caption>
+    </image:image>
   </url>
+
   <url>
     <loc>https://boostingagencyofficial.site/contact</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/privacy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/terms</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ======================================================== -->
+  <!-- 3. TEAM MEMBER PROFILES                                  -->
+  <!-- ======================================================== -->
+  <url>
+    <loc>https://boostingagencyofficial.site/team/joynal-abedin-joy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/joynal-abedin-joy.webp</image:loc>
+      <image:title>Joynal Abedin Joy — Senior Media Buyer</image:title>
+      <image:caption>Media Buyer specializing in Meta Ads and Audience Funnel Strategy</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/team/mohidul-islam-sojib</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/mohidul-islam-sojib.webp</image:loc>
+      <image:title>Mohidul Islam Sojib — Senior Performance Marketer</image:title>
+      <image:caption>Google Ads &amp; YouTube Advertising Campaign Strategist</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/team/abir-islam-joy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/abir-islam-joy.webp</image:loc>
+      <image:title>Abir Islam Joy — Creative Director &amp; UI/UX Designer</image:title>
+      <image:caption>Brand Designer and High-Converting Ad Creative Architect</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/team/azom</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://boostingagencyofficial.site/images/team/azom.webp</image:loc>
+      <image:title>Azom — Full-Stack Developer &amp; Tracking Engineer</image:title>
+      <image:caption>Next.js Developer &amp; Conversion Tracking Specialist</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ======================================================== -->
+  <!-- 4. ALL 11 BLOG POSTS & INDUSTRY GUIDES                   -->
+  <!-- ======================================================== -->
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/meta-ads-ai-update-2026-smarter-audience-targeting-creative-optimization</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&amp;h=675&amp;fit=crop</image:loc>
+      <image:title>Meta Ads AI Update 2026: Smarter Audience Targeting and Creative Optimization</image:title>
+      <image:caption>Meta Advertising Week New York 2026 updates for Bangladeshi marketers</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/google-ads-october-2026-update-turn-social-content-into-youtube-ads</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553484771-371a605b060b?w=1200&amp;h=675&amp;fit=crop</image:loc>
+      <image:title>Google Ads October 2026 Update: Turn Social Content into High-Impact YouTube Ads</image:title>
+      <image:caption>Repurpose Facebook, Instagram, and TikTok assets into Google Video Ads</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/google-demand-gen-update-september-2026-youtube-shorts-gmail</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&amp;h=675&amp;fit=crop</image:loc>
+      <image:title>Google Demand Gen Update September 2026: YouTube Shorts, Discover, and Gmail</image:title>
+      <image:caption>Scale visually-driven Demand Gen campaigns across Google surfaces</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/google-ai-max-update-2026-new-search-ads-reporting</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&amp;h=675&amp;fit=crop</image:loc>
+      <image:title>Google Performance Max 2026: Search Themes and Granular Asset Reporting</image:title>
+      <image:caption>Unlock deep ROAS transparency with Google Performance Max asset group reporting</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/complete-guide-to-facebook-ads-in-2024</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.prod.website-files.com/655e0fa544c67c1ee5ce01c7/655e0fa544c67c1ee5ce0f19_a-guide-to-facebook-and-instagram-ads-for-musicians-header.webp</image:loc>
+      <image:title>The Complete Guide to Facebook Ads in 2024: From Strategy to Conversion</image:title>
+      <image:caption>Comprehensive Facebook &amp; Instagram advertising master guide for businesses</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/10-seo-trends-that-will-dominate-2024</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>10 SEO Trends That Will Dominate: Search Generative Experience, Core Web Vitals &amp; E-E-A-T</image:title>
+      <image:caption>Rank on Google with AI-first search strategies and technical SEO</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/how-ai-is-transforming-digital-marketing</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>How AI Is Transforming Digital Marketing: Tools, Automation &amp; Future Outlook</image:title>
+      <image:caption>Intelligent automation, AI chatbots, and predictive marketing algorithms</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/google-ads-vs-facebook-ads-which-is-better</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Google Ads vs. Facebook Ads: Which Platform Is Better for Your Business?</image:title>
+      <image:caption>In-depth comparison of search intent vs visual discovery advertising</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/content-marketing-strategy-step-by-step-guide</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Content Marketing Strategy: A Step-by-Step Guide for Modern Brands</image:title>
+      <image:caption>Building organic authority, brand loyalty, and recurring customer pipelines</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/mastering-instagram-marketing-tips-and-tricks</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Mastering Instagram Marketing: Tips, Reels Strategy &amp; Growth Hacks</image:title>
+      <image:caption>Engage followers, leverage Reels algorithms, and convert followers to sales</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://boostingagencyofficial.site/blog/ecommerce-marketing-strategies-that-actually-work</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>E-Commerce Marketing Strategies That Actually Drive Sales and Scale ROAS</image:title>
+      <image:caption>High conversion checkout optimization, dynamic catalog ads, and retention funnels</image:caption>
+    </image:image>
+  </url>
+
 </urlset>

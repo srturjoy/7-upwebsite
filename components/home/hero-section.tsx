@@ -13,6 +13,14 @@ function DistantParticleNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    // 100% Mobile Speed Optimization: Skip continuous canvas animation on mobile devices or reduced motion
+    if (typeof window !== "undefined") {
+      const isMobile = window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      if (isMobile) {
+        return
+      }
+    }
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -20,6 +28,14 @@ function DistantParticleNetwork() {
     if (!ctx) return
 
     let animationFrameId: number
+    let isVisible = true
+
+    // Pause animation when scrolled out of viewport to save 100% CPU/GPU
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting
+    })
+    observer.observe(canvas)
+
     let particles: Array<{
       x: number
       y: number
@@ -40,27 +56,24 @@ function DistantParticleNetwork() {
     }
 
     const initParticles = () => {
-      // Fewer, smaller particles for subtle effect
-      const particleCount = Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 25000)
+      const particleCount = Math.min(25, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 35000))
       particles = []
       
       const colors = [
-        "rgba(59, 130, 246, ", // Cool blue
-        "rgba(96, 165, 250, ", // Light blue
-        "rgba(147, 197, 253, ", // Soft blue
-        "rgba(251, 191, 193, ", // Very faint pink
-        "rgba(254, 215, 170, ", // Very faint orange
+        "rgba(59, 130, 246, ",
+        "rgba(96, 165, 250, ",
+        "rgba(147, 197, 253, ",
       ]
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.offsetWidth,
           y: Math.random() * canvas.offsetHeight,
-          vx: (Math.random() - 0.5) * 0.15, // Slower drift
+          vx: (Math.random() - 0.5) * 0.15,
           vy: (Math.random() - 0.5) * 0.15,
-          size: Math.random() * 1.5 + 0.5, // Smaller
-          opacity: Math.random() * 0.25 + 0.1, // More subtle
-          pulseSpeed: Math.random() * 0.008 + 0.004, // Slower pulse
+          size: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.25 + 0.1,
+          pulseSpeed: Math.random() * 0.008 + 0.004,
           pulseOffset: Math.random() * Math.PI * 2,
           color: colors[Math.floor(Math.random() * colors.length)],
         })
@@ -68,6 +81,11 @@ function DistantParticleNetwork() {
     }
 
     const animate = (time: number) => {
+      if (!isVisible || document.hidden) {
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
 
       particles.forEach((particle, i) => {
@@ -82,31 +100,18 @@ function DistantParticleNetwork() {
         const pulsingOpacity =
           particle.opacity * (0.6 + 0.4 * Math.sin(time * particle.pulseSpeed + particle.pulseOffset))
 
-        // Soft glowing particle
-        const gradient = ctx.createRadialGradient(
-          particle.x,
-          particle.y,
-          0,
-          particle.x,
-          particle.y,
-          particle.size * 4
-        )
-        gradient.addColorStop(0, `${particle.color}${pulsingOpacity})`)
-        gradient.addColorStop(1, `${particle.color}0)`)
-
         ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size * 4, 0, Math.PI * 2)
-        ctx.fillStyle = gradient
+        ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2)
+        ctx.fillStyle = `${particle.color}${pulsingOpacity})`
         ctx.fill()
 
-        // Very subtle connections
         particles.slice(i + 1).forEach((other) => {
           const dx = particle.x - other.x
           const dy = particle.y - other.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
-            const lineOpacity = (1 - distance / 100) * 0.08
+          if (distance < 80) {
+            const lineOpacity = (1 - distance / 80) * 0.06
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(other.x, other.y)
@@ -125,6 +130,7 @@ function DistantParticleNetwork() {
     animationFrameId = requestAnimationFrame(animate)
 
     return () => {
+      observer.disconnect()
       window.removeEventListener("resize", resize)
       cancelAnimationFrame(animationFrameId)
     }
@@ -133,7 +139,7 @@ function DistantParticleNetwork() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="hidden md:block absolute inset-0 w-full h-full pointer-events-none"
       style={{ opacity: 0.7 }}
     />
   )

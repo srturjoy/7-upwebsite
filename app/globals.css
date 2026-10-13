@@ -360,4 +360,19 @@
   .group:hover .img-zoom {
     transform: scale(1.1);
   }
+
+  /* 100% Mobile Speed & Core Web Vitals Optimization */
+  @media (max-width: 768px) {
+    /* Skip rendering off-screen sections until scrolled near viewport */
+    main > section:not(:first-of-type) {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 600px;
+    }
+
+    /* Reduce heavy GPU compositing on mobile */
+    .animate-pulse-glow {
+      animation: none !important;
+    }
+  }
 }
+

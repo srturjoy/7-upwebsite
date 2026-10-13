@@ -10,7 +10,7 @@ import { LanguageProvider } from '@/lib/language-context'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 // ============================================================
 // ANALYTICS & TRACKING CONFIGURATION
@@ -32,29 +32,47 @@ export const viewport: Viewport = {
   themeColor: '#020617',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://boostingagencyofficial.site'),
-  title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
-  description: 'Boosting Agency BD is a leading digital marketing agency in Bangladesh offering Facebook Ads, Google Ads, SEO, Web Design, Branding, and AI Automation services.',
+  title: {
+    default: 'Boosting Agency BD | Best Digital Marketing & Facebook Boosting Agency in Bangladesh',
+    template: '%s | Boosting Agency BD — Top Digital Marketing Agency in Bangladesh',
+  },
+  description: 'Boosting Agency BD is Bangladesh’s premier digital marketing agency. We specialize in high-ROAS Facebook Boosting, Instagram Ads, Google Ads, SEO, Web Design, and AI Automation for 150+ brands across Dhaka and worldwide.',
   keywords: [
-    'digital marketing',
-    'facebook ads',
+    'Boosting Agency BD',
+    'boosting agency',
+    'boosting agency bd',
+    'বুস্টিং এজেন্সি বিডি',
+    'ফেসবুক বুস্টিং',
+    'ডিজিটাল মার্কেটিং',
+    'best digital marketing agency in bangladesh',
+    'top digital marketing agency dhaka',
+    'facebook boosting agency bangladesh',
+    'facebook ads expert bangladesh',
+    'google ads agency bangladesh',
     'best marketing agency in dhaka',
-    'top digial marketing agency',
-    'best boosting',
-    'boost',
-    'marketing agency',
-    'facebook boost',
-    'google ads',
-    'seo',
-    'web design',
-    'bangladesh',
-    'dhaka',
-    'boosting agency bd'
+    'meta advertising bangladesh',
+    'seo agency bangladesh',
+    'web design agency bangladesh',
+    'siddiqur rahman turjoy',
+    'turjoy boosting agency',
+    'meta conversion api setup bangladesh',
+    'ecommerce marketing bangladesh',
+    'ai automation agency bangladesh',
+    'facebook boost service bd',
+    'boosting agency official site'
   ],
-  authors: [{ name: 'Boosting Agency BD' }],
+  authors: [
+    { name: 'Boosting Agency BD', url: 'https://boostingagencyofficial.site' },
+    { name: 'Siddiqur Rahman (Turjoy)', url: 'https://turjoy.boostingagencyofficial.site' },
+  ],
+  creator: 'Siddiqur Rahman (Turjoy)',
+  publisher: 'Boosting Agency BD',
+  category: 'Digital Marketing & Advertising',
   manifest: '/site.webmanifest',
   icons: {
     icon: '/favicon.ico',
@@ -63,10 +81,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['bn_BD'],
     url: 'https://boostingagencyofficial.site',
     siteName: 'Boosting Agency BD',
-    title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
-    description: 'Leading digital marketing agency in Bangladesh specializing in Facebook Ads, Google Ads, SEO, Web Design, and AI Automation.',
+    title: 'Boosting Agency BD | Best Digital Marketing & Facebook Boosting Agency in Bangladesh',
+    description: 'Boosting Agency BD is Bangladesh’s premier digital marketing agency. We specialize in high-ROAS Facebook Boosting, Instagram Ads, Google Ads, SEO, Web Design, and AI Automation for 150+ brands.',
     images: [
       {
         url: 'https://boostingagencyofficial.site/logo.png',
@@ -76,22 +95,40 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
       {
-        url: 'https://boostingagencyofficial.site/favicon-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Boosting Agency BD Icon',
+        url: 'https://boostingagencyofficial.site/hero/hero-slide-1.png',
+        width: 1200,
+        height: 630,
+        alt: 'Boosting Agency BD — Performance Marketing & Growth',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Boosting Agency BD | Digital Marketing Agency in Bangladesh',
-    description: 'Leading digital marketing agency in Bangladesh specializing in Facebook Ads, Google Ads, SEO, Web Design, and AI Automation.',
-    images: ['https://boostingagencyofficial.site/logo.png'],
+    title: 'Boosting Agency BD | Best Digital Marketing & Facebook Boosting Agency in Bangladesh',
+    description: 'Boosting Agency BD is Bangladesh’s premier digital marketing agency. High-ROAS Facebook Ads, Google Ads, SEO, Web Design & AI Automation.',
+    images: ['https://boostingagencyofficial.site/hero/hero-slide-1.png'],
+    creator: '@boostingagencybd',
+    site: '@boostingagencybd',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   alternates: {
     canonical: 'https://boostingagencyofficial.site',
+    languages: {
+      'en-US': 'https://boostingagencyofficial.site',
+      'bn-BD': 'https://boostingagencyofficial.site',
+      'x-default': 'https://boostingagencyofficial.site',
+    },
   },
 }
 
@@ -445,6 +482,16 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} dark`} data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        {/* Mobile Speed & Resource Hints */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <link rel="dns-prefetch" href="https://cdn.prod.website-files.com" />
+        {/* Preload High-Impact Hero Slide for Rapid Mobile LCP */}
+        <link rel="preload" as="image" href="/hero/hero-slide-1.png" type="image/png" fetchPriority="high" />
+      </head>
       <body className="font-sans antialiased">
         {/* Prevent white flash: Default to Dark Mode; restore user preference from boosting-agency-theme */}
         <script
