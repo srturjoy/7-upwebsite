@@ -170,8 +170,8 @@ export function RealCampaignPerformanceSection({
               <ShieldCheck className="h-4 w-4" />
               <span>
                 {isEnglish
-                  ? "Verified Meta Ads Manager Performance"
-                  : "বাস্তব মেটা অ্যাডস ম্যানেজার পারফরম্যান্স"}
+                  ? "100% Original Meta Ads Manager Verified Screenshots"
+                  : "১০০% অরিজিনাল মেটা অ্যাডস ম্যানেজার ভেরিফায়েড স্ক্রিনশট"}
               </span>
             </div>
 
@@ -274,7 +274,7 @@ export function RealCampaignPerformanceSection({
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 lg:gap-8">
             {displayedCampaigns.map((item, index) => {
               const isLead = item.category === "message_leads"
-              const isHiddenOnMobile = isHomePage && index >= 3
+              const isHiddenOnMobile = isHomePage && index >= 4
               const displayTitle = isEnglish
                 ? item.title || item.titleBn || `Campaign Case Study #${index + 1}`
                 : item.titleBn || item.title || `ক্যাম্পেইন কেস স্টাডি #${index + 1}`
@@ -457,8 +457,8 @@ export function RealCampaignPerformanceSection({
             </Button>
             <p className="text-xs text-muted-foreground text-center">
               {isEnglish
-                ? "Displaying 6 selected campaigns on desktop & 3 on mobile. Click See More to explore all 44+ verified campaigns in our Services section."
-                : "ডেস্কটপে ৬টি এবং ফোনে ৩টি কেস স্টাডি দেখানো হয়েছে। সম্পূর্ণ ৪৪টি কেস স্টাডি দেখতে সি মোর বাটনে ক্লিক করুন।"}
+                ? "Displaying 6 selected campaigns on desktop & 4 on mobile. Click See More to explore all 44+ verified campaigns in our Services section."
+                : "ডেস্কটপে ৬টি এবং ফোনে ৪টি কেস স্টাডি দেখানো হয়েছে। সম্পূর্ণ ৪৪টি কেস স্টাডি দেখতে সি মোর বাটনে ক্লিক করুন।"}
             </p>
           </div>
         )}
