@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { ArrowRight, TrendingUp, Target, Zap, BarChart3, X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-import { useBackHandler } from "@/lib/back-navigation"
 import { ScrollReveal, fadeInUp, staggerContainer } from "@/components/ui/motion"
 
 const caseStudies = [
@@ -202,7 +201,7 @@ export function CaseStudiesPreview() {
   const { language, t } = useLanguage()
   const isEnglish = language === "en"
 
-  // Open modal cleanly
+  // Open modal cleanly without modifying browser history stack
   const handleOpenStudy = useCallback((study: typeof caseStudies[0]) => {
     setSelectedStudy(study)
   }, [])
@@ -211,13 +210,6 @@ export function CaseStudiesPreview() {
   const handleCloseStudy = useCallback(() => {
     setSelectedStudy(null)
   }, [])
-
-  // Intercept back button to close study modal
-  const { safeClose } = useBackHandler(
-    !!selectedStudy,
-    handleCloseStudy,
-    "case-study-modal"
-  )
 
   // Keyboard Escape key listener to close modal
   useEffect(() => {
@@ -319,7 +311,7 @@ export function CaseStudiesPreview() {
       </section>
 
       {/* Case Study Detail Modal */}
-      <Dialog open={!!selectedStudy} onOpenChange={(open) => { if (!open) safeClose() }}>
+      <Dialog open={!!selectedStudy} onOpenChange={(open) => { if (!open) handleCloseStudy() }}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
           {selectedStudy && (
             <>

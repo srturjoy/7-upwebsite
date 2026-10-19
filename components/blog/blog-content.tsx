@@ -361,7 +361,7 @@ export function BlogContent() {
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
-                className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7"
               >
                 {paginatedPosts.map((post, index) => {
                   const isFreshPost = freshBlogPosts.some((f) => f.slug === post.slug)
@@ -370,7 +370,7 @@ export function BlogContent() {
                     <motion.div key={post.slug} variants={fadeInUp} custom={index}>
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="group flex flex-col h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 hover:border-cyan-500/60 bg-card hover:bg-card/90 transition-all duration-300 shadow-xs hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1.5 justify-between"
+                        className="group flex flex-col h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 hover:border-cyan-500/60 bg-card hover:bg-card/90 transition-all duration-300 shadow-md hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1.5"
                       >
                         {/* Featured Image */}
                         <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
@@ -378,60 +378,60 @@ export function BlogContent() {
                             src={post.image}
                             alt={post.imageAlt || (isEnglish ? post.title : post.titleBn)}
                             fill
-                            sizes="(max-width: 640px) 50vw, (max-width: 1200px) 50vw, 25vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                             className="object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                           />
 
                           {/* News Badge for fresh 2026 articles */}
                           {isFreshPost && (
-                            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10">
-                              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 sm:px-2.5 rounded-full text-[9px] sm:text-[11px] font-bold bg-cyan-600 text-white shadow-md">
-                                <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                                <span className="hidden xs:inline">2026</span> Update
+                            <div className="absolute top-3 left-3 z-10">
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-cyan-600 text-white shadow-md">
+                                <Sparkles className="w-3 h-3" />
+                                2026 Update
                               </span>
                             </div>
                           )}
 
-                          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
-                            <Badge variant="secondary" className="text-[9px] sm:text-[11px] font-semibold bg-slate-950/80 text-white border-0 backdrop-blur-md px-1.5 py-0.5 max-w-[80px] sm:max-w-none truncate">
+                          <div className="absolute top-3 right-3 z-10">
+                            <Badge variant="secondary" className="text-[11px] font-semibold bg-slate-950/80 text-white border-0 backdrop-blur-md">
                               {isEnglish ? post.category : categoriesBn[post.category] || post.category}
                             </Badge>
                           </div>
                         </div>
 
                         {/* Card Content */}
-                        <div className="p-3 sm:p-5 lg:p-6 flex flex-col flex-1 justify-between">
+                        <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
                           <div>
                             {/* Date & Read time */}
-                            <div className="flex items-center justify-between text-[9px] sm:text-xs text-slate-600 dark:text-slate-300 font-medium mb-1.5 sm:mb-3">
-                              <span className="flex items-center gap-1">
-                                <Calendar className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-cyan-500" />
-                                <span className="truncate">{isEnglish ? post.date : post.dateBn}</span>
+                            <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300 font-medium mb-3">
+                              <span className="flex items-center gap-1.5">
+                                <Calendar className="h-3.5 w-3.5 text-cyan-500" />
+                                {isEnglish ? post.date : post.dateBn}
                               </span>
-                              <span className="hidden xs:flex items-center gap-1">
-                                <Clock className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-cyan-500" />
-                                <span>{isEnglish ? post.readTime : post.readTimeBn}</span>
+                              <span className="flex items-center gap-1.5">
+                                <Clock className="h-3.5 w-3.5 text-cyan-500" />
+                                {isEnglish ? post.readTime : post.readTimeBn}
                               </span>
                             </div>
 
                             {/* Headline */}
-                            <h3 className="font-bold text-xs sm:text-base lg:text-lg text-foreground group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors line-clamp-2 leading-tight min-h-[2rem] sm:min-h-[2.5rem]">
+                            <h3 className="font-bold text-base sm:text-lg text-foreground group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors line-clamp-2 leading-snug">
                               {isEnglish ? post.title : post.titleBn}
                             </h3>
 
                             {/* Short Excerpt */}
-                            <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-slate-600 dark:text-slate-300 line-clamp-2 sm:line-clamp-3 leading-snug sm:leading-relaxed">
+                            <p className="mt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
                               {isEnglish ? post.excerpt : post.excerptBn}
                             </p>
                           </div>
 
                           {/* Read Article CTA Link */}
-                          <div className="mt-2.5 sm:mt-5 pt-2 sm:pt-3.5 border-t border-border/70 flex items-center justify-between text-[10px] sm:text-xs">
-                            <span className="inline-flex items-center gap-1 font-bold text-primary dark:text-cyan-400 group-hover:underline">
-                              <span>{isEnglish ? "Read" : "পড়ুন"}</span>
-                              <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-1 transition-transform" />
+                          <div className="mt-5 pt-3.5 border-t border-border/70 flex items-center justify-between">
+                            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary dark:text-cyan-400 group-hover:underline">
+                              <span>{isEnglish ? "Read Article" : "আর্টিকেল পড়ুন"}</span>
+                              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                             </span>
-                            <span className="hidden sm:inline text-[11px] text-muted-foreground truncate max-w-[120px]">
+                            <span className="text-[11px] text-muted-foreground truncate max-w-[120px]">
                               {post.author}
                             </span>
                           </div>

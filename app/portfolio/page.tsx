@@ -4,9 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ShieldCheck, Building2, CheckCircle2 } from "lucide-react"
 import { PortfolioContent } from "@/components/portfolio/portfolio-content"
-import { RealCampaignPerformanceSection } from "@/components/home/real-campaign-performance"
 import { useLanguage } from "@/lib/language-context"
-
 
 export default function PortfolioPage() {
   const { language } = useLanguage()
@@ -53,15 +51,8 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Real Campaign Performance Case Studies with Filter Tabs */}
-      <RealCampaignPerformanceSection 
-        id="campaign-performance" 
-        className="border-b border-border/60"
-      />
-
       {/* Main Portfolio Content with Search, Category Filter, and Verified Cards */}
       <PortfolioContent />
-
 
       {/* Stats Section */}
       <section className="py-12 lg:py-16 gradient-dark text-primary-foreground">
