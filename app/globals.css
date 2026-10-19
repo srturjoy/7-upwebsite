@@ -361,18 +361,70 @@
     transform: scale(1.1);
   }
 
-  /* 100% Mobile Speed & Core Web Vitals Optimization */
   @media (max-width: 768px) {
-    /* Skip rendering off-screen sections until scrolled near viewport */
-    main > section:not(:first-of-type) {
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 600px;
-    }
-
     /* Reduce heavy GPU compositing on mobile */
     .animate-pulse-glow {
       animation: none !important;
     }
+  }
+
+  /* Site-wide Animated Background Atmospheres */
+  @keyframes waveShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes floatBubble {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-25px) scale(1.08); opacity: 0.6; }
+  }
+
+  .ambient-dark-bg {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #070a12 0%, #0c1322 50%, #090e1a 100%);
+    background-size: 200% 200%;
+    animation: waveShift 22s ease infinite;
+  }
+  .ambient-dark-bg::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 25% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 75% 70%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.1) 0%, transparent 55%);
+    animation: waveShift 15s ease infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ambient-light-bg {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+    background-size: 200% 200%;
+    animation: waveShift 25s ease infinite;
+  }
+  .ambient-light-bg::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 20% 25%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 80% 75%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 60%, rgba(236, 72, 153, 0.04) 0%, transparent 55%);
+    animation: waveShift 18s ease infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatBubble 8s ease-in-out infinite;
   }
 }
 

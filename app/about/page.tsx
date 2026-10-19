@@ -148,27 +148,27 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-14 lg:py-20 gradient-dark text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
+          <div className="grid grid-cols-2 gap-3 sm:gap-10">
+            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-2xl sm:rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-              <CardContent className="p-6 sm:p-8 relative">
-                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl gradient-primary text-white mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  <Target className="h-6 w-6 sm:h-7 sm:w-7" />
+              <CardContent className="p-3.5 sm:p-8 relative">
+                <div className="flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl gradient-primary text-white mb-3 sm:mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Target className="h-4 w-4 sm:h-7 sm:w-7" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">{t("ourMission")}</h3>
-                <p className="mt-4 text-slate-200 leading-relaxed text-sm sm:text-base">
+                <h3 className="text-sm sm:text-2xl font-bold text-white">{t("ourMission")}</h3>
+                <p className="mt-1.5 sm:mt-4 text-slate-200 leading-snug sm:leading-relaxed text-[10px] sm:text-base">
                   {t("missionDescription")}
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
+            <Card className="bg-slate-900/80 border border-slate-700/80 hover:border-cyan-400/60 rounded-2xl sm:rounded-3xl card-3d hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-              <CardContent className="p-6 sm:p-8 relative">
-                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl gradient-primary text-white mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                  <Eye className="h-6 w-6 sm:h-7 sm:w-7" />
+              <CardContent className="p-3.5 sm:p-8 relative">
+                <div className="flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl gradient-primary text-white mb-3 sm:mb-6 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <Eye className="h-4 w-4 sm:h-7 sm:w-7" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">{t("ourVision")}</h3>
-                <p className="mt-4 text-slate-200 leading-relaxed text-sm sm:text-base">
+                <h3 className="text-sm sm:text-2xl font-bold text-white">{t("ourVision")}</h3>
+                <p className="mt-1.5 sm:mt-4 text-slate-200 leading-snug sm:leading-relaxed text-[10px] sm:text-base">
                   {t("visionDescription")}
                 </p>
               </CardContent>

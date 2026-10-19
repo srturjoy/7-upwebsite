@@ -50,11 +50,11 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {specialistMembers.map((member) => (
               <Card
                 key={member.id}
-                className="group rounded-3xl border border-border/80 hover:border-cyan-500/70 transition-all duration-300 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 bg-card flex flex-col justify-between overflow-hidden relative"
+                className="group rounded-2xl sm:rounded-3xl border border-border/80 hover:border-cyan-500/70 transition-all duration-300 card-3d hover:shadow-2xl hover:shadow-cyan-500/15 bg-card flex flex-col justify-between overflow-hidden relative"
               >
                 {/* Photo Thumbnail */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-slate-900">
@@ -63,29 +63,29 @@ export default function TeamPage() {
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-xs font-medium text-cyan-300 mb-0.5">
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4">
+                    <p className="text-[10px] sm:text-xs font-medium text-cyan-300 mb-0.5 truncate">
                       {member.role}
                     </p>
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-sm sm:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
                       {member.name}
                     </h3>
                   </div>
                 </div>
 
-                <CardContent className="p-6 flex flex-col flex-grow justify-between space-y-4">
-                  <div className="space-y-3">
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                <CardContent className="p-3 sm:p-6 flex flex-col flex-grow justify-between space-y-2.5 sm:space-y-4">
+                  <div className="space-y-2 sm:space-y-3">
+                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-3">
                       {member.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {member.expertise.slice(0, 3).map((skill) => (
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5">
+                      {member.expertise.slice(0, 2).map((skill) => (
                         <span
                           key={skill}
-                          className="text-[11px] font-medium bg-secondary/80 text-foreground dark:text-slate-200 px-2.5 py-0.5 rounded-lg border border-border/50"
+                          className="text-[9px] sm:text-[11px] font-medium bg-secondary/80 text-foreground dark:text-slate-200 px-1.5 py-0.5 sm:px-2.5 rounded-md sm:rounded-lg border border-border/50 truncate max-w-[100px] sm:max-w-none"
                         >
                           {skill}
                         </span>
@@ -93,10 +93,10 @@ export default function TeamPage() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-border/60 flex items-center justify-between text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 transition-colors">
+                  <div className="pt-2 sm:pt-4 border-t border-border/60 flex items-center justify-between text-[10px] sm:text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 transition-colors">
                     <Link href={`/team/${member.id}`} className="flex items-center justify-between w-full">
-                      <span>View Profile &amp; Strategy Details</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      <span className="truncate">{member.name.split(" ")[0]} Details</span>
+                      <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover:translate-x-1 shrink-0 ml-1" />
                     </Link>
                   </div>
                 </CardContent>

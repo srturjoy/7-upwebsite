@@ -51,8 +51,10 @@ export function WhyChooseUs() {
   const isEnglish = language === "en"
 
   return (
-    <section className="py-14 lg:py-20 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-14 lg:py-20 ambient-light-bg dark:ambient-dark-bg relative overflow-hidden">
+      <div className="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-cyan-500/10 blur-[90px] pointer-events-none floating-orb" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none floating-orb" style={{ animationDelay: "2s" }} />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
           <ScrollReveal variants={slideInLeft}>
             <p className="text-sm font-semibold text-primary uppercase tracking-wide">{t("whyChooseUs")}</p>

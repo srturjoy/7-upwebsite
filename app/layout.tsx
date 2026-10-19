@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/footer'
 import { ChatWidget } from '@/components/chat/chat-widget'
 import { LanguageProvider } from '@/lib/language-context'
 import { ThemeProvider } from '@/components/theme-provider'
+import { BackNavigationProvider } from '@/lib/back-navigation'
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -611,12 +612,14 @@ export default function RootLayout({
           storageKey="boosting-agency-theme"
         >
           <LanguageProvider>
-            <Header />
-            <main className="min-h-screen pt-[73px]">
-              {children}
-            </main>
-            <Footer />
-            <ChatWidget />
+            <BackNavigationProvider>
+              <Header />
+              <main className="min-h-screen pt-[73px]">
+                {children}
+              </main>
+              <Footer />
+              <ChatWidget />
+            </BackNavigationProvider>
           </LanguageProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -283,9 +283,9 @@ export function TeamCarousel() {
           ))}
         </div>
       ) : (
-        /* RENDER VIEW 2: RESPONSIVE GRID (4 SPECIALIST EXPERTS) */
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        /* RENDER VIEW 2: RESPONSIVE GRID (4 SPECIALIST EXPERTS) - 2 Columns on Mobile */
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {SPECIALIST_MEMBERS.map((member) => (
               <Card 
                 key={member.id} 
@@ -299,7 +299,7 @@ export function TeamCarousel() {
                 role="button"
                 tabIndex={0}
                 aria-label={`View dedicated page of ${isEnglish ? member.name : (member.nameBn || member.name)}`}
-                className="rounded-3xl border-border/70 hover:border-cyan-500/80 transition-all duration-300 card-3d hover:shadow-2xl hover:shadow-cyan-500/20 bg-card overflow-hidden relative group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-cyan-500/50 flex flex-col justify-between"
+                className="rounded-2xl sm:rounded-3xl border-border/70 hover:border-cyan-500/80 transition-all duration-300 card-3d hover:shadow-2xl hover:shadow-cyan-500/20 bg-card overflow-hidden relative group cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-cyan-500/50 flex flex-col justify-between"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/15 rounded-full blur-2xl" />
@@ -315,33 +315,33 @@ export function TeamCarousel() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                <CardContent className="p-5 relative flex flex-col flex-grow justify-between">
+                <CardContent className="p-3 sm:p-5 relative flex flex-col flex-grow justify-between">
                   <div>
                     {/* Name */}
-                    <h3 className="text-base font-bold text-foreground group-hover:text-cyan-500 transition-colors">
+                    <h3 className="text-xs sm:text-base font-bold text-foreground group-hover:text-cyan-500 transition-colors line-clamp-1">
                       {isEnglish ? member.name : (member.nameBn || member.name)}
                     </h3>
 
                     {/* Role */}
-                    <p className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mt-1">
+                    <p className="text-[10px] sm:text-xs font-semibold text-cyan-600 dark:text-cyan-400 mt-0.5 truncate">
                       {isEnglish ? member.role : (member.roleBn || member.role)}
                     </p>
                     
                     {/* Card Description */}
-                    <p className="text-xs text-muted-foreground leading-relaxed mt-2 line-clamp-2">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground leading-snug sm:leading-relaxed mt-1 sm:mt-2 line-clamp-2">
                       {isEnglish ? member.description : (member.descriptionBn || member.description)}
                     </p>
 
                     {/* Expertise / Titles */}
-                    <p className="text-[11px] text-slate-500 dark:text-slate-300 leading-relaxed font-medium mt-1.5 line-clamp-1">
+                    <p className="text-[9px] sm:text-[11px] text-slate-500 dark:text-slate-300 leading-snug font-medium mt-1 line-clamp-1">
                       {isEnglish ? member.titles : (member.titlesBn || member.titles)}
                     </p>
                   </div>
 
                   {/* Clean View Profile Indicator */}
-                  <div className="pt-3 border-t border-border/50 flex items-center justify-between text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 transition-colors">
-                    <span>{isEnglish ? "View Profile" : "প্রোফাইল দেখুন"}</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <div className="pt-2 sm:pt-3 border-t border-border/50 flex items-center justify-between text-[10px] sm:text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-500 transition-colors mt-2 sm:mt-3">
+                    <span className="truncate">{isEnglish ? "Details" : "বিস্তারিত"}</span>
+                    <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform group-hover:translate-x-1 shrink-0 ml-1" />
                   </div>
                 </CardContent>
               </Card>

@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Search, Globe, Palette, Lightbulb, Video, Bot, TrendingUp, CheckCircle2, Sparkles, ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { ScrollReveal, fadeInUp, slideInLeft, slideInRight, staggerContainer } from "@/components/ui/motion"
+import { RealCampaignPerformanceSection } from "@/components/home/real-campaign-performance"
 
 export default function ServicesPage() {
   const { language, t } = useLanguage()
@@ -352,16 +353,16 @@ export default function ServicesPage() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerContainer}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
+                    className="grid grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8"
                   >
                     {service.features.map((feature, featureIndex) => (
                       <motion.div 
                         key={feature} 
                         variants={fadeInUp}
-                        className="flex items-center gap-2 group"
+                        className="flex items-center gap-1.5 sm:gap-2 group"
                       >
-                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="text-sm text-slate-700 dark:text-slate-200 font-medium">{feature}</span>
+                        <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-medium leading-tight">{feature}</span>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -395,6 +396,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Real Campaign Performance Case Studies (Full Section with All Campaigns) */}
+      <RealCampaignPerformanceSection id="campaign-performance" isHomePage={false} />
 
       {/* CTA Section */}
       <section className="py-14 lg:py-20 gradient-primary relative overflow-hidden">

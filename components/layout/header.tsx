@@ -3,11 +3,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Menu, X, Phone, Globe, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 import { useTheme } from "@/components/theme-provider"
+import { useBackHandler } from "@/lib/back-navigation"
 
 export function Header() {
   const router = useRouter()
@@ -35,18 +36,21 @@ export function Header() {
     setMobileMenuOpen(true)
   }
 
-  const handleCloseMobileMenu = () => {
+  const handleCloseMobileMenu = useCallback(() => {
     setMobileMenuOpen(false)
     if (typeof document !== "undefined") {
       document.body.style.overflow = ""
     }
-  }
+  }, [])
+
+  const { safeClose: safeCloseMobileMenu } = useBackHandler(
+    mobileMenuOpen,
+    handleCloseMobileMenu,
+    "mobile-nav-menu"
+  )
 
   const handleLinkClick = (href: string) => {
-    setMobileMenuOpen(false)
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = ""
-    }
+    safeCloseMobileMenu()
     router.push(href)
   }
 
@@ -228,7 +232,7 @@ export function Header() {
           {/* Backdrop overlay */}
           <div
             className="fixed inset-0 bg-black/60"
-            onClick={handleCloseMobileMenu}
+            onClick={safeCloseMobileMenu}
             aria-hidden="true"
           />
           
@@ -245,7 +249,7 @@ export function Header() {
               <Link 
                 href="/" 
                 className="flex items-center gap-2.5 flex-shrink-0" 
-                onClick={handleCloseMobileMenu}
+                onClick={safeCloseMobileMenu}
               >
                 <Image
                   src="/icon.png"
@@ -259,7 +263,7 @@ export function Header() {
               <button
                 type="button"
                 className="flex items-center justify-center rounded-full p-2 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                onClick={handleCloseMobileMenu}
+                onClick={safeCloseMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
                 <X className="h-6 w-6" aria-hidden="true" />

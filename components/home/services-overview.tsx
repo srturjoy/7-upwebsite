@@ -80,14 +80,16 @@ export function ServicesOverview() {
   const isEnglish = language === "en"
 
   return (
-    <section className="py-14 lg:py-20 bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-14 lg:py-20 ambient-light-bg dark:ambient-dark-bg relative overflow-hidden">
+      <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-cyan-500/10 blur-[90px] pointer-events-none floating-orb" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none floating-orb" style={{ animationDelay: "3s" }} />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold text-primary uppercase tracking-wide">{t("ourServices")}</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-balance">
             {t("servicesTitle")}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             {t("servicesDescription")}
           </p>
         </ScrollReveal>

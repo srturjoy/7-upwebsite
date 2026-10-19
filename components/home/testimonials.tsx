@@ -106,8 +106,10 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-14 lg:py-20 gradient-dark text-primary-foreground overflow-hidden relative">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-14 lg:py-20 ambient-dark-bg text-primary-foreground overflow-hidden relative">
+      <div className="absolute top-10 left-1/4 w-80 h-80 rounded-full bg-cyan-500/15 blur-[100px] pointer-events-none floating-orb" />
+      <div className="absolute bottom-10 right-1/4 w-96 h-96 rounded-full bg-blue-500/15 blur-[110px] pointer-events-none floating-orb" style={{ animationDelay: "3s" }} />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-400/10 text-cyan-400 text-xs font-semibold mb-3 border border-cyan-400/20">
             <ShieldCheck className="h-3.5 w-3.5" />
@@ -302,45 +304,45 @@ export function Testimonials() {
           ))}
         </div>
       ) : (
-        /* RENDER VIEW 2: RESPONSIVE GRID (ALL 49 REVIEWS) */
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-14">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        /* RENDER VIEW 2: RESPONSIVE GRID (ALL 49 REVIEWS) - 2 Columns on Mobile */
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-14">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
             {filteredReviews.slice(0, gridLimit).map((client) => (
               <Card
                 key={client.id}
-                className="bg-slate-900/90 border border-slate-700/80 backdrop-blur-md hover:border-cyan-400/70 card-3d rounded-3xl p-6 flex flex-col justify-between group transition-all duration-300"
+                className="bg-slate-900/90 border border-slate-700/80 backdrop-blur-md hover:border-cyan-400/70 card-3d rounded-2xl sm:rounded-3xl p-3 sm:p-6 flex flex-col justify-between group transition-all duration-300"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex gap-1 items-center">
+                  <div className="flex items-center justify-between gap-1 mb-2 sm:mb-4">
+                    <div className="flex gap-0.5 sm:gap-1 items-center">
                       {[...Array(client.rating || 5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
                     <Badge
                       variant="secondary"
-                      className="text-[10px] font-semibold bg-slate-800 text-cyan-300 border-slate-700 px-2 py-0.5 rounded-lg"
+                      className="text-[9px] sm:text-[10px] font-semibold bg-slate-800 text-cyan-300 border-slate-700 px-1.5 py-0.5 rounded-md sm:rounded-lg max-w-[70px] sm:max-w-none truncate"
                     >
                       {client.category}
                     </Badge>
                   </div>
 
-                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed mb-5 italic">
+                  <p className="text-slate-200 text-[10px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed mb-3 sm:mb-5 italic line-clamp-3 sm:line-clamp-4">
                     &ldquo;{isEnglish ? client.review : (client.reviewBn || client.review)}&rdquo;
                   </p>
                 </div>
 
                 <div>
-                  <div className="border-t border-slate-800 pt-4 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-white text-xs font-bold shadow-md shrink-0">
+                  <div className="border-t border-slate-800 pt-2.5 sm:pt-4 flex items-center justify-between gap-2 sm:gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                      <div className="flex h-7 w-7 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl gradient-primary text-white text-[10px] sm:text-xs font-bold shadow-md shrink-0">
                         {getInitials(client.name)}
                       </div>
                       <div className="min-w-0">
-                        <p className="font-bold text-white text-xs sm:text-sm truncate">
+                        <p className="font-bold text-white text-[11px] sm:text-sm truncate">
                           {isEnglish ? client.name : (client.nameBn || client.name)}
                         </p>
-                        <p className="text-cyan-300 text-[11px] font-medium truncate">
+                        <p className="text-cyan-300 text-[9px] sm:text-[11px] font-medium truncate">
                           {isEnglish ? client.reviewerRole : (client.reviewerRoleBn || client.reviewerRole)}
                         </p>
                       </div>
