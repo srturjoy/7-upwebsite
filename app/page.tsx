@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/home/hero-section"
 import { ServicesOverview } from "@/components/home/services-overview"
+import { RealCampaignPerformanceSection } from "@/components/home/real-campaign-performance"
 import { WhyChooseUs } from "@/components/home/why-choose-us"
 import { Testimonials } from "@/components/home/testimonials"
 import { CaseStudiesPreview } from "@/components/home/case-studies-preview"
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ServicesOverview />
+      <RealCampaignPerformanceSection isHomePage={true} seeMoreHref="/services#campaign-performance" />
       <WhyChooseUs />
       <Testimonials />
       <CaseStudiesPreview />
@@ -19,3 +21,4 @@ export default function HomePage() {
     </>
   )
 }
+

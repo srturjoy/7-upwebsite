@@ -20,6 +20,7 @@ import {
   ChevronDown
 } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { useBackHandler } from "@/lib/back-navigation"
 import { CLIENTS, CLIENT_CATEGORIES, ClientRecord, ClientCategory } from "@/data/clients"
 
 export function PortfolioContent() {
@@ -31,7 +32,7 @@ export function PortfolioContent() {
   const [visibleCount, setVisibleCount] = useState(15)
   const [selectedClient, setSelectedClient] = useState<ClientRecord | null>(null)
 
-  // Open modal cleanly without modifying browser history stack
+  // Open modal cleanly
   const handleOpenClient = useCallback((client: ClientRecord) => {
     setSelectedClient(client)
   }, [])
@@ -40,6 +41,13 @@ export function PortfolioContent() {
   const handleCloseClient = useCallback(() => {
     setSelectedClient(null)
   }, [])
+
+  // Intercept back button to close client detail modal
+  const { safeClose } = useBackHandler(
+    !!selectedClient,
+    handleCloseClient,
+    "portfolio-client-modal"
+  )
 
   // Keyboard Escape key listener to close modal
   useEffect(() => {
@@ -194,8 +202,8 @@ export function PortfolioContent() {
             </p>
           </div>
 
-          {/* Grid of Client Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Grid of Client Cards: 2 columns on mobile */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
             {displayedClients.map((client) => (
               <Card
                 key={client.id}
@@ -209,114 +217,96 @@ export function PortfolioContent() {
                 role="button"
                 tabIndex={0}
                 aria-label={`View details of ${isEnglish ? client.name : (client.nameBn || client.name)}`}
-                className="group rounded-3xl border border-border/80 hover:border-cyan-500/70 transition-all duration-300 card-3d hover:shadow-xl hover:shadow-cyan-500/15 bg-card flex flex-col justify-between overflow-hidden relative cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                className="group rounded-2xl sm:rounded-3xl border border-border/80 hover:border-cyan-500/70 transition-all duration-300 card-3d hover:shadow-xl hover:shadow-cyan-500/15 bg-card flex flex-col justify-between overflow-hidden relative cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
               >
                 {/* Subtle corner hover glow */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <CardContent className="p-6 relative flex flex-col h-full">
-                  {/* Card Header: Initials Avatar + Category & Featured Tag */}
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl gradient-primary text-white text-lg font-black shadow-md shadow-cyan-500/20 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300 flex-shrink-0">
-                      {getInitials(client.name)}
+                <CardContent className="p-3 sm:p-6 relative flex flex-col h-full justify-between">
+                  <div>
+                    {/* Card Header: Initials Avatar + Category & Featured Tag */}
+                    <div className="flex items-start justify-between gap-2 mb-2 sm:mb-4">
+                      <div className="flex h-9 w-9 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl gradient-primary text-white text-xs sm:text-lg font-black shadow-md shadow-cyan-500/20 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300 shrink-0">
+                        {getInitials(client.name)}
+                      </div>
+
+                      <div className="flex flex-col items-end gap-1">
+                        <Badge
+                          variant="secondary"
+                          className="text-[9px] sm:text-[10px] font-semibold bg-secondary/90 hover:bg-secondary text-secondary-foreground border border-border/60 px-1.5 py-0.5 sm:px-2 rounded-md sm:rounded-lg max-w-[85px] sm:max-w-none truncate"
+                        >
+                          {client.category}
+                        </Badge>
+                        {client.isGroupA && (
+                          <span className="hidden xs:inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-amber-500 dark:text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded-full">
+                            <Sparkles className="h-2 w-2" />
+                            <span>{isEnglish ? "Featured" : "ফিচার্ড"}</span>
+                          </span>
+                        )}
+                      </div>
                     </div>
 
-                    <div className="flex flex-col items-end gap-1.5">
-                      <Badge
-                        variant="secondary"
-                        className="text-[10px] font-semibold bg-secondary/90 hover:bg-secondary text-secondary-foreground border border-border/60 px-2 py-0.5 rounded-lg"
-                      >
-                        {client.category}
-                      </Badge>
-                      {client.isGroupA && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-500 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full">
-                          <Sparkles className="h-2.5 w-2.5" />
-                          <span>{isEnglish ? "Featured" : "ফিচার্ড"}</span>
-                        </span>
-                      )}
-                    </div>
+                    {/* Business Name */}
+                    <h3 className="text-xs sm:text-base lg:text-lg font-bold text-foreground group-hover:text-cyan-500 transition-colors line-clamp-2 leading-tight min-h-[2rem] sm:min-h-[2.5rem]">
+                      {isEnglish ? client.name : (client.nameBn || client.name)}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs lg:text-sm text-muted-foreground dark:text-slate-300 leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-3">
+                      {isEnglish ? client.description : (client.descriptionBn || client.description)}
+                    </p>
+
+                    {/* Verified Follower Count (ONLY shown if verified) */}
+                    {client.followerCount && (
+                      <div className="mt-2 sm:mt-3 flex items-center gap-1 text-[9px] sm:text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-xl w-fit">
+                        <CheckCircle2 className="h-3 w-3 shrink-0" />
+                        <span className="truncate">{client.followerCount}</span>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Business Name */}
-                  <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-cyan-500 transition-colors line-clamp-2">
-                    {isEnglish ? client.name : (client.nameBn || client.name)}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground dark:text-slate-300 leading-relaxed line-clamp-3 flex-grow">
-                    {isEnglish ? client.description : (client.descriptionBn || client.description)}
-                  </p>
-
-                  {/* Verified Follower Count (ONLY shown if verified) */}
-                  {client.followerCount && (
-                    <div className="mt-3 flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-xl w-fit">
-                      <CheckCircle2 className="h-3.5 w-3.5" />
-                      <span>{client.followerCount} Verified Followers</span>
-                    </div>
-                  )}
-
-                  {/* Featured Service tags (if known) */}
-                  {client.featuredServices && client.featuredServices.length > 0 && (
-                    <div className="mt-3 flex flex-wrap gap-1">
-                      {(isEnglish ? client.featuredServices : (client.featuredServicesBn || client.featuredServices)).map(
-                        (srv) => (
-                          <span
-                            key={srv}
-                            className="text-[10px] text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md font-medium"
-                          >
-                            {srv}
-                          </span>
-                        )
-                      )}
-                    </div>
-                  )}
-
-                  {/* Action Buttons: Facebook & Official Website */}
-                  <div className="mt-5 pt-4 border-t border-border/60 flex flex-wrap items-center gap-2">
-                    {/* Facebook Button (Always Present) */}
+                  {/* Action Buttons */}
+                  <div className="mt-3 sm:mt-5 pt-2 sm:pt-4 border-t border-border/60 flex items-center gap-1.5 sm:gap-2">
                     <a
                       href={client.facebookUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 hover:bg-blue-600 text-blue-600 hover:text-white dark:bg-cyan-500/10 dark:text-cyan-300 dark:hover:bg-cyan-500 dark:hover:text-slate-950 text-xs font-semibold transition-all duration-200 border border-blue-500/20 dark:border-cyan-500/25"
+                      className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-blue-600/10 hover:bg-blue-600 text-blue-600 hover:text-white dark:bg-cyan-500/10 dark:text-cyan-300 dark:hover:bg-cyan-500 dark:hover:text-slate-950 text-[10px] sm:text-xs font-semibold transition-all duration-200 border border-blue-500/20 dark:border-cyan-500/25"
                       aria-label={`Visit Facebook Page of ${client.name}`}
                     >
-                      <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                      <svg className="h-3 w-3 fill-current shrink-0" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                       </svg>
-                      <span>Facebook</span>
-                      <ExternalLink className="h-3 w-3" />
+                      <span className="hidden xs:inline">FB</span>
                     </a>
 
-                    {/* Official Website Button (ONLY rendered when verified website URL exists) */}
                     {client.websiteUrl && (
                       <a
                         href={client.websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-600 hover:text-white dark:text-cyan-400 dark:hover:text-white text-xs font-semibold transition-all duration-200 border border-cyan-500/20"
+                        className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-600 hover:text-white dark:text-cyan-400 dark:hover:text-white text-[10px] sm:text-xs font-semibold transition-all duration-200 border border-cyan-500/20"
                         aria-label={`Visit Official Website of ${client.name}`}
                       >
-                        <Globe className="h-3.5 w-3.5" />
-                        <span>Website</span>
-                        <ExternalLink className="h-3 w-3" />
+                        <Globe className="h-3 w-3 shrink-0" />
+                        <span className="hidden xs:inline">Web</span>
                       </a>
                     )}
 
-                    {/* Quick View Details Button */}
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation()
                         handleOpenClient(client)
                       }}
-                      className="ml-auto p-1.5 text-xs text-muted-foreground hover:text-cyan-500 rounded-lg hover:bg-secondary transition-colors"
+                      className="ml-auto p-1 text-[10px] sm:text-xs text-muted-foreground hover:text-cyan-500 rounded-md hover:bg-secondary transition-colors inline-flex items-center gap-0.5"
                       title={isEnglish ? "View details" : "বিস্তারিত দেখুন"}
                       aria-label={`View details of ${client.name}`}
                     >
-                      <ArrowRight className="h-4 w-4" />
+                      <span className="text-[10px] hidden xs:inline">{isEnglish ? "Info" : "তথ্য"}</span>
+                      <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                     </button>
                   </div>
                 </CardContent>
@@ -399,7 +389,7 @@ export function PortfolioContent() {
       <Dialog
         open={!!selectedClient}
         onOpenChange={(open) => {
-          if (!open) handleCloseClient()
+          if (!open) safeClose()
         }}
       >
         <DialogContent
@@ -416,7 +406,7 @@ export function PortfolioContent() {
                 {/* Close Button */}
                 <button
                   type="button"
-                  onClick={handleCloseClient}
+                  onClick={safeClose}
                   className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer z-20"
                   aria-label="Close client modal"
                 >

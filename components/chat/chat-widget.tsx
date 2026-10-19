@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Bot, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { useBackHandler } from "@/lib/back-navigation"
 import { ChatHeader } from "./chat-header"
 import { ChatMessages } from "./chat-messages"
 import { ChatInput } from "./chat-input"
@@ -79,9 +80,15 @@ export function ChatWidget() {
   }
 
   // Close chat assistant
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsOpen(false)
-  }
+  }, [])
+
+  const { safeClose: safeCloseChat } = useBackHandler(
+    isOpen,
+    handleClose,
+    "chat-widget"
+  )
 
   const handleToggleLanguage = () => {
     const nextLang = chatLang === "en" ? "bn" : "en"
@@ -183,7 +190,7 @@ export function ChatWidget() {
               language={chatLang}
               onToggleLanguage={handleToggleLanguage}
               onResetChat={handleResetChat}
-              onClose={handleClose}
+              onClose={safeCloseChat}
             />
 
             <ChatMessages
